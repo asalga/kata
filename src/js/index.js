@@ -30,6 +30,7 @@ window.clearArrayCalls = 0;
 
 window.Events = new EventSystem();
 window.ignoreDirty = false;
+window.p3 = null;
 
 let p3;
 let timer;
@@ -57,10 +58,6 @@ function update(dt) {
   scene.update(dt);
 
   // Events.printDebug();
-
-  // CollisionSystem.gatherCollidables();
-  // CollisionSystem.checkCollisions();
-
   window.gameTime += dt;
 }
 
@@ -98,12 +95,15 @@ function postRender() {
 }
 
 function setup() {
+  console.log('setup');
   p3 = new P3(cvs, ctx);
+  window.p3 = p3;
+
   Pool.init();
 
   // TODO: Make scene and p3 static classes?
   scene = new Scene();
-  window.p3 = p3;
+  
 
   Debug.init();
   Debug.setOn(window.debug);

@@ -7,13 +7,10 @@ import EntityFactory from './entity/EntityFactory.js';
 // import Spawner from './entity/actors/Spawner.js';
 import bk from './entity/actors/decorations/BK.js';
 
-
 import Vec2 from './math/Vec2.js';
 import cfg from './cfg.js';
 import Utils from './Utils.js';
 import Assert from './core/Assert.js';
-
-let _closestBaddie = [];
 
 export default class Scene {
 
@@ -62,8 +59,6 @@ export default class Scene {
     this.entities.forEach(e => e.update(dt));
   }
 
-
-
   clearFlags() {
     this.entitiesAddedOrRemovedDirty = false;
   }
@@ -77,6 +72,11 @@ export default class Scene {
   restartGame() {
     this.entities.clear();
     this.deleteQueue = [];
+
+    for(let i = 0; i < 10; i++){
+      let letter = EntityFactory.create('letter');
+      this.add(letter);
+    }
   }
 
   remove(e) {
