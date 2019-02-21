@@ -73,6 +73,8 @@ export default class Scene {
     this.entities.clear();
     this.deleteQueue = [];
 
+    let kblistener = EntityFactory.create('keyboardlistener');
+
     for(let i = 0; i < 10; i++){
       let letter = EntityFactory.create('letter');
       this.add(letter);

@@ -101,9 +101,7 @@ function setup() {
 
   Pool.init();
 
-  // TODO: Make scene and p3 static classes?
   scene = new Scene();
-  
 
   Debug.init();
   Debug.setOn(window.debug);

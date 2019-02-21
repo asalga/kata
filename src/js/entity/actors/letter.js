@@ -5,6 +5,7 @@ import EntityFactory from '../EntityFactory.js';
 
 // import Killable from '../components/Killable.js';
 import SpriteRender from '../components/SpriteRender.js';
+import Letter from '../components/Letter.js';
 
 import Debug from '../../debug/Debug.js';
 import Vec2 from '../../math/Vec2.js';
@@ -17,6 +18,9 @@ export default function createLetter() {
 
   e.pos.x = p3.random(0,p3.width);
   e.pos.y = 0;
+
+  let letter = new Letter(e, {letter: 'a'});
+  e.addComponent(letter);
 
   let spriteRender = new SpriteRender(e, { layerName: 'sprite' });
   spriteRender.draw = function() {

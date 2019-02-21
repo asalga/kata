@@ -25,7 +25,7 @@ window.count = 50;
 export default class Pool {
 
   static init() {
-    Pool.allocate({ name: 'vec2', type: Vec2, count: 2000, growth: 0 });
+    Pool.allocate({ name: 'vec2', type: Vec2, count: 400, growth: 0 });
     // Pool.allocate({ name: 'bullet', createFunc: UserBullet, count: window.count });
     // Pool.allocate({ name: 'plasmabullet', createFunc: PlasmaBullet, count: 40 });
     // Pool.allocate({ name: 'freezebullet', createFunc: FreezeBullet, count: 40 });
