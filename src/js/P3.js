@@ -97,6 +97,10 @@ export default class P3 {
     return ret;
   }
 
+  randomInt(min, max){
+    return Math.floor(p3.random(min, max));
+  }
+
   fill() {
     this._doFill = true;
     this.ctx.fillStyle = this._argColorToString(...arguments);

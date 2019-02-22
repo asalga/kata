@@ -10,11 +10,9 @@ import Event from './event/Event.js';
 import EventSystem from './event/EventSystem.js';
 
 // Systems
-// import CollisionSystem from './collision/CollisionSystem.js';
 import Renderer from './Renderer.js';
 
 import cfg from './cfg.js';
-
 import Pool from './core/Pool.js';
 
 window.gameTime = 0;
@@ -40,9 +38,6 @@ let avgDelta = 0;
 let avgFrames = 0;
 let avgCalc = 0;
 
-let cvs = Utils.getEl('cvs');
-let ctx = cvs.getContext('2d', { alpha: false });
-
 document.addEventListener('mousedown', e => new Event({ evtName: 'GAME_MOUSE_DOWN', data: e }).fire());
 document.addEventListener('mouseup', e => new Event({ evtName: 'GAME_MOUSE_UP', data: e }).fire());
 document.addEventListener('contextmenu', e => e.preventDefault());
@@ -53,7 +48,7 @@ function update(dt) {
 
   let totalVec2Calls = window.vec2Ctor.toLocaleString();
   Debug.add(`Total Vec2 ctor calls: ${totalVec2Calls}`);
-  Debug.add('Bullets: ' + window.count);
+  // Debug.add('Bullets: ' + window.count);
 
   scene.update(dt);
 
@@ -95,9 +90,9 @@ function postRender() {
 }
 
 function setup() {
-  console.log('setup');
+  let cvs = Utils.getEl('cvs');
+  let ctx = cvs.getContext('2d', { alpha: false });
   p3 = new P3(cvs, ctx);
-  p3.fontSize(30);
   window.p3 = p3;
 
   Pool.init();
@@ -106,9 +101,6 @@ function setup() {
 
   Debug.init();
   Debug.setOn(window.debug);
-  
-  Debug.setOn(true);  
-  // CollisionSystem.setOn(false);
 
   scene.restartGame();
 

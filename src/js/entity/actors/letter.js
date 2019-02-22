@@ -2,8 +2,6 @@
 
 import Entity from '../Entity.js';
 import EntityFactory from '../EntityFactory.js';
-
-// import Killable from '../components/Killable.js';
 import SpriteRender from '../components/SpriteRender.js';
 import Letter from '../components/Letter.js';
 
@@ -15,36 +13,57 @@ export default function createLetter() {
   
   let e = new Entity({ name: 'letter' });
 
-  e.vel.y = 150;
+  // e.vel.y = p3.random(50,100);
+  e.vel.y = Math.floor(p3.random(4,8)) * 25;
 
-  e.pos.x = p3.random(0,p3.width);
-  e.pos.y = 0;
+  e.pos.x = Math.floor(p3.random(0,10)) * (cfg.gameWidth/10);
+  e.pos.y = Math.random(-200, -150);
+  e.pos.y = -100;
 
-  let letter = new Letter(e, {letter: 'ち'});
+  e.disabled = false;
+
+  let ls = EntityFactory.create('letterselector');
+  
+  let char;
+  char = ls.getChar({'keyrows': [2,3]});// select by kb row
+  char = ls.getChar({'set': 'あえいおう'}); // select from string
+  // char = ls.getChar({'set': ALL_KEYS}); 
+
+  let letter = new Letter(e, {letter: char});
   e.addComponent(letter);
 
+  // let that = this;
   let spriteRender = new SpriteRender(e, { layerName: 'sprite' });
   spriteRender.draw = function() {
     p3.save();
+    p3.fontSize(50);
     p3.noStroke();
     p3.translate(e.pos.x, e.pos.y);
-    p3.fill(64, 202, 238);
-    p3.text('は', 30, 30);
-    // p3.ellipse(0, 0, e.bounds.radius, e.bounds.radius);
+    p3.fill(64, 255, 40);
+
+    if(e.letter.disabled){
+      p3.fill(255,64, 40);
+    }
+
+    p3.text(letter.letter, 30, 30);
     p3.restore();
   };
   e.addComponent(spriteRender);
 
+
   e.updateProxy = function(dt) {
-    if(e.pos.y > cfg.gameHeight){
-      e.pos.y = -20;
+    
+    if(e.pos.y > cfg.gameHeight-150){
+      e.letter.disabled = true;
     }
-    // let center = new Vec2(p3.width / 2, p3.height / 2);
-    // this.vel.x = Math.cos(gameTime) * 300;
-    // this.vel.y = Math.sin(gameTime) * 150;
+
+    if(e.pos.y > cfg.gameHeight){
+      scene.remove(this);
+
+      let char = EntityFactory.create('letter');
+      scene.add(char);
+    }
   };
 
-  // e.addComponent(new Killable(e));
-  // rocketGun.addComponent(new Killable(rocketGun));
   return e;
 }

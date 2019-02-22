@@ -11,9 +11,15 @@ export default class Letter extends Component {
     	
     };
     Utils.applyProps(this, defaults, cfg);
+
+    this.disabled = false;
   }
 
   hit(){
+    if(this.disabled){
+      return;
+    }
+    
   	scene.remove(this.entity);
   }
 
