@@ -6,12 +6,15 @@ import Utils from '../../Utils.js';
 export default class Letter extends Component {
   constructor(e, cfg) {
     super(e, 'letter');
-    // this.letter = 'a';
-    
+
     let defaults = {
     	
     };
     Utils.applyProps(this, defaults, cfg);
+  }
+
+  hit(){
+  	scene.remove(this.entity);
   }
 
   update(dt) {}

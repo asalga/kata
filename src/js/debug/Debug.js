@@ -38,6 +38,8 @@ export default class Debug {
     let y = 20;
     let ySpacing = 18;
 
+    p3.fontSize(14);
+
     strings.forEach(s => {
       p3.text(s, 10, y);
       y += ySpacing;

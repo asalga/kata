@@ -97,6 +97,7 @@ function postRender() {
 function setup() {
   console.log('setup');
   p3 = new P3(cvs, ctx);
+  p3.fontSize(30);
   window.p3 = p3;
 
   Pool.init();

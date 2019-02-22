@@ -8,18 +8,16 @@ export default class KBListener extends Component {
   constructor(e) {
     super(e, 'kblistener');
 
-    window.addEventListener('keydown', e => {
-      let key = e.key;
+    window.addEventListener('keydown', evt => {
 
+      // Find any matched letter
       for(let e of scene.entities){
-
-        if(e.letter && e.letter.letter === key ){
-          scene.remove(e);
+        // console.log(e.letter.letter, evt.key);
+        if(e.letter && e.letter.letter === evt.key ){
+          e.letter.hit();
           break;
         }
       }
-
-      // console.log(scene.entities.size);
     });
   }
 

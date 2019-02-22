@@ -9,6 +9,7 @@ import Letter from '../components/Letter.js';
 
 import Debug from '../../debug/Debug.js';
 import Vec2 from '../../math/Vec2.js';
+import cfg from "../../cfg.js";
 
 export default function createLetter() {
   
@@ -19,7 +20,7 @@ export default function createLetter() {
   e.pos.x = p3.random(0,p3.width);
   e.pos.y = 0;
 
-  let letter = new Letter(e, {letter: 'a'});
+  let letter = new Letter(e, {letter: 'ち'});
   e.addComponent(letter);
 
   let spriteRender = new SpriteRender(e, { layerName: 'sprite' });
@@ -35,6 +36,9 @@ export default function createLetter() {
   e.addComponent(spriteRender);
 
   e.updateProxy = function(dt) {
+    if(e.pos.y > cfg.gameHeight){
+      e.pos.y = -20;
+    }
     // let center = new Vec2(p3.width / 2, p3.height / 2);
     // this.vel.x = Math.cos(gameTime) * 300;
     // this.vel.y = Math.sin(gameTime) * 150;

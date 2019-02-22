@@ -13,10 +13,16 @@ export default class P3 {
     this.width = cvs.width;
     this.height = cvs.height;
 
+    this.fontSz = 14;
+    this.fontFamily = 'Courier New';
+
     // defaults
     this.fill('blue');
     this.stroke('white');
     this.strokeWeight(1);
+    
+    this.fontSize(14);
+    this.updateFont();
 
     this._imageMode = CENTER;
     this._rectMode = CENTER;
@@ -25,7 +31,7 @@ export default class P3 {
     this._doFill = true;
     this._doStroke = true;
     this._clearCol = 'black';
-    this.ctx.font = 'normal 600 14px Courier New';
+    
 
     // this.ctx.filter = 'brightness(255)';
     this.mouseX = 0;
@@ -94,6 +100,15 @@ export default class P3 {
   fill() {
     this._doFill = true;
     this.ctx.fillStyle = this._argColorToString(...arguments);
+  }
+
+  fontSize(sz){
+    this.fontSz = sz;
+    this.updateFont();
+  }
+
+  updateFont(){
+    this.ctx.font = `normal 600 ${this.fontSz}px ${this.fontFamily}`;
   }
 
   text(txt, x, y) {
