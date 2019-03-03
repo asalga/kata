@@ -23,16 +23,17 @@ export default function createLetter() {
   e.disabled = false;
 
   let ls = EntityFactory.create('letterselector');
-  
-  let char;
-  char = ls.getChar({'keyrows': [2,3]});// select by kb row
-  char = ls.getChar({'set': 'あえいおう'}); // select from string
-  // char = ls.getChar({'set': ALL_KEYS}); 
+  ls.addSelection({
+    'row': 2,
+    'test': 1
+  });
+
+
+  let char = ls.getChar();
 
   let letter = new Letter(e, {letter: char});
   e.addComponent(letter);
 
-  // let that = this;
   let spriteRender = new SpriteRender(e, { layerName: 'sprite' });
   spriteRender.draw = function() {
     p3.save();

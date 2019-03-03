@@ -16,6 +16,16 @@ export default class Utils {
     return undefined;
   }
 
+
+  static removeDuplicateChars(string) {
+    return string
+      .split('')
+      .filter((item, pos, self) => {
+        return self.indexOf(item) == pos;
+      })
+      .join('');
+  }
+
   static applyProps(ctx, def, cfg) {
 
     Object.keys(def).forEach(k => {
