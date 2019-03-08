@@ -75,10 +75,17 @@ export default class Scene {
 
     let kblistener = EntityFactory.create('keyboardlistener');
 
-    for(let i = 0; i < 10; i++){
-      let letter = EntityFactory.create('letter');
-      this.add(letter);
+    // for(let i = 0; i < 10; i++){
+    //   let glyph = EntityFactory.create('glyph');
+    //   this.add(glyph);
+    // }
+
+    for(let i = 0; i < 8; i++){
+      let slot = EntityFactory.create('slot');
+      slot.pos.x = i * 80;
+      this.add(slot);
     }
+
   }
 
   remove(e) {

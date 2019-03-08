@@ -13,8 +13,8 @@ export default function createLetter() {
   
   let e = new Entity({ name: 'letter' });
 
-  // e.vel.y = p3.random(50,100);
-  e.vel.y = Math.floor(p3.random(4,8)) * 25;
+  e.vel.y = 50;
+  //Math.floor(p3.random(4,8)) * 25;
 
   e.pos.x = Math.floor(p3.random(0,10)) * (cfg.gameWidth/10);
   e.pos.y = Math.random(-200, -150);
@@ -59,10 +59,11 @@ export default function createLetter() {
     }
 
     if(e.pos.y > cfg.gameHeight){
+      
       scene.remove(this);
 
-      let char = EntityFactory.create('letter');
-      scene.add(char);
+      // let char = EntityFactory.create('glyp');
+      // scene.add(char);
     }
   };
 

@@ -16,7 +16,6 @@ export default function createLetterSelector() {
     return instance;
   }
 
-
   instance = new Entity({ name: 'letterselector' });
 
   instance.getChar = function(){
