@@ -233,9 +233,12 @@ export default class Entity {
   }
 
   removeComponentByName(str) {
-    let c = this.components[str];
+    // let c = this.components[str];debugger;
+
+    let c = this.components.find( o => o.name === str);
     if (c) {
       Utils.removeFromArray(this.components, c);
+      this[str] = undefined;
       return true;
     }
     return false;

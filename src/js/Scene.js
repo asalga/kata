@@ -80,7 +80,7 @@ export default class Scene {
     //   this.add(glyph);
     // }
 
-    for(let i = 0; i < 8; i++){
+    for(let i = 0; i < 1; i++){
       let slot = EntityFactory.create('slot');
       slot.pos.x = i * 80;
       this.add(slot);

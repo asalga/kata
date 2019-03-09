@@ -10,6 +10,11 @@ import Utils from '../../Utils.js';
 let instance = null;
 let selection = '';
 
+
+/*
+  Given a config object this Entity selects one character
+  from a set of possible glyphs.
+*/
 export default function createLetterSelector() {
 
   if(instance){

@@ -14,7 +14,6 @@ export default function createLetter() {
   let e = new Entity({ name: 'letter' });
 
   e.vel.y = 50;
-  //Math.floor(p3.random(4,8)) * 25;
 
   e.pos.x = Math.floor(p3.random(0,10)) * (cfg.gameWidth/10);
   e.pos.y = Math.random(-200, -150);
@@ -43,7 +42,8 @@ export default function createLetter() {
     p3.fill(64, 255, 40);
 
     if(e.letter.disabled){
-      p3.fill(255,64, 40);
+      // p3.fill(255,64, 40);
+      debugger;
     }
 
     p3.text(letter.letter, 30, 30);
@@ -54,17 +54,17 @@ export default function createLetter() {
 
   e.updateProxy = function(dt) {
     
-    if(e.pos.y > cfg.gameHeight-150){
-      e.letter.disabled = true;
+    if(e.pos.y > cfg.gameHeight - 80){
+      e.letter.miss();
     }
 
-    if(e.pos.y > cfg.gameHeight){
-      
-      scene.remove(this);
+    // if(e.pos.y > cfg.gameHeight){
 
-      // let char = EntityFactory.create('glyp');
-      // scene.add(char);
-    }
+    //   scene.remove(this);
+
+    //   // let char = EntityFactory.create('glyp');
+    //   // scene.add(char);
+    // }
   };
 
   return e;

@@ -92,7 +92,17 @@ export default class P3 {
         ret = `rgb(${c}, ${c}, ${c})`;
       }
     } else {
-      ret = `rgb(${arguments[0]}, ${arguments[1]}, ${arguments[2]})`;
+
+
+      if(arguments.length === 4){
+        ret = `rgba(${arguments[0]}, ${arguments[1]}, ${arguments[2]}, ${arguments[3]})`;
+      }
+      else {
+        ret = `rgb(${arguments[0]}, ${arguments[1]}, ${arguments[2]})`;  
+      }
+      
+
+
     }
     return ret;
   }
