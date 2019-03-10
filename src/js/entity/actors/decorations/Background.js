@@ -13,6 +13,8 @@ let vel = new Array(COUNT);
 let sz = new Array(COUNT);
 let green = 'rgba(33, 166, 22, .4)';
 
+// let img = p3.loadImage('../../../../i.jpg');
+
 export default function createBackground() {
 
   let e = new Entity({ name: 'background' });
@@ -50,6 +52,9 @@ export default function createBackground() {
     for (let i = 0; i < COUNT; i++) {
       _p3.rect(pos[i][0], pos[i][1], sz[i], sz[i]);
     }
+
+    // image(img, 0, 0);
+    // image(img, 0, 0);
   };
 
   e.addComponent(spriteRender);

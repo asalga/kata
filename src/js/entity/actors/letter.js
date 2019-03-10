@@ -17,7 +17,7 @@ export default function createLetter() {
   
   let e = new Entity({ name: 'letter' });
 
-  e.vel.y = 50;
+  e.vel.y = 150;
 
   e.pos.x = Math.floor(p3.random(0,10)) * (cfg.gameWidth/10);
   e.pos.y = Math.random(-200, -150);
@@ -49,8 +49,9 @@ export default function createLetter() {
 
     _p3.fill(cfg.GREEN);
 
+    // TODO: fix
     if(e.letter.wasMissed){
-      _p3.fill(255,0,0);      
+      _p3.fill(255, 0, 0);
     }
 
     _p3.text(e.letter.letter, 40, 40);
