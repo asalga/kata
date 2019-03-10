@@ -7,6 +7,14 @@ import Timer from './Timer.js';
 import cfg from "../../cfg.js";
 import RemoveSelf from './RemoveSelf.js';
 
+var sound = new Howl({
+  src: ['../../../data/explosion.wav'],
+  volume: 0.8
+});
+
+
+
+
 export default class Letter extends Component {
   constructor(e, cfg) {
     super(e, 'letter');
@@ -23,8 +31,10 @@ export default class Letter extends Component {
     if(this.wasMissed || this.wasHit){
       return;
     }
+    // Audio.play('explosion');
+    sound.play();
+
     this.hittable = false;
-    
     this.wasHit = true;
 
     this.entity.killable.kill();

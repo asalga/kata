@@ -15,6 +15,14 @@ import Renderer from './Renderer.js';
 import cfg from './cfg.js';
 import Pool from './core/Pool.js';
 
+
+// var sound = new Howl({
+//   src: ['../data/explosion.wav'],
+//   volume: 0.8
+// });
+
+// sound.play();
+
 window.gameTime = 0;
 window.gameFrameCount = 0;
 window.Renderer = Renderer;

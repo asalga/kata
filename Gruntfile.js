@@ -141,15 +141,14 @@ module.exports = function(grunt) {
             filter: 'isFile'
           },
 
-          // // AUDIO
-          // {
-          //   expand: true,
-          //   flatten: false,
-          //   cwd: `${config.target}/data/audio`,
-          //   src: ['**/*.{mp3,ogg}'],
-          //   dest: `${app}/data/audio`,
-          //   filter: 'isFile'
-          // },
+          // AUDIO
+          {
+            expand: true,
+            cwd: `data/`,
+            src: ['**/*.{mp3,ogg,wav}'],
+            dest: `${app}/data`,
+            filter: 'isFile'
+          },
 
           // // IMAGES
           // {
@@ -248,18 +247,18 @@ module.exports = function(grunt) {
           livereload: true
         }
       },
-      // // AUDIO
-      // audio: {
-      //   files: [
-      //     `${config.target}/data/**/*.{mp3,ogg}`
-      //   ],
-      //   tasks: [
-      //     'copy:dev'
-      //   ],
-      //   options: {
-      //     livereload: true
-      //   }
-      // },
+      // AUDIO
+      audio: {
+        files: [
+          `data/**/*.{mp3,ogg,wav}`
+        ],
+        tasks: [
+          'copy:dev'
+        ],
+        options: {
+          livereload: true
+        }
+      },
       // // IMAGES
       // images: {
       //   files: [
