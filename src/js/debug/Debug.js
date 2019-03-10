@@ -35,6 +35,8 @@ export default class Debug {
     p3.save();
     p3.noStroke();
     p3.fill(255);
+    p3.cvs.textAlign = 'left';
+
     let y = 20;
     let ySpacing = 18;
 

@@ -6,7 +6,9 @@ import Utils from '../../Utils.js';
 export default class Timer extends Component {
   constructor(e, cfg) {
     super(e, 'timer');
-    // Utils.applyProps(this, defaults, cfg);
+
+    let defaults = {};
+    Utils.applyProps(this, defaults, cfg);
 
     this.reset();
   }
@@ -17,5 +19,9 @@ export default class Timer extends Component {
 
   update(dt) {
     this.time += dt;
+
+    if(this.time > this.countdown){
+      this.cb();
+    }
   }
 }

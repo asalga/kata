@@ -23,8 +23,7 @@ export default function createLetter() {
 
   let ls = EntityFactory.create('letterselector');
   ls.addSelection({
-    'row': 2,
-    'test': 1
+    'row': 2
   });
 
 
@@ -39,14 +38,18 @@ export default function createLetter() {
     p3.fontSize(50);
     p3.noStroke();
     p3.translate(e.pos.x, e.pos.y);
-    p3.fill(64, 255, 40);
+    
+    p3.ctx.textAlign = "center";
+    p3.ctx.textBaseline = "middle";
+    p3.fill(cfg.GREEN);
+    p3.text(letter.letter, 40, 40);
+    p3.ctx.textAlign = "left";
+    p3.ctx.textAlign = "alphabetic";
 
-    if(e.letter.disabled){
-      // p3.fill(255,64, 40);
-      debugger;
-    }
+    // p3.noFill();
+    // p3.stroke(255, 0, 0);
+    // p3.rect(0, 0, 80, 80);
 
-    p3.text(letter.letter, 30, 30);
     p3.restore();
   };
   e.addComponent(spriteRender);

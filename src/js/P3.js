@@ -90,6 +90,9 @@ export default class P3 {
       } else if (typeof(args) === NUMBER) {
         let c = args;
         ret = `rgb(${c}, ${c}, ${c})`;
+      } else if (Array.isArray(args)) {
+        let c = args;
+        ret = `rgba(${c[0]}, ${c[1]}, ${c[2]}, ${c[3]})`;
       }
     } else {
 
