@@ -1,16 +1,20 @@
 'use strict';
 
-import ui from './actors/Ui.js';
 import glyph from './actors/letter.js';
 import kb from './actors/KeyboardListener.js';
 import ls from './actors/LetterSelector.js';
 import slot from './actors/Slot.js';
+import ui from './actors/Ui.js';
+
+import background from './actors/decorations/Background.js';
 
 let createFuncs = new Map([
 	['glyph', glyph],
 	['keyboardlistener', kb],
 	['letterselector', ls],
-	['slot', slot]
+	['slot', slot],
+	['ui', ui],
+	['background', background],
 ]);
 
 export default class EntityFactory {

@@ -30,9 +30,10 @@ let layers = [];
 
 layerConfig.forEach(obj => {
   let layer = {
+    'name': obj.name,
     'p3': createLayer(),
     'cfg': obj.cfg,
-    renderables: new PriorityQueue()
+    'renderables': new PriorityQueue()
   };
 
   layers.push(layer);
@@ -95,7 +96,10 @@ export default class Renderer {
     });
 
     // Draw all the layers onto the main canvas
-    layers.forEach(layer => p3.drawImage(layer.p3.cvs, 0, 0));
+    layers.forEach(layer => {
+      // console.log(layer.name);
+      p3.drawImage(layer.p3.cvs, 0, 0)
+    });
   }
 
   static preRender() {}

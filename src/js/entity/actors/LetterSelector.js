@@ -10,6 +10,7 @@ import Utils from '../../Utils.js';
 let instance = null;
 let selection = '';
 
+let glyphMap = new Map;
 
 /*
   Given a config object this Entity selects one character
@@ -23,6 +24,10 @@ export default function createLetterSelector() {
 
   instance = new Entity({ name: 'letterselector' });
 
+  chars.forEach( g => {
+    glyphMap.set(g.glyph, g);
+  });
+
   instance.getChar = function(){
     if(selection.length === 0){
       return null;
@@ -30,7 +35,7 @@ export default function createLetterSelector() {
 
     let r = Math.floor(p3.random(0, selection.length));
     return selection.charAt(r);
-  }
+  };
 
   /*
   
@@ -49,6 +54,9 @@ export default function createLetterSelector() {
     selection = Utils.removeDuplicateChars(selection);
   };
 
+  instance.getGlyphData = function(glyph){
+    return glyphMap.get(glyph);
+  };
 
 
   /*

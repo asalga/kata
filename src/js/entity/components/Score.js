@@ -14,7 +14,7 @@ export default class Score extends Component {
     this.points = 0;
     this.toAdd = 0;
     this.timer = 0;
-    this.rate = 1 / this.pointsPerSecond;
+    this.rate = 1.25 / this.pointsPerSecond;
 
     e.on('increasescore', data => {
       this.toAdd += data.points;

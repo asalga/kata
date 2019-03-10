@@ -12,6 +12,7 @@ import cfg from './cfg.js';
 import Utils from './Utils.js';
 import Assert from './core/Assert.js';
 
+
 export default class Scene {
 
   constructor() {
@@ -75,6 +76,8 @@ export default class Scene {
 
     let kblistener = EntityFactory.create('keyboardlistener');
 
+    this.add(EntityFactory.create('background'));
+
     // for(let i = 0; i < 10; i++){
     //   let glyph = EntityFactory.create('glyph');
     //   this.add(glyph);
@@ -86,8 +89,8 @@ export default class Scene {
       this.add(slot);
     }
 
-    // EntityFactory.create('scoreUI');
-
+    
+    this.add(EntityFactory.create('ui'));
   }
 
   remove(e) {

@@ -7,9 +7,9 @@ let isOn = true;
 
 export default class Debug {
   
-  static init() {
+  static init(cfg) {
     document.addEventListener('keydown', function(evt) {
-      if (evt.code === 'KeyD') {
+      if (evt.code === cfg.toggleKey) {
         window.debug = !window.debug;
         Debug.setOn(window.debug);
       }
@@ -34,13 +34,13 @@ export default class Debug {
 
     p3.save();
     p3.noStroke();
-    p3.fill(255);
+    p3.fill(0,255,255);
     p3.cvs.textAlign = 'left';
 
     let y = 20;
     let ySpacing = 18;
 
-    p3.fontSize(14);
+    p3.fontSize(20);
 
     strings.forEach(s => {
       p3.text(s, 10, y);

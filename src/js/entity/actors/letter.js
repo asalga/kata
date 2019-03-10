@@ -4,6 +4,10 @@ import Entity from '../Entity.js';
 import EntityFactory from '../EntityFactory.js';
 import SpriteRender from '../components/SpriteRender.js';
 import Letter from '../components/Letter.js';
+import ScorePoints from '../components/ScorePoints.js';
+import Killable from '../components/Killable.js';
+
+// import chars from '../../chars.js';
 
 import Debug from '../../debug/Debug.js';
 import Vec2 from '../../math/Vec2.js';
@@ -26,48 +30,45 @@ export default function createLetter() {
     'row': 2
   });
 
+  let glyph = ls.getChar();
+  let charData = ls.getGlyphData(glyph);
 
-  let char = ls.getChar();
-
-  let letter = new Letter(e, {letter: char});
-  e.addComponent(letter);
+  e.addComponent(new Letter(e, { letter: glyph }));
+  e.addComponent(new ScorePoints(e, { points: charData.points }));
+  e.addComponent(new Killable(e, { timeToDeath: 1}));
 
   let spriteRender = new SpriteRender(e, { layerName: 'sprite' });
-  spriteRender.draw = function() {
-    p3.save();
-    p3.fontSize(50);
-    p3.noStroke();
-    p3.translate(e.pos.x, e.pos.y);
+  spriteRender.draw = function(_p3) {
+    _p3.save();
+    _p3.fontSize(50);
+    _p3.noStroke();
+    _p3.translate(e.pos.x, e.pos.y);
     
-    p3.ctx.textAlign = "center";
-    p3.ctx.textBaseline = "middle";
-    p3.fill(cfg.GREEN);
-    p3.text(letter.letter, 40, 40);
-    p3.ctx.textAlign = "left";
-    p3.ctx.textAlign = "alphabetic";
+    _p3.ctx.textAlign = "center";
+    _p3.ctx.textBaseline = "middle";
+
+    _p3.fill(cfg.GREEN);
+
+    if(e.letter.wasMissed){
+      _p3.fill(255,0,0);      
+    }
+
+    _p3.text(e.letter.letter, 40, 40);
+    _p3.ctx.textAlign = "left";
+    _p3.ctx.textAlign = "alphabetic";
 
     // p3.noFill();
     // p3.stroke(255, 0, 0);
     // p3.rect(0, 0, 80, 80);
 
-    p3.restore();
+    _p3.restore();
   };
   e.addComponent(spriteRender);
 
-
   e.updateProxy = function(dt) {
-    
     if(e.pos.y > cfg.gameHeight - 80){
       e.letter.miss();
     }
-
-    // if(e.pos.y > cfg.gameHeight){
-
-    //   scene.remove(this);
-
-    //   // let char = EntityFactory.create('glyp');
-    //   // scene.add(char);
-    // }
   };
 
   return e;

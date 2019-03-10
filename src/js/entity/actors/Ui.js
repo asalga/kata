@@ -12,7 +12,7 @@ export default function createUI() {
   e.pos.x = 540;
   e.pos.y = 20;
 
-  let w = 200;
+  let w = 300;
   let h = 50;
 
   e.addComponent(new Score(e, { pointsPerSecond: 80 }));
@@ -22,12 +22,12 @@ export default function createUI() {
     // _p3.clearAll();
     _p3.save();
 
-    _p3.translate(450, 0);
+    // _p3.translate(25, 25);
 
     // _p3.noFill();
-    _p3.fill('rgba(66, 99, 33, 0.2)');
+    _p3.fill('rgba(66, 99, 33, 0.5)');
     _p3.strokeWeight(1);
-    _p3.stroke(0);
+    _p3.stroke('rgba(66, 99, 33, 0.5)');
     _p3.rect(0, 0, w, h);
 
     // _p3.imageMode('center');
@@ -37,9 +37,13 @@ export default function createUI() {
     _p3.translate(0, 20);
 
     let s = 1;
+    _p3.translate(25, 10);
     _p3.scale(s, s);
-    _p3.ctx.font = 'normal 600 20px Courier New';
-    _p3.text('score: ' + this.entity.score.points, 0, 0);
+    _p3.ctx.font = 'normal 600 30px Courier New';
+    
+    let p = (this.entity.score.points + '').padStart(7, '0');
+
+    _p3.text('score: ' + p, 0, 0);
     _p3.restore();
 
     // p3.drawImage(this.sprite, 0, 0);

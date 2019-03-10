@@ -17,7 +17,7 @@ export default function createSlot() {
   let e = new Entity({ name: 'slot' });
 
   e.pos.x = 0;
-  e.pos.y = 0;//-size;
+  e.pos.y = -size;
 
   e.timer = 0;
 

@@ -99,7 +99,7 @@ function setup() {
 
   scene = new Scene();
 
-  Debug.init();
+  Debug.init({toggleKey: 'Escape'});
   Debug.setOn(window.debug);
 
   scene.restartGame();

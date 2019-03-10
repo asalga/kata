@@ -21,7 +21,7 @@ export default class Timer extends Component {
     this.time += dt;
 
     if(this.time > this.countdown){
-      this.cb();
+      this.cb && this.cb();
     }
   }
 }
