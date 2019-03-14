@@ -1,27 +1,33 @@
 let chars = [
   {
-    'glyph': 'ち',
+    'jpChar': 'ち',
+    'enChar': 'a',
     'difficulty': 0,
     'vert-side': 'left',
     'row': 2,
     'points': 200
   },
   {
-    'glyph': 'と',
+    'jpChar': 'と',
+    'enChar': 's',
     'difficulty': 0,
     'vert-side': 'left',
     'row': 2,
     'points': 200
   },
   {
-    'glyph': 'し',
+    'jpChar': 'し',
+    'enChar': 'd',
+    'romanji': 'shi',
     'difficulty': 0,
     'vert-side': 'left',
     'row': 2,
     'points': 200
   },
   {
-    'glyph': 'は',
+    'jpChar': 'は',
+    'enChar': 'f',
+    'romanji': 'ha',
     'difficulty': 0,
     'vert-side': 'left',
     'row': 2,
@@ -29,7 +35,9 @@ let chars = [
   },
 
   {
-    'glyph': 'ま',
+    'jpChar': 'ま',
+    'enChar': 'j',
+    'romanji': 'ma',
     'difficulty': 0,
     'vert-side': 'right',
     'row': 2,
@@ -37,21 +45,27 @@ let chars = [
   },
 
   {
-    'glyph': 'の',
+    'jpChar': 'の',
+    'enChar': 'k',
+    'romanji': 'no',
     'difficulty': 0,
     'vert-side': 'right',
     'row': 2,
     'points': 200
   },
   {
-    'glyph': 'り',
+    'jpChar': 'り',
+    'enChar': 'l',
+    'romanji': 'ri',
     'difficulty': 0,
     'vert-side': 'right',
     'row': 2,
     'points': 200
   },
   {
-    'glyph': 'れ',
+    'jpChar': 'れ',
+    'enChar': ';',
+    'romanji': 're',
     'difficulty': 0,
     'vert-side': 'right',
     'row': 2,

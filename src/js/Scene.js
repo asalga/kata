@@ -85,6 +85,10 @@ export default class Scene {
 
     for(let i = 0; i < 8; i++){
       let slot = EntityFactory.create('slot');
+
+      // let r = Math.floor(p3.random(1,3));
+      // slot.freq = r;
+
       slot.pos.x = i * 80;
       this.add(slot);
     }

@@ -30,10 +30,10 @@ export default function createLetter() {
     'row': 2
   });
 
-  let glyph = ls.getChar();
-  let charData = ls.getGlyphData(glyph);
+  let char = ls.getChar();
+  let charData = ls.getGlyphData(char);
 
-  e.addComponent(new Letter(e, { letter: glyph }));
+  e.addComponent(new Letter(e, { data: charData }));
   e.addComponent(new ScorePoints(e, { points: charData.points }));
   e.addComponent(new Killable(e, { timeToDeath: 1}));
 
@@ -54,7 +54,7 @@ export default function createLetter() {
       _p3.fill(255, 0, 0);
     }
 
-    _p3.text(e.letter.letter, 40, 40);
+    _p3.text(e.letter.jpChar, 40, 40);
     _p3.ctx.textAlign = "left";
     _p3.ctx.textAlign = "alphabetic";
 

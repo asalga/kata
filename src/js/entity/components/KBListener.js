@@ -12,12 +12,17 @@ export default class KBListener extends Component {
 
     window.addEventListener('keydown', evt => {
 
+
       // Find all matched glyphs
       for(let e of scene.entities){
-        if(e.letter && e.letter.letter === evt.key && e.letter.hittable){
 
+        if(!e.letter){
+          continue;
+        }
+
+        if((e.letter.jpChar === evt.key || e.letter.enChar === evt.key) &&
+            e.letter.hittable){
           // (e.letter.wasMissed === false || e.letter.wasHit === false)) {
-
           matched.push(e);
         }
       }

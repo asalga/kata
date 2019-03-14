@@ -20,6 +20,10 @@ export default class Letter extends Component {
     let defaults = {};
     Utils.applyProps(this, defaults, cfg);
 
+
+    this.jpChar = cfg.data.jpChar;
+    this.enChar = cfg.data.enChar;
+
     this.wasMissed = false;
     this.wasHit = false;
     this.hittable = true;
@@ -73,10 +77,8 @@ export default class Letter extends Component {
       _p3.ctx.textAlign = "center";
       _p3.ctx.textBaseline = "middle";
 
-     
-
       // _p3.text(e.letter.letter, 30-(1+e.timer.time), 30);
-      _p3.text(e.letter.letter, 0,0 );
+      _p3.text(e.letter.jpChar, 0, 0);
 
       _p3.ctx.textAlign = 'left';
 
