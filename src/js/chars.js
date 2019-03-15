@@ -2,54 +2,80 @@ let chars = [
   {
     'jpChar': 'ち',
     'enChar': 'a',
-    'difficulty': 0,
+    'romanji': 'chi',
+    'diacritic': 'none',
     'vert-side': 'left',
     'row': 2,
-    'points': 200
+    'difficulty': 0,
+    'points': 3
   },
   {
     'jpChar': 'と',
     'enChar': 's',
-    'difficulty': 0,
+    'romanji': 'to',
+    'diacritic': 'none',
     'vert-side': 'left',
     'row': 2,
-    'points': 200
+    'difficulty': 0,
+    'points': 1
   },
   {
     'jpChar': 'し',
     'enChar': 'd',
     'romanji': 'shi',
-    'difficulty': 0,
+    'diacritic': 'none',
     'vert-side': 'left',
     'row': 2,
-    'points': 200
+    'difficulty': 0,
+    'points': 1
   },
   {
     'jpChar': 'は',
     'enChar': 'f',
     'romanji': 'ha',
-    'difficulty': 0,
+    'diacritic': 'none',
     'vert-side': 'left',
     'row': 2,
-    'points': 200
+    'difficulty': 0,
+    'points': 1
   },
-
+  {
+    'jpChar': 'き',
+    'enChar': 'g',
+    'romanji': 'ki',
+    'diacritic': 'none',
+    'vert-side': 'left',
+    'row': 2,
+    'difficulty': 0,
+    'points': 1
+  },
+  {
+    'jpChar': 'く',
+    'enChar': 'h',
+    'romanji': 'ku',
+    'diacritic': 'none',
+    'vert-side': 'right',
+    'row': 2,
+    'difficulty': 1,
+    'points': 1
+  },
   {
     'jpChar': 'ま',
     'enChar': 'j',
     'romanji': 'ma',
-    'difficulty': 0,
+    'diacritic': 'none',
     'vert-side': 'right',
+    'difficulty': 0,
     'row': 2,
     'points': 200
   },
-
   {
     'jpChar': 'の',
     'enChar': 'k',
     'romanji': 'no',
-    'difficulty': 0,
+    'diacritic': 'none',
     'vert-side': 'right',
+    'difficulty': 0,
     'row': 2,
     'points': 200
   },
@@ -57,8 +83,9 @@ let chars = [
     'jpChar': 'り',
     'enChar': 'l',
     'romanji': 'ri',
-    'difficulty': 0,
+    'diacritic': 'none',
     'vert-side': 'right',
+    'difficulty': 0,
     'row': 2,
     'points': 200
   },
@@ -66,11 +93,27 @@ let chars = [
     'jpChar': 'れ',
     'enChar': ';',
     'romanji': 're',
-    'difficulty': 0,
+    'diacritic': 'none',    
     'vert-side': 'right',
+    'difficulty': 0,
     'row': 2,
     'points': 200
+  },
+
+
+
+
+  {
+    'jpChar': 'ぎ',
+    'enChar': 'g[',
+    'romanji': 'gi',
+    'diacritic': 'dakuten',
+    'vert-side': 'both',
+    'row': [2, 1],
+    'points': 200,
+    'difficulty': 5
   }
+
 ];
 
 export default chars;
