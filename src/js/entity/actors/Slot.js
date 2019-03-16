@@ -13,7 +13,7 @@ import cfg from "../../cfg.js";
 let size = 160;
 
 export default function createSlot() {
-  
+
   let e = new Entity({ name: 'slot' });
 
   e.pos.x = 0;

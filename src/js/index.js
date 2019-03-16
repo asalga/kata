@@ -60,7 +60,7 @@ function update(dt) {
 
   scene.update(dt);
 
-  // Events.printDebug();
+  Events.printDebug();
   window.gameTime += dt;
 }
 
@@ -90,6 +90,8 @@ function postRender() {
   // Debug.add('pool available: ' + Pool.count());
 
   Renderer.postRender();
+
+  // EventSystem.printDebug();
 
   let bytes = window.performance.memory.totalJSHeapSize.toLocaleString();
   Debug.add(`heap: ${bytes} bytes`);

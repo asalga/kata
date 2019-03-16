@@ -23,6 +23,7 @@ export default class Score extends Component {
 
   update(dt) {
 
+
     if (this.toAdd > 0) {
       this.timer += dt;
 

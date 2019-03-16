@@ -27,6 +27,10 @@ export default class Letter extends Component {
     this.wasMissed = false;
     this.wasHit = false;
     this.hittable = true;
+
+
+    
+
   }
 
   hit(){
