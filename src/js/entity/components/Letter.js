@@ -8,7 +8,8 @@ import cfg from "../../cfg.js";
 import RemoveSelf from './RemoveSelf.js';
 
 var sound = new Howl({
-  src: ['../../../data/explosion.wav'],
+  // src: ['../../../data/explosion.wav'],
+  src: ['../../../data/coin2.wav'],
   volume: 0.8
 });
 
@@ -20,24 +21,20 @@ export default class Letter extends Component {
     let defaults = {};
     Utils.applyProps(this, defaults, cfg);
 
-
     this.jpChar = cfg.data.jpChar;
     this.enChar = cfg.data.enChar;
 
     this.wasMissed = false;
     this.wasHit = false;
-    this.hittable = true;
-
-
-    
-
+    this.hittable = false;
+    this.hasBeenAdded = false;
   }
 
   hit(){
-    if(this.wasMissed || this.wasHit){
+    if(this.wasMissed || this.wasHit || this.hasBeenAdded === false){
       return;
     }
-    // Audio.play('explosion');
+
     sound.play();
 
     this.hittable = false;
@@ -104,5 +101,10 @@ export default class Letter extends Component {
     // this.entity.addComponent(new RemoveSelf(this.entity, {timer: 1}));
   }
 
-  update(dt) {}
+  update(dt) {
+    if(this.hasBeenAdded === false && this.entity.pos.y > 0){
+      this.hittable = true;
+      this.hasBeenAdded = true;
+    }
+  }
 }

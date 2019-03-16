@@ -50,7 +50,10 @@ export default function createLetter() {
     _p3.fill(cfg.GREEN);
 
     // TODO: fix
-    if(e.letter.wasMissed){
+    if(e.pos.y < 0){
+      _p3.fill('rgb(130, 130, 130)');
+    }
+    else if(e.letter.wasMissed){
       _p3.fill(255, 0, 0);
     }
 

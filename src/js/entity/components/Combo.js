@@ -3,9 +3,9 @@
 import Component from './Component.js';
 import Utils from '../../Utils.js';
 
-export default class Score extends Component {
+export default class Combo extends Component {
   constructor(e, cfg) {
-    super(e, 'score');
+    super(e, 'combo');
     let defaults = {
       pointsPerSecond: 1
     };

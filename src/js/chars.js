@@ -7,7 +7,7 @@ let chars = [
     'vert-side': 'left',
     'row': 2,
     'difficulty': 0,
-    'points': 3
+    'points': 300
   },
   {
     'jpChar': 'と',
@@ -17,7 +17,7 @@ let chars = [
     'vert-side': 'left',
     'row': 2,
     'difficulty': 0,
-    'points': 1
+    'points': 100
   },
   {
     'jpChar': 'し',
@@ -27,7 +27,7 @@ let chars = [
     'vert-side': 'left',
     'row': 2,
     'difficulty': 0,
-    'points': 1
+    'points': 100
   },
   {
     'jpChar': 'は',
@@ -37,7 +37,7 @@ let chars = [
     'vert-side': 'left',
     'row': 2,
     'difficulty': 0,
-    'points': 1
+    'points': 100
   },
   {
     'jpChar': 'き',
@@ -47,7 +47,7 @@ let chars = [
     'vert-side': 'left',
     'row': 2,
     'difficulty': 0,
-    'points': 1
+    'points': 100
   },
   {
     'jpChar': 'く',
@@ -57,7 +57,7 @@ let chars = [
     'vert-side': 'right',
     'row': 2,
     'difficulty': 1,
-    'points': 1
+    'points': 100
   },
   {
     'jpChar': 'ま',
