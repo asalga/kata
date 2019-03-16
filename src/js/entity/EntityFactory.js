@@ -3,7 +3,7 @@
 import glyph from './actors/letter.js';
 import kb from './actors/KeyboardListener.js';
 import ls from './actors/LetterSelector.js';
-import slot from './actors/__slot.js';
+import slot from './actors/Test.js';
 import ui from './actors/Ui.js';
 import typo from './actors/TypoDetector.js';
 
