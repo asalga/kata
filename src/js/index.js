@@ -15,6 +15,14 @@ import Renderer from './Renderer.js';
 import cfg from './cfg.js';
 import Pool from './core/Pool.js';
 
+
+// var sound = new Howl({
+//   src: ['../data/explosion.wav'],
+//   volume: 0.8
+// });
+
+// sound.play();
+
 window.gameTime = 0;
 window.gameFrameCount = 0;
 window.Renderer = Renderer;
@@ -52,7 +60,7 @@ function update(dt) {
 
   scene.update(dt);
 
-  // Events.printDebug();
+  Events.printDebug();
   window.gameTime += dt;
 }
 
@@ -82,6 +90,8 @@ function postRender() {
   // Debug.add('pool available: ' + Pool.count());
 
   Renderer.postRender();
+
+  // EventSystem.printDebug();
 
   let bytes = window.performance.memory.totalJSHeapSize.toLocaleString();
   Debug.add(`heap: ${bytes} bytes`);

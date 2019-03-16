@@ -7,6 +7,13 @@ import Timer from './Timer.js';
 import cfg from "../../cfg.js";
 import RemoveSelf from './RemoveSelf.js';
 
+var sound = new Howl({
+  // src: ['../../../data/explosion.wav'],
+  src: ['../../../data/coin2.wav'],
+  volume: 0.8
+});
+
+
 export default class Letter extends Component {
   constructor(e, cfg) {
     super(e, 'letter');
@@ -14,22 +21,28 @@ export default class Letter extends Component {
     let defaults = {};
     Utils.applyProps(this, defaults, cfg);
 
+    this.jpChar = cfg.data.jpChar;
+    this.enChar = cfg.data.enChar;
+
     this.wasMissed = false;
     this.wasHit = false;
-    this.hittable = true;
+    this.hittable = false;
+    this.hasBeenAdded = false;
   }
 
   hit(){
-    if(this.wasMissed || this.wasHit){
+    if(this.wasMissed || this.wasHit || this.hasBeenAdded === false){
       return;
     }
+
+    sound.play();
+
     this.hittable = false;
-    
     this.wasHit = true;
 
     this.entity.killable.kill();
 
-    let fadeTimer = new Timer(this.entity, { countdown: 0.3 });
+    let fadeTimer = new Timer(this.entity, { countdown: 2 });
     this.entity.addComponent(fadeTimer);
 
     // Replace the sprite renderer
@@ -41,6 +54,7 @@ export default class Letter extends Component {
       _p3.save();
       _p3.fontSize(50);
       _p3.noStroke();
+      
       _p3.translate(e.pos.x, e.pos.y);
 
       let t = e.timer.time/.1;
@@ -49,7 +63,13 @@ export default class Letter extends Component {
       _p3.scale(1+t, 1+t);
 
       let x = -(t*80)/4;
-      _p3.translate(x, x);
+      let test = (1 + t) ** 2;
+
+
+      _p3.translate(x+ 40 + test, x + 40 + test);
+
+
+      _p3.rotate(100);
 
       let g = cfg.GREEN.slice();
       g[3] = a;
@@ -58,10 +78,8 @@ export default class Letter extends Component {
       _p3.ctx.textAlign = "center";
       _p3.ctx.textBaseline = "middle";
 
-      let test = (1 + t) ** 2;
-
       // _p3.text(e.letter.letter, 30-(1+e.timer.time), 30);
-      _p3.text(e.letter.letter, 40 + test, 40　+ test);
+      _p3.text(e.letter.jpChar, 0, 0);
 
       _p3.ctx.textAlign = 'left';
 
@@ -83,5 +101,10 @@ export default class Letter extends Component {
     // this.entity.addComponent(new RemoveSelf(this.entity, {timer: 1}));
   }
 
-  update(dt) {}
+  update(dt) {
+    if(this.hasBeenAdded === false && this.entity.pos.y > 0){
+      this.hittable = true;
+      this.hasBeenAdded = true;
+    }
+  }
 }

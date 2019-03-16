@@ -78,16 +78,18 @@ export default class Scene {
 
     this.add(EntityFactory.create('background'));
 
-    // for(let i = 0; i < 10; i++){
-    //   let glyph = EntityFactory.create('glyph');
-    //   this.add(glyph);
-    // }
 
     for(let i = 0; i < 8; i++){
       let slot = EntityFactory.create('slot');
+
+      // let r = Math.floor(p3.random(1,3));
+      // slot.freq = r;
+
       slot.pos.x = i * 80;
       this.add(slot);
     }
+
+    this.add(EntityFactory.create('typo'));
 
     
     this.add(EntityFactory.create('ui'));

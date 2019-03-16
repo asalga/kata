@@ -31,7 +31,8 @@ export default class P3 {
     this._doFill = true;
     this._doStroke = true;
     this._clearCol = 'black';
-    
+    // this.t = new Date();
+    this._startTime = Date.now();
 
     // this.ctx.filter = 'brightness(255)';
     this.mouseX = 0;
@@ -42,6 +43,12 @@ export default class P3 {
       this.mouseX = Math.floor(e.clientX - this.cvs.offsetLeft);
       this.mouseY = Math.floor(e.clientY - this.cvs.offsetTop);
     });
+  }
+
+  millis(){
+    return Date.now() - this._startTime;
+
+    // return this.t.getMilliseconds();
   }
 
   clearColor(col) {

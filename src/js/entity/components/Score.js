@@ -19,6 +19,11 @@ export default class Score extends Component {
     e.on('increasescore', data => {
       this.toAdd += data.points;
     }, e);
+
+    e.on('decreasescoreimmediate', data => {
+      e.score.points -= 100;
+      e.score.points = Math.max(0, e.score.points);
+    }, e);
   }
 
   update(dt) {

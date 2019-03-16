@@ -10,10 +10,10 @@ import Vec2 from '../../math/Vec2.js';
 import cfg from "../../cfg.js";
 // import timer from "../../Timer.js";
 
-let size = 80;
+let size = 160;
 
 export default function createSlot() {
-  
+
   let e = new Entity({ name: 'slot' });
 
   e.pos.x = 0;
@@ -37,12 +37,12 @@ export default function createSlot() {
   e.updateProxy = function(dt) {
     this.timer += dt;
 
-    if(this.timer > 3.5){
+    if(this.timer > 2){
       this.timer = 0;
       
-      let r = Math.floor(p3.random(0,5));
+      let r = Math.floor(p3.random(0,3));
 
-      if(r < 3){
+      if(r < 1){
         let glyph = EntityFactory.create('glyph');
         glyph.pos.set(e.pos);
         scene.add(glyph);
