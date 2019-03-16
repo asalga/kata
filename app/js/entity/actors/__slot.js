@@ -3,12 +3,10 @@
 import Entity from '../Entity.js';
 import EntityFactory from '../EntityFactory.js';
 import SpriteRender from '../components/SpriteRender.js';
-// import Letter from '../components/Letter.js';
 
 import Debug from '../../debug/Debug.js';
 import Vec2 from '../../math/Vec2.js';
 import cfg from "../../cfg.js";
-// import timer from "../../Timer.js";
 
 let size = 160;
 
