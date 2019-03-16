@@ -6,46 +6,25 @@ import Utils from '../../Utils.js';
 export default class Combo extends Component {
   constructor(e, cfg) {
     super(e, 'combo');
-    let defaults = {
-      pointsPerSecond: 1
-    };
+
+    let defaults = {};
     Utils.applyProps(this, defaults, cfg);
 
-    this.points = 0;
-    this.toAdd = 0;
-    this.timer = 0;
-    this.rate = 1.25 / this.pointsPerSecond;
+    this.combo = 0;
+    this.best = 0;
 
-    e.on('increasescore', data => {
-      this.toAdd += data.points;
+    e.on('hit', data => {
+      this.combo++;
+      if(this.combo > this.best){
+        this.best = this.combo;
+      }
     }, e);
 
-    e.on('decreasescoreimmediate', data => {
-      e.score.points -= 100;
-      e.score.points = Math.max(0, e.score.points);
+    e.on('typo', data => {
+      this.combo = 0;
     }, e);
   }
 
   update(dt) {
-
-    if (this.toAdd > 0) {
-      this.timer += dt;
-
-      if (this.timer >= this.rate) {
-
-        let howMuchThisFrame = Math.floor(this.timer / this.rate);
-
-        if (howMuchThisFrame >= this.toAdd) {
-          this.points += this.toAdd;
-          this.toAdd = 0;
-          this.timer = 0;
-        } else {
-          this.points += howMuchThisFrame;
-          this.toAdd -= howMuchThisFrame;
-          this.timer -= this.rate;
-        }
-        
-      }
-    }
   }
 }

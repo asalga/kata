@@ -34,6 +34,8 @@ export default class KBListener extends Component {
       if(matched.length > 0){
         matched.sort( (a, b) => a.pos.y - b.pos.y );
         matched[matched.length-1].letter.hit();
+
+        new Event({ evtName: 'hit', data: {key: evt.key} }).fire();
       }
       else{
         new Event({ evtName: 'typo', data: {key: evt.key} }).fire();

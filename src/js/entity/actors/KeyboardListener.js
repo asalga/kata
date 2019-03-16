@@ -15,9 +15,7 @@ export default function createLetter() {
   let kb = new KBListener(e);
   e.addComponent(kb);
 
-  e.updateProxy = function(dt) {
-
-  };
+  e.updateProxy = function(dt) {};
 
   return e;
 }
