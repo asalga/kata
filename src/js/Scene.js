@@ -77,22 +77,23 @@ export default class Scene {
     let kblistener = EntityFactory.create('keyboardlistener');
 
     this.add(EntityFactory.create('background'));
+    this.add(EntityFactory.create('typo'));
+    this.add(EntityFactory.create('ui'));
 
+
+    let ss = EntityFactory.create('sequenceSelector');
+    this.add(ss);
 
     for(let i = 0; i < 8; i++){
       let slot = EntityFactory.create('slot');
 
-      // let r = Math.floor(p3.random(1,3));
-      // slot.freq = r;
-
       slot.pos.x = i * 80;
-      this.add(slot);
+      ss.add(slot);
+
+      // not sure if this is a better approach?
+      // let leaf = new BHTreeLeaf();
+      // leaf.add(slot)
     }
-
-    this.add(EntityFactory.create('typo'));
-
-    
-    this.add(EntityFactory.create('ui'));
   }
 
   remove(e) {
