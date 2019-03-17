@@ -20,6 +20,7 @@ export default class Entity {
     this.components = [];
     this.children = [];
     this.parent = null;
+    this.tags = [];
 
     this.reset();
   }
@@ -242,6 +243,11 @@ export default class Entity {
       return true;
     }
     return false;
+  }
+
+  findComponentByName(str){
+    let c = this.components.find( o => o.name === str);
+    return c;
   }
 
   setEvents(b) {

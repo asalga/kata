@@ -6,6 +6,8 @@ import ls from './actors/LetterSelector.js';
 import slot from './actors/Test.js';
 import ui from './actors/Ui.js';
 import typo from './actors/TypoDetector.js';
+import empty from './actors/Empty.js';
+import sequenceSelector from './actors/SequenceSelector.js';
 
 import background from './actors/decorations/Background.js';
 
@@ -16,7 +18,9 @@ let createFuncs = new Map([
 	['slot', slot],
 	['ui', ui],
 	['background', background],
-	['typo', typo]
+	['typo', typo],
+	['empty', empty],
+	['sequenceSelector', sequenceSelector]
 ]);
 
 export default class EntityFactory {
