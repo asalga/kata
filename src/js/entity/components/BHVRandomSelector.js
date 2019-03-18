@@ -3,12 +3,11 @@
 import Component from './Component.js';
 import Utils from '../../Utils.js';
 
-export default class BHVSequenceSelector extends Component {
+export default class BHVRandomSelector extends Component {
   constructor(e, cfg) {
-    super(e, 'bhvsequenceselector');
+    super(e, 'bhvrandomselector');
 
-    this.state = 'none';
-    this.currNode = 0;
+    this.reset();
 
     let defaults = {};
     Utils.applyProps(this, defaults, cfg);
@@ -16,15 +15,12 @@ export default class BHVSequenceSelector extends Component {
     this.tags.push('bhv');
   }
 
-  init(){
-    this.bhvChildCount = this.entity.getChildrenWithComponentTagName('bhv').length;
-  }
-
   reset(){
-    this.currNode = 0;
     this.state = 'none';
+    this.currIndex = 0;
+    this.iterations = 0;
 
-    let arr = this.entity.children;
+    let arr = this.entity.children;//.findComponentsByTagName('bhv');
     arr.forEach( e => {
       let c = e.findComponentByTagName('bhv');
       c.reset();
@@ -34,22 +30,36 @@ export default class BHVSequenceSelector extends Component {
     // if(cfg.doNoRepeat){}
   }
 
+  getRandomIndex(){
+    let n = this.entity.children.length;
+    return Math.floor(p3.random(0, n));
+  }
+
   execute(){
     if(this.state === 'done') return 'done';
 
-    if(this.state === 'none') this.state = 'running';
-
+    if(this.state === 'none'){
+      this.state = 'running';
+      this.currIndex = this.getRandomIndex();
+    }
+    
     // TODO: change to use Tag Name
-    let n = this.currNode;
+    let n = this.currIndex;
+
+    // let c = this.entity.children[n].findComponentByName('bhvleaf');
     let c = this.entity.children[n].findComponentByTagName('bhv');
     let childState = c.execute();
 
-    // Last child is done, then we are done
     if(childState === 'done'){
-      this.currNode++;
 
-      if(this.currNode === this.bhvChildCount-1){
-        this.state = 'done';  
+      this.iterations++;
+
+      this.entity.children[n].findComponentByTagName('bhv').reset();
+      this.currIndex = this.getRandomIndex();
+    
+      if(this.iterations === 20){
+        debugger;
+        this.state = 'done';
       }
     }
 

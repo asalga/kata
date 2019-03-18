@@ -12,7 +12,6 @@ import cfg from './cfg.js';
 import Utils from './Utils.js';
 import Assert from './core/Assert.js';
 
-
 export default class Scene {
 
   constructor() {
@@ -81,19 +80,30 @@ export default class Scene {
     this.add(EntityFactory.create('ui'));
 
 
-    let ss = EntityFactory.create('sequenceSelector');
-    this.add(ss);
-
+    let rs = EntityFactory.create('randomSelector');
+    // this.add(rs);
     for(let i = 0; i < 8; i++){
       let slot = EntityFactory.create('slot');
+      slot.pos.x = i * 80;
+      rs.add(slot);
+    }
 
+
+    let ss = EntityFactory.create('sequenceSelector');
+    // this.add(ss);
+    for(let i = 0; i < 8; i++){
+      let slot = EntityFactory.create('slot');
       slot.pos.x = i * 80;
       ss.add(slot);
-
-      // not sure if this is a better approach?
-      // let leaf = new BHTreeLeaf();
-      // leaf.add(slot)
     }
+    ss.init();
+
+
+    let bhvRoot = EntityFactory.create('randomSelector');
+    bhvRoot.add(rs);
+    bhvRoot.add(ss);
+
+    this.add(bhvRoot);
   }
 
   remove(e) {
