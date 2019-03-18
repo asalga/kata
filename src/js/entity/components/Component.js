@@ -6,6 +6,7 @@ export default class Component {
   constructor(e, name) {
     this.entity = e;
     this.name = name;
+    this.tags = [];
   }
 
   update(dt) {
@@ -26,6 +27,11 @@ export default class Component {
 
   free(){
     console.log('super free called');
+  }
+
+  // call after creation 
+  init(){
+    console.log('super init called');
   }
 
   setEvents(b) {

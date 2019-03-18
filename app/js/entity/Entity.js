@@ -249,6 +249,57 @@ export default class Entity {
     let c = this.components.find( o => o.name === str);
     return c;
   }
+  
+  findComponentsByTagName(str){
+    let arr = [];
+
+    for(let c of this.components){
+
+      let idx = c.tags.indexOf(str);
+      if(idx > -1){
+        arr.push(this.components[idx]);
+      }
+    }
+
+    return arr;
+  }
+
+  findComponentByTagName(str){
+
+    for(let c of this.components){
+
+      let idx = c.tags.indexOf(str);
+
+      if(idx > -1){
+        return this.components[idx];
+      }
+
+      return null;
+    }
+  }
+
+  init(){
+    this.components.forEach( c => c.init());
+
+    this.children.forEach( e => {
+      e.init();
+
+      e.components.forEach( c => {
+        c.init();
+      });
+    });
+  }
+
+  getChildrenWithComponentTagName(str){
+    let arr = [];
+    this.children.forEach( c => {
+      if( c.findComponentByTagName(str) ){
+        arr.push(c);
+      }
+    });
+    return arr;
+    // debugger;
+  }
 
   setEvents(b) {
     this.eventsOn = b;

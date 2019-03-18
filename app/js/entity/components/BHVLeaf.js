@@ -14,7 +14,8 @@ export default class BHVLeaf extends Component {
     let defaults = {};
     Utils.applyProps(this, defaults, cfg);
 
-    this.entity.tags.push('bhv');
+    // this.entity.tags.push('bhv');
+    this.tags.push('bhv');
   }
 
   reset(){
@@ -36,7 +37,7 @@ export default class BHVLeaf extends Component {
 
     if(this.state === 'running'){
       this.timer += dt;
-      if(this.timer > .25){
+      if(this.timer > .5){
         this.timer = 0;
         this.state = 'done';
       }

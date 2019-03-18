@@ -13,38 +13,52 @@ export default class BHVSequenceSelector extends Component {
     let defaults = {};
     Utils.applyProps(this, defaults, cfg);
 
-    this.entity.tags.push('bhv');
+    this.tags.push('bhv');
+  }
+
+  init(){
+    this.bhvChildCount = this.entity.getChildrenWithComponentTagName('bhv').length;
+  }
+
+  reset(){
+    this.currNode = 0;
+    this.state = 'none';
+
+    let arr = this.entity.children;
+    arr.forEach( e => {
+      let c = e.findComponentByTagName('bhv');
+      c.reset();
+    });
+
+    // TODO: allow removing node after they've been visited?
+    // if(cfg.doNoRepeat){}
   }
 
   execute(){
-    // this.exe && this.exe();
-  }
+    if(this.state === 'done') return 'done';
 
-  update(dt) {
-    
+    if(this.state === 'none') this.state = 'running';
+
+    // TODO: change to use Tag Name
     let n = this.currNode;
-    let c = this.entity.children[n].findComponentByName('bhvleaf');
-    let state = c.execute();
+    let c = this.entity.children[n].findComponentByTagName('bhv');
+    let childState = c.execute();
 
-    if(state === 'done'){
-
+    // Last child is done, then we are done
+    if(childState === 'done'){
       this.currNode++;
 
-      // fix this. we need to get a list of ONLY the bhv children
-      if(this.currNode >= this.entity.children.length){
-        this.currNode = 0;
-
-        this.entity.children.forEach( c => {
-          c.findComponentByName('bhvleaf').reset();
-        });
+      if(this.currNode === this.bhvChildCount-1){
+        this.state = 'done';  
       }
     }
 
-    // this.timer += dt;
-    // if(this.timer > 1){
-    //   this.timer = 0;
-    //   debugger;
-    //   this.execute();
-    // }
+    return this.state;
+  }
+
+  update(dt) {
+    if(this.entity.parent === null){
+      this.execute();
+    }
   }
 }
