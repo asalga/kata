@@ -8,7 +8,7 @@ import ui from './actors/Ui.js';
 import typo from './actors/TypoDetector.js';
 import empty from './actors/Empty.js';
 import sequenceSelector from './actors/SequenceSelector.js';
-import randomSelector from './actors/randomSelector.js';
+import randomSelector from './actors/RandomSelector.js';
 import background from './actors/decorations/Background.js';
 
 let createFuncs = new Map([

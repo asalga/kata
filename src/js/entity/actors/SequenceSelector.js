@@ -4,7 +4,7 @@ import Entity from '../Entity.js';
 import EntityFactory from '../EntityFactory.js';
 import SpriteRender from '../components/SpriteRender.js';
 // import BHVLeaf from '../components/BHVLeaf.js';
-import BHVSequenceselector from '../components/BHVSequenceselector.js';
+import BHVSequenceselector from '../components/BHVSequenceSelector.js';
 
 import Debug from '../../debug/Debug.js';
 import Vec2 from '../../math/Vec2.js';
