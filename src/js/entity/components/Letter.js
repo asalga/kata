@@ -6,6 +6,7 @@ import SpriteRender from './SpriteRender.js';
 import Timer from './Timer.js';
 import cfg from "../../cfg.js";
 import RemoveSelf from './RemoveSelf.js';
+import EntityFactory from '../../entity/EntityFactory.js';
 
 var sound = new Howl({
   // src: ['../../../data/explosion.wav'],
@@ -41,6 +42,13 @@ export default class Letter extends Component {
     this.wasHit = true;
 
     this.entity.killable.kill();
+
+    if(cfg.showRomanjiAnswer || cfg.hearRomanjiAnswer){
+      let answer = EntityFactory.create('romanjianswer');
+      answer.setAnswer(this.jpChar);
+      answer.pos.set(this.entity.pos);
+      scene.add(answer);
+    }
 
     let fadeTimer = new Timer(this.entity, { countdown: 2 });
     this.entity.addComponent(fadeTimer);

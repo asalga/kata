@@ -57,8 +57,8 @@ export default class BHVRandomSelector extends Component {
       this.entity.children[n].findComponentByTagName('bhv').reset();
       this.currIndex = this.getRandomIndex();
     
-      if(this.iterations === 20){
-        debugger;
+      if(this.iterations === 5){
+        // debugger;
         this.state = 'done';
       }
     }

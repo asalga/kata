@@ -7,8 +7,12 @@ import slot from './actors/Test.js';
 import ui from './actors/Ui.js';
 import typo from './actors/TypoDetector.js';
 import empty from './actors/Empty.js';
-import sequenceSelector from './actors/SequenceSelector.js';
-import randomSelector from './actors/RandomSelector.js';
+
+// BHV
+import sequenceselector from './actors/SequenceSelector.js';
+import randomselector from './actors/RandomSelector.js';
+import romanjianswer from './actors/RomanjiAnswer.js';
+
 import background from './actors/decorations/Background.js';
 
 let createFuncs = new Map([
@@ -17,11 +21,14 @@ let createFuncs = new Map([
 	['letterselector', ls],
 	['slot', slot],
 	['ui', ui],
-	['background', background],
 	['typo', typo],
 	['empty', empty],
-	['sequenceSelector', sequenceSelector],
-	['randomSelector', randomSelector]
+
+	['sequenceselector', sequenceselector],
+	['randomselector', randomselector],
+	['romanjianswer', romanjianswer],
+
+	['background', background],
 ]);
 
 export default class EntityFactory {

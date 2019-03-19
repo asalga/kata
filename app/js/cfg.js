@@ -8,5 +8,8 @@ export default {
 
   GREEN: [50, 255, 20, 1],
 
-  CHAR_SZ: 80
+  CHAR_SZ: 80,
+
+  showRomanjiAnswer: true,
+  hearRomanjiAnswer: true
 };

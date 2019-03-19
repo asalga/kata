@@ -80,7 +80,7 @@ export default class Scene {
     this.add(EntityFactory.create('ui'));
 
 
-    let rs = EntityFactory.create('randomSelector');
+    let rs = EntityFactory.create('randomselector');
     // this.add(rs);
     for(let i = 0; i < 8; i++){
       let slot = EntityFactory.create('slot');
@@ -89,7 +89,7 @@ export default class Scene {
     }
 
 
-    let ss = EntityFactory.create('sequenceSelector');
+    let ss = EntityFactory.create('sequenceselector');
     // this.add(ss);
     for(let i = 0; i < 8; i++){
       let slot = EntityFactory.create('slot');
@@ -99,7 +99,7 @@ export default class Scene {
     ss.init();
 
 
-    let bhvRoot = EntityFactory.create('randomSelector');
+    let bhvRoot = EntityFactory.create('randomselector');
     bhvRoot.add(rs);
     bhvRoot.add(ss);
 
