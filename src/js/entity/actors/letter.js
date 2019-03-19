@@ -26,12 +26,9 @@ export default function createLetter() {
   e.disabled = false;
 
   let ls = EntityFactory.create('letterselector');
-  ls.addSelection({
-    'row': 2
-  });
-
-  let char = ls.getChar();
-  let charData = ls.getGlyphData(char);
+  ls.addSelection({'row': 2});
+  let kana = ls.getChar();
+  let charData = ls.getKanaData(kana);
 
   e.addComponent(new Letter(e, { data: charData }));
   e.addComponent(new ScorePoints(e, { points: charData.points }));
