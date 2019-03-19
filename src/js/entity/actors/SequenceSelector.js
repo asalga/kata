@@ -18,5 +18,9 @@ export default function createSequenceSelector() {
 
   e.updateProxy = function(dt) {};
 
+  e.setIterations = function(n){
+  	e.bhvsequenceselector.setIterations(n);
+  }
+
   return e;
 }

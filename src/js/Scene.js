@@ -82,12 +82,12 @@ export default class Scene {
 
     let rs = EntityFactory.create('randomselector');
     // this.add(rs);
+    // rs.setIterations(Infinity);
     for(let i = 0; i < 8; i++){
       let slot = EntityFactory.create('slot');
       slot.pos.x = i * 80;
       rs.add(slot);
     }
-
 
     let ss = EntityFactory.create('sequenceselector');
     // this.add(ss);
@@ -100,9 +100,9 @@ export default class Scene {
 
 
     let bhvRoot = EntityFactory.create('randomselector');
+    bhvRoot.setIterations(Infinity);
     bhvRoot.add(rs);
     bhvRoot.add(ss);
-
     this.add(bhvRoot);
   }
 

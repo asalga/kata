@@ -7,6 +7,7 @@ import Timer from './Timer.js';
 import cfg from "../../cfg.js";
 import RemoveSelf from './RemoveSelf.js';
 import EntityFactory from '../../entity/EntityFactory.js';
+import Event from '../../event/Event.js';
 
 var sound = new Howl({
   // src: ['../../../data/explosion.wav'],
@@ -65,7 +66,7 @@ export default class Letter extends Component {
       
       _p3.translate(e.pos.x, e.pos.y);
 
-      let t = e.timer.time/.1;
+      let t = e.timer.time/.2;
       let a = 1 - t;
 
       _p3.scale(1+t, 1+t);
@@ -101,12 +102,14 @@ export default class Letter extends Component {
   }
 
   miss(){
+    if(this.wasMissed) return;
+
     this.wasMissed = true;
     this.hittable = false;
 
-    // this.entity.scorepoints.points = -100;
-    // this.entity.killable.kill();
-    // this.entity.addComponent(new RemoveSelf(this.entity, {timer: 1}));
+    //new Event({ evtName: 'decreasescoreimmediate', data:d }).fire();
+    new Event({ evtName: 'missed', data: {e:this.entity} }).fire();
+    this.entity.addComponent(new RemoveSelf(this.entity, {timer: 1}));
   }
 
   update(dt) {

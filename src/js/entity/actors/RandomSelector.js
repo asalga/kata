@@ -8,11 +8,15 @@ import cfg from "../../cfg.js";
 
 export default function createRandomSelector() {
 
-  let e = new Entity({ name: 'randomSelector' });
+  let e = new Entity({ name: 'randomselector' });
 
   e.addComponent(new BHVRandomSelector(e, {}));
 
   e.updateProxy = function(dt) {};
+
+  e.setIterations = function(n){
+  	e.bhvrandomselector.setIterations(n);
+  }
 
   return e;
 }
