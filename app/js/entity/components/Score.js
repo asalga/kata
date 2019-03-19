@@ -24,6 +24,13 @@ export default class Score extends Component {
       e.score.points -= 100;
       e.score.points = Math.max(0, e.score.points);
     }, e);
+
+
+    e.on('missed', data => {
+      e.score.points -= 100;
+      e.score.points = Math.max(0, e.score.points);
+    }, e);
+
   }
 
   update(dt) {

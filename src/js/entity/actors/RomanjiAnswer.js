@@ -33,14 +33,14 @@ export default function createRomanjiAnswer() {
       let timeElapsed = this.entity.timer.time;
 
       _p3.save();
-      _p3.fontSize(50);
+      _p3.fontSize(25);
       _p3.noStroke();
       _p3.translate(e.pos.x, e.pos.y - timeElapsed*100);
       
       _p3.ctx.textAlign = "center";
       _p3.ctx.textBaseline = "middle";
       
-      let op = (1 - timeElapsed*3) ;
+      let op = (1 - timeElapsed*1) ;
       _p3.fill(`rgba(0, 233, 0, ${op})`);
 
       _p3.text(answerData.romanji, 40, 40);

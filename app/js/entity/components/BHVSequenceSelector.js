@@ -20,6 +20,8 @@ export default class BHVSequenceSelector extends Component {
     this.bhvChildCount = this.entity.getChildrenWithComponentTagName('bhv').length;
   }
 
+
+
   reset(){
     this.currNode = 0;
     this.state = 'none';

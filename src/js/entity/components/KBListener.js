@@ -39,7 +39,7 @@ export default class KBListener extends Component {
       }
       else{
         new Event({ evtName: 'typo', data: {key: evt.key} }).fire();
-        new Event({ evtName: 'decreasescoreimmediate', data: {key:evt.key} }).fire();
+        new Event({ evtName: 'decreasescoreimmediate', data: {key:evt.key, onlyOnce: true} }).fire();
       }
 
       matched.length = 0;

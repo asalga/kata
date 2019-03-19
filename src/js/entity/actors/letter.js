@@ -23,15 +23,13 @@ export default function createLetter() {
   e.pos.y = Math.random(-200, -150);
   e.pos.y = -100;
 
+  // ???
   e.disabled = false;
 
   let ls = EntityFactory.create('letterselector');
-  ls.addSelection({
-    'row': 2
-  });
-
-  let char = ls.getChar();
-  let charData = ls.getGlyphData(char);
+  ls.addSelection({'row': 2});
+  let kana = ls.getChar();
+  let charData = ls.getKanaData(kana);
 
   e.addComponent(new Letter(e, { data: charData }));
   e.addComponent(new ScorePoints(e, { points: charData.points }));
@@ -70,7 +68,7 @@ export default function createLetter() {
   e.addComponent(spriteRender);
 
   e.updateProxy = function(dt) {
-    if(e.pos.y > cfg.gameHeight - 80){
+    if(e.pos.y > cfg.gameHeight - cfg.CHAR_SZ){
       e.letter.miss();
     }
   };

@@ -18,7 +18,7 @@ export default class BHVRandomSelector extends Component {
   reset(){
     this.state = 'none';
     this.currIndex = 0;
-    this.iterations = 0;
+    this.currIter = 0;
 
     let arr = this.entity.children;//.findComponentsByTagName('bhv');
     arr.forEach( e => {
@@ -28,6 +28,10 @@ export default class BHVRandomSelector extends Component {
 
     // TODO: allow removing node after they've been visited?
     // if(cfg.doNoRepeat){}
+  }
+
+  setIterations(n){
+    this.iterations = n;
   }
 
   getRandomIndex(){
@@ -43,23 +47,19 @@ export default class BHVRandomSelector extends Component {
       this.currIndex = this.getRandomIndex();
     }
     
-    // TODO: change to use Tag Name
     let n = this.currIndex;
 
-    // let c = this.entity.children[n].findComponentByName('bhvleaf');
-    let c = this.entity.children[n].findComponentByTagName('bhv');
-    let childState = c.execute();
+    let child = this.entity.children[n].findComponentByTagName('bhv');
+    let childState =child.execute();
 
     if(childState === 'done'){
-
-      this.iterations++;
-
-      this.entity.children[n].findComponentByTagName('bhv').reset();
+      child.reset();
+      this.currIter++;
       this.currIndex = this.getRandomIndex();
     
-      if(this.iterations === 5){
-        // debugger;
+      if(this.currIter === this.iterations){
         this.state = 'done';
+        console.log('done');
       }
     }
 

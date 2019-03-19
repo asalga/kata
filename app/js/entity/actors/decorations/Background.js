@@ -49,7 +49,7 @@ export default function createBackground() {
 
   spriteRender.draw = function(_p3) {
     _p3.noStroke();
-    _p3.fill('rgba(0,0,0,0.2)');
+    _p3.fill('rgba(0,0,0,0.3)');
     _p3.rect(0, 0, cfg.gameWidth, cfg.gameHeight);
     
     _p3.ctx.font = 'normal 600 10px Courier New';
