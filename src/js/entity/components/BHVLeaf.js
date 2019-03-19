@@ -37,7 +37,7 @@ export default class BHVLeaf extends Component {
 
     if(this.state === 'running'){
       this.timer += dt;
-      if(this.timer > .5){
+      if(this.timer > 1.0){
         this.timer = 0;
         this.state = 'done';
       }
