@@ -33,6 +33,7 @@ export default class BHVLeaf extends Component {
     return this.state;
   }
 
+
   update(dt) {
 
     if(this.state === 'running'){
