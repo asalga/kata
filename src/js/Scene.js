@@ -100,7 +100,7 @@ export default class Scene {
 
 
     let bhvRoot = EntityFactory.create('randomselector');
-    bhvRoot.setIterations(Infinity);
+    bhvRoot.setIterations(2);
     bhvRoot.add(rs);
     bhvRoot.add(ss);
     this.add(bhvRoot);
