@@ -10,4 +10,3 @@
   - Fix Test.js file
   - Make Letter Selector use KanaMap
   - move char.js into data
-  - replace p3.js with p5.js
