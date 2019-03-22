@@ -31,7 +31,7 @@ export default class Component {
 
   // call after creation 
   init(){
-    console.log('super init called');
+    // console.log('super init called');
   }
 
   setEvents(b) {

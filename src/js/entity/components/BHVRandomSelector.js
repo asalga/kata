@@ -9,10 +9,9 @@ export default class BHVRandomSelector extends Component {
 
     this.reset();
 
+    this.tags.push('bhv');
     let defaults = {};
     Utils.applyProps(this, defaults, cfg);
-
-    this.tags.push('bhv');
   }
 
   reset(){
@@ -59,7 +58,7 @@ export default class BHVRandomSelector extends Component {
     
       if(this.currIter === this.iterations){
         this.state = 'done';
-        console.log('done');
+        console.log('randomselector done');
       }
     }
 

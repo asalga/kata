@@ -53,6 +53,9 @@ export default class Renderer {
 
       if (e.visible === false || e.opacity === 0) { return; }
 
+
+      // TODO: this needs to be recursive!
+
       // CHILDREN
       e.children.forEach(e => {
 
