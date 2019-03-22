@@ -24,7 +24,7 @@ export default function createUI() {
   spriteRender.draw = function(_p3) {
     let e = this.entity;
 
-    _p3.save();
+    _p3.push();
 
     // Border/Container
     _p3.fill('rgba(66, 99, 33, 0.5)');
@@ -36,7 +36,7 @@ export default function createUI() {
     _p3.strokeWeight(1);
     _p3.stroke(0);
     _p3.translate(15, 25);
-    _p3.ctx.font = 'normal 600 25px Courier New';
+    // _p3.ctx.font = 'normal 600 25px Courier New';
     
     let scoreStr = (e.score.points + '').padStart(7, '0');
     let comboStr = `${e.combo.combo}/${e.combo.best}`;
@@ -46,14 +46,14 @@ export default function createUI() {
 
     // Flash combo
     if(e.combo.combo === e.combo.best && e.combo.combo >= 2){
-      let t = p3.millis()/1000;
+      let t = _p3.millis()/1000;
       let s = (Math.sin(t * 15)+1)/2;
       s *= 100;
       _p3.fill(0,s + 100, 0);
     }
     _p3.text('ストリーク:  ' + comboStr, 0, 30);
 
-    _p3.restore();
+    _p3.pop();
   };
   e.addComponent(spriteRender);
 

@@ -35,7 +35,7 @@ export default class BHVRandomSelector extends Component {
 
   getRandomIndex(){
     let n = this.entity.children.length;
-    return Math.floor(p3.random(0, n));
+    return Math.floor(random(0, n));
   }
 
   execute(){

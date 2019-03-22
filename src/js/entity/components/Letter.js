@@ -60,8 +60,8 @@ export default class Letter extends Component {
     renderAway.draw = function(_p3) {
       let e = this.entity;
 
-      _p3.save();
-      _p3.fontSize(50);
+      _p3.push();
+      _p3.textSize(50);
       _p3.noStroke();
       
       _p3.translate(e.pos.x, e.pos.y);
@@ -84,19 +84,21 @@ export default class Letter extends Component {
       g[3] = a;
       _p3.fill(g);
       
-      _p3.ctx.textAlign = "center";
-      _p3.ctx.textBaseline = "middle";
+      _p3.textAlign(CENTER);
+      // _p3.ctx.textAlign = "center";
+      // _p3.ctx.textBaseline = "middle";
 
       // _p3.text(e.letter.letter, 30-(1+e.timer.time), 30);
       _p3.text(e.letter.jpChar, 0, 0);
 
-      _p3.ctx.textAlign = 'left';
+      _p3.textAlign(LEFT);
+      // _p3.ctx.textAlign = 'left';
 
       // _p3.noFill();
       // _p3.stroke(255, 0, 0);
       // _p3.rect(0,0, 80, 80);
 
-      _p3.restore();
+      _p3.pop();
     };
     this.entity.addComponent(renderAway);
   }

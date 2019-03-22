@@ -32,22 +32,24 @@ export default function createRomanjiAnswer() {
       // TODO: get by name?
       let timeElapsed = this.entity.timer.time;
 
-      _p3.save();
-      _p3.fontSize(25);
+      _p3.push();
+      _p3.textSize(25);
       _p3.noStroke();
       _p3.translate(e.pos.x, e.pos.y - timeElapsed*100);
       
-      _p3.ctx.textAlign = "center";
-      _p3.ctx.textBaseline = "middle";
+      _p3.textAlign(CENTER);
+      // _p3.ctx.textAlign = "center";
+      // _p3.ctx.textBaseline = "middle";
       
       let op = (1 - timeElapsed*1) ;
       _p3.fill(`rgba(0, 233, 0, ${op})`);
 
       _p3.text(answerData.romanji, 40, 40);
-      _p3.ctx.textAlign = "left";
-      _p3.ctx.textAlign = "alphabetic";
+      _p3.textAlign(LEFT);
+      // _p3.ctx.textAlign = "left";
+      // _p3.ctx.textAlign = "alphabetic";
 
-      _p3.restore();
+      _p3.pop();
     };
     e.addComponent(spriteRender);
   }

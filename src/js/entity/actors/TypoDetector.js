@@ -26,7 +26,7 @@ export default function createTypoDetector() {
 
 
   let spriteRender = new SpriteRender(e, { layerName: 'sprite' });
-  spriteRender.draw = function(_p3) {
+  spriteRender.draw = function(_p5) {
 
     let e = this.entity;
 
@@ -36,11 +36,12 @@ export default function createTypoDetector() {
 
     let t = 1/e.timer1;
 
-    _p3.save();
-    _p3.noStroke();
-    _p3.fill(`rgba(200,0,0, ${t}`);
-    _p3.rect(0,0,cfg.gameWidth, cfg.gameHeight);
-    _p3.restore();
+    _p5.push();
+    _p5.noStroke();
+    _p5.fill(200, 0, 0, t);
+    _p5.rect(0, 0, cfg.gameWidth, cfg.gameHeight);
+    _p5.pop();
+
     Debug.add(e.timer);
   };
   e.addComponent(spriteRender);
