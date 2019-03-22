@@ -81,29 +81,30 @@ export default class Scene {
 
 
     let rs = EntityFactory.create('randomselector');
-    // this.add(rs);
+    this.add(rs);
     // rs.setIterations(Infinity);
     for(let i = 0; i < 8; i++){
       let slot = EntityFactory.create('slot');
       slot.pos.x = i * 80;
+      slot.pos.y = 20;
       rs.add(slot);
     }
 
-    let ss = EntityFactory.create('sequenceselector');
-    // this.add(ss);
-    for(let i = 0; i < 8; i++){
-      let slot = EntityFactory.create('slot');
-      slot.pos.x = i * 80;
-      ss.add(slot);
-    }
-    ss.init();
+    // let ss = EntityFactory.create('sequenceselector');
+    // // this.add(ss);
+    // for(let i = 0; i < 8; i++){
+    //   let slot = EntityFactory.create('slot');
+    //   slot.pos.x = i * 80;
+    //   ss.add(slot);
+    // }
+    // ss.init();
 
 
-    let bhvRoot = EntityFactory.create('randomselector');
-    bhvRoot.setIterations(Infinity);
-    bhvRoot.add(rs);
-    bhvRoot.add(ss);
-    this.add(bhvRoot);
+    // let bhvRoot = EntityFactory.create('randomselector');
+    // bhvRoot.setIterations(Infinity);
+    // bhvRoot.add(rs);
+    // bhvRoot.add(ss);
+    // this.add(bhvRoot);
   }
 
   remove(e) {

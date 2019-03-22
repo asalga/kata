@@ -29,11 +29,11 @@ export default function createSlot() {
 
   let spriteRender = new SpriteRender(e, { layerName: 'sprite' });
   spriteRender.draw = function(_p3) {
-    _p3.save();
+    _p3.push();
     _p3.stroke(0, 255, 0);
     _p3.noFill();
     _p3.rect(e.pos.x, e.pos.y, size ,size);
-    _p3.restore();
+    _p3.pop();
   };
   e.addComponent(spriteRender);
 

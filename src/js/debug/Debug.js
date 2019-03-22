@@ -32,7 +32,6 @@ export default class Debug {
       return;
     }
 
-    // save();
     push();
     noStroke();
     fill(0,255,0);
@@ -44,7 +43,6 @@ export default class Debug {
       text(s, 10, y);
       y += ySpacing;
     });
-
 
     pop();
   }

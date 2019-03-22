@@ -28,7 +28,7 @@ export default function createLetterSelector() {
       return null;
     }
 
-    let r = Math.floor(p3.random(0, selection.length));
+    let r = Math.floor(random(0, selection.length));
     return selection.charAt(r);
   };
 
