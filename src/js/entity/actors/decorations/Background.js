@@ -50,7 +50,7 @@ export default function createBackground() {
 
   spriteRender.draw = function(gfx) {
     gfx.noStroke();
-    gfx.fill(0, 0, 0, 30);
+    gfx.fill(0, 0, 0, 40);
     gfx.rect(0, 0, cfg.gameWidth, cfg.gameHeight);
 
     gfx.textSize(10);

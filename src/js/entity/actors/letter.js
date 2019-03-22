@@ -36,28 +36,28 @@ export default function createLetter() {
   e.addComponent(new Killable(e, { timeToDeath: 1}));
 
   let spriteRender = new SpriteRender(e, { layerName: 'sprite' });
-  spriteRender.draw = function(_p3) {
-    _p3.push();
+  spriteRender.draw = function(gfx) {
+    gfx.push();
 
-    _p3.textSize(50);
-    _p3.textAlign(CENTER, CENTER);
+    gfx.textSize(50);
+    gfx.textAlign(CENTER, CENTER);
 
-    _p3.noStroke();
+    gfx.noStroke();
 
     if(e.pos.y < 0){
-      _p3.fill(130);
+      gfx.fill(130);
     }
     else if(e.letter.wasMissed){
-      _p3.fill(255, 0, 0);
+      gfx.fill(255, 0, 0);
     }
     else{
-      _p3.fill(50, 255, 20);
+      gfx.fill(50, 255, 20);
     }
 
-    _p3.translate(e.pos.x, e.pos.y);
-    _p3.text(e.letter.jpChar, 40, 40);
+    gfx.translate(e.pos.x, e.pos.y);
+    gfx.text(e.letter.jpChar, 40, 40);
 
-    _p3.pop();
+    gfx.pop();
   };
   e.addComponent(spriteRender);
 

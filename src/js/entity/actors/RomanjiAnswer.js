@@ -28,28 +28,23 @@ export default function createRomanjiAnswer() {
 
   if(cfg.showRomanjiAnswer){
     let spriteRender = new SpriteRender(e, { layerName: 'sprite' });
-    spriteRender.draw = function(_p3) {
+    spriteRender.draw = function(gfx) {
       // TODO: get by name?
       let timeElapsed = this.entity.timer.time;
 
-      _p3.push();
-      _p3.textSize(25);
-      _p3.noStroke();
-      _p3.translate(e.pos.x, e.pos.y - timeElapsed*100);
+      gfx.push();
+      gfx.textSize(25);
+      gfx.noStroke();
+      gfx.translate(e.pos.x, e.pos.y - timeElapsed*30);
       
-      _p3.textAlign(CENTER);
-      // _p3.ctx.textAlign = "center";
-      // _p3.ctx.textBaseline = "middle";
+      gfx.textAlign(CENTER, CENTER);
       
-      let op = (1 - timeElapsed*1) ;
-      _p3.fill(`rgba(0, 233, 0, ${op})`);
+      let a = (1 - timeElapsed);
+      gfx.fill(0, 233, 0, a*255);
 
-      _p3.text(answerData.romanji, 40, 40);
-      _p3.textAlign(LEFT);
-      // _p3.ctx.textAlign = "left";
-      // _p3.ctx.textAlign = "alphabetic";
+      gfx.text(answerData.romanji, 40, 40);
 
-      _p3.pop();
+      gfx.pop();
     };
     e.addComponent(spriteRender);
   }
