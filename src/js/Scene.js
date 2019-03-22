@@ -85,10 +85,9 @@ export default class Scene {
     for(let i = 0; i < 8; i++){
       let slot = EntityFactory.create('slot');
       slot.pos.x = i * 80;
-      slot.pos.y = 20;
+      // slot.pos.y = 20;
       rs.add(slot);
     }
-
 
     let ss = EntityFactory.create('sequenceselector');
     ss.bhvsequenceselector.setIterations(1);

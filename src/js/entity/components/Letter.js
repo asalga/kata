@@ -61,42 +61,27 @@ export default class Letter extends Component {
       let e = this.entity;
 
       _p3.push();
+
       _p3.textSize(50);
       _p3.noStroke();
-      
-      _p3.translate(e.pos.x, e.pos.y);
 
       let t = e.timer.time/.2;
-      let a = 1 - t;
-
+      
+      _p3.translate(e.pos.x, e.pos.y);
       _p3.scale(1+t, 1+t);
 
       let x = -(t*80)/4;
       let test = (1 + t) ** 2;
-
-
       _p3.translate(x+ 40 + test, x + 40 + test);
-
-
       _p3.rotate(100);
 
       let g = cfg.GREEN.slice();
-      g[3] = a;
+      g[3] = 1 - t;
       _p3.fill(g);
-      
-      _p3.textAlign(CENTER);
-      // _p3.ctx.textAlign = "center";
-      // _p3.ctx.textBaseline = "middle";
+      _p3.textAlign(CENTER, CENTER);
 
       // _p3.text(e.letter.letter, 30-(1+e.timer.time), 30);
       _p3.text(e.letter.jpChar, 0, 0);
-
-      _p3.textAlign(LEFT);
-      // _p3.ctx.textAlign = 'left';
-
-      // _p3.noFill();
-      // _p3.stroke(255, 0, 0);
-      // _p3.rect(0,0, 80, 80);
 
       _p3.pop();
     };

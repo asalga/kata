@@ -43,8 +43,6 @@ export default class Renderer {
       layers.push(layer);
       layerMap.set(obj.name, layer);
     });
-
-
   }
 
   static render() {
