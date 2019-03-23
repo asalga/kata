@@ -3,40 +3,64 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  color: white;
 }
 
-/*#loading {
+#p5_loading {
   color: white;
   font-family: "Comic Sans MS", cursive, sans-serif;
   font-size: 3em;
   font-weight: bold;
   text-align: center;
   margin: 0 auto;
-}*/
+}
 
-/*#sketch-container {
-  position: relative;
+div.text {
+  margin: 10px auto;
+  display: block;
+  text-align: center;
+}
+
+a.kblink {
+ /* margin: auto;
+  width: 50%;*/
+  color: green;
+  transition: 0.5s;  
+  font-family: monospace;
+  text-decoration: none;
+}
+
+a.kblink:hover{
+  transition: 0.5s;
+  color: white;
+}
+
+#sketch-container {
+  position: absolute;
   display: block;
   margin: 0 auto;
-}*/
 
-canvas#cvs {
-  border: 2px dashed #00FF00;
-  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-/*
+canvas {
+  border: 2px dashed #00FF00;
+  /*position: absolute;*/
+}
+
+
 #audio-button {
   width: 32px;
   height: 32px;  
   position: absolute;
   right: 10;
   bottom: 10;
-  display:none; we don't show unless we have a background image 
-}*/
+
+  /* we don't show unless we have a background image */
+  display: none; 
+}
 
 /*#debug {
   background-color: transparent;

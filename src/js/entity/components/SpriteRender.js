@@ -2,7 +2,6 @@
 
 import Component from './Component.js';
 import Utils from '../../Utils.js';
-import _P3 from '../../P3.js';
 
 /*
   We provide a layer to which the component renders to
