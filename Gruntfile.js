@@ -242,15 +242,11 @@ module.exports = function(grunt) {
       },
       // AUDIO
       audio: {
-        files: [
-          `data/**/*.{mp3,ogg,wav}`
-        ],
+        files: [`data/**/*.{mp3,ogg,wav}`],
         tasks: [
           'copy:dev'
         ],
-        options: {
-          livereload: true
-        }
+        options: {livereload: true}
       },
       // // IMAGES
       // images: {
@@ -278,15 +274,11 @@ module.exports = function(grunt) {
       // },
       // STYLE
       style: {
-        files: [
-          `src/css/style.css`
-        ],
+        files: [`src/css/style.css`],
         tasks: [
           'copy:dev'
         ],
-        options: {
-          livereload: true
-        }
+        options: {livereload: true}
       },
       // MARKUP
       markup: {
@@ -297,9 +289,7 @@ module.exports = function(grunt) {
           'copy:dev'
           // 'processhtml'
         ],
-        options: {
-          livereload: true
-        }
+        options: {livereload: true}
       }
     }
   });
