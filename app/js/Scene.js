@@ -79,31 +79,49 @@ export default class Scene {
     this.add(EntityFactory.create('typo'));
     this.add(EntityFactory.create('ui'));
 
-
     let rs = EntityFactory.create('randomselector');
     // this.add(rs);
-    // rs.setIterations(Infinity);
+    rs.bhvrandomselector.setIterations(2);
     for(let i = 0; i < 8; i++){
       let slot = EntityFactory.create('slot');
       slot.pos.x = i * 80;
+      // slot.pos.y = 20;
       rs.add(slot);
     }
 
     let ss = EntityFactory.create('sequenceselector');
+    ss.bhvsequenceselector.setIterations(1);
     // this.add(ss);
-    for(let i = 0; i < 8; i++){
+    for(let i = 0; i < 4; i++){
       let slot = EntityFactory.create('slot');
       slot.pos.x = i * 80;
+      // slot.pos.y = 30;
       ss.add(slot);
     }
     ss.init();
 
-
     let bhvRoot = EntityFactory.create('randomselector');
-    bhvRoot.setIterations(Infinity);
+    bhvRoot.bhvrandomselector.setIterations(Infinity);
     bhvRoot.add(rs);
     bhvRoot.add(ss);
     this.add(bhvRoot);
+
+    // let ss = EntityFactory.create('sequenceselector');
+    // // this.add(ss);
+    // for(let i = 0; i < 8; i++){
+    //   let slot = EntityFactory.create('slot');
+    //   slot.pos.x = i * 80;
+    //   ss.add(slot);
+    // }
+    // ss.init();
+
+
+    // let bhvRoot = EntityFactory.create('randomselector');
+    // bhvRoot.setIterations(Infinity);
+    // bhvRoot.add(rs);
+    // bhvRoot.add(ss);
+    // this.add(bhvRoot);
+
   }
 
   remove(e) {

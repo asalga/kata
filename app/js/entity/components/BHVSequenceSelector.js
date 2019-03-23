@@ -7,33 +7,44 @@ export default class BHVSequenceSelector extends Component {
   constructor(e, cfg) {
     super(e, 'bhvsequenceselector');
 
-    this.state = 'none';
-    this.currNode = 0;
-
-    let defaults = {};
-    Utils.applyProps(this, defaults, cfg);
+    this.reset();
+    // this.state = 'none';
+    // this.currNode = 0;
 
     this.tags.push('bhv');
+    let defaults = {
+    };
+    Utils.applyProps(this, defaults, cfg);
   }
 
   init(){
     this.bhvChildCount = this.entity.getChildrenWithComponentTagName('bhv').length;
   }
 
-
-
   reset(){
     this.currNode = 0;
+    this.currIter = 0;
+    this.iterationsUntilDone = 1;
     this.state = 'none';
 
+    this.resetChildren();
+    // TODO: allow removing node after they've been visited?
+    // if(cfg.doNoRepeat){}
+  }
+
+  resetChildren(){
     let arr = this.entity.children;
     arr.forEach( e => {
       let c = e.findComponentByTagName('bhv');
       c.reset();
     });
+  }
+  
+  setIterations(n){
+    this.iterationsUntilDone = n;
+  }
 
-    // TODO: allow removing node after they've been visited?
-    // if(cfg.doNoRepeat){}
+  restart(){
   }
 
   execute(){
@@ -51,7 +62,16 @@ export default class BHVSequenceSelector extends Component {
       this.currNode++;
 
       if(this.currNode === this.bhvChildCount-1){
-        this.state = 'done';  
+
+        // We're at the last child node, but we have more iterations left
+        if(this.currIter + 1 < this.iterationsUntilDone){
+          this.currNode = 0;
+          this.currIter++;
+          this.resetChildren();
+        }
+        else{
+          this.state = 'done';  
+        }
       }
     }
 

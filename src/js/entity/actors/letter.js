@@ -19,7 +19,7 @@ export default function createLetter() {
 
   e.vel.y = 150;
 
-  e.pos.x = Math.floor(p3.random(0,10)) * (cfg.gameWidth/10);
+  e.pos.x = Math.floor(random(0,10)) * (cfg.gameWidth/10);
   e.pos.y = Math.random(-200, -150);
   e.pos.y = -100;
 
@@ -36,34 +36,28 @@ export default function createLetter() {
   e.addComponent(new Killable(e, { timeToDeath: 1}));
 
   let spriteRender = new SpriteRender(e, { layerName: 'sprite' });
-  spriteRender.draw = function(_p3) {
-    _p3.save();
-    _p3.fontSize(50);
-    _p3.noStroke();
-    _p3.translate(e.pos.x, e.pos.y);
-    
-    _p3.ctx.textAlign = "center";
-    _p3.ctx.textBaseline = "middle";
+  spriteRender.draw = function(gfx) {
+    gfx.push();
 
-    _p3.fill(cfg.GREEN);
+    gfx.textSize(50);
+    gfx.textAlign(CENTER, CENTER);
 
-    // TODO: fix
+    gfx.noStroke();
+
     if(e.pos.y < 0){
-      _p3.fill('rgb(130, 130, 130)');
+      gfx.fill(130);
     }
     else if(e.letter.wasMissed){
-      _p3.fill(255, 0, 0);
+      gfx.fill(255, 0, 0);
+    }
+    else{
+      gfx.fill(50, 255, 20);
     }
 
-    _p3.text(e.letter.jpChar, 40, 40);
-    _p3.ctx.textAlign = "left";
-    _p3.ctx.textAlign = "alphabetic";
+    gfx.translate(e.pos.x, e.pos.y);
+    gfx.text(e.letter.jpChar, 40, 40);
 
-    // p3.noFill();
-    // p3.stroke(255, 0, 0);
-    // p3.rect(0, 0, 80, 80);
-
-    _p3.restore();
+    gfx.pop();
   };
   e.addComponent(spriteRender);
 

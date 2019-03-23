@@ -12,7 +12,7 @@ let pos = new Array(COUNT);
 let vel = new Array(COUNT);
 let sz = new Array(COUNT);
 let char = new Float32Array(COUNT);
-let green = 'rgba(33, 166, 22, .4)';
+
 
 export default function createBackground() {
 
@@ -23,8 +23,9 @@ export default function createBackground() {
   };
 
   for (let i = 0; i < COUNT; i++) {
-    pos[i] = [p3.random(0, cfg.gameWidth * 2), p3.random(-cfg.gameHeight * 2, cfg.gameHeight)];
-    vel[i] = -p3.random(50, 200);
+    pos[i] = [random(0, cfg.gameWidth * 2), random(-cfg.gameHeight * 2, cfg.gameHeight)];
+    vel[i] = -random(50, 200);
+
     sz[i] = (2 + (((vel[i] / 400)-0.5)*20.0))/5;
     char[i] = getRandomChar();
   }
@@ -39,24 +40,23 @@ export default function createBackground() {
 
       if (pos[i][1] > cfg.gameHeight) {
 
-        pos[i][0] = p3.random(0, cfg.gameWidth);
-        pos[i][1] = p3.random(-10, -cfg.gameHeight * 2);
+        pos[i][0] = random(0, cfg.gameWidth);
+        pos[i][1] = random(-10, -cfg.gameHeight * 2);
 
         char[i] = getRandomChar();
       }
     }
   };
 
-  spriteRender.draw = function(_p3) {
-    _p3.noStroke();
-    _p3.fill('rgba(0,0,0,0.3)');
-    _p3.rect(0, 0, cfg.gameWidth, cfg.gameHeight);
-    
-    _p3.ctx.font = 'normal 600 10px Courier New';
-    
-    _p3.fill(green);
+  spriteRender.draw = function(gfx) {
+    gfx.noStroke();
+    gfx.fill(0, 0, 0, 40);
+    gfx.rect(0, 0, cfg.gameWidth, cfg.gameHeight);
+
+    gfx.textSize(10);
+    gfx.fill(33, 166, 22, 120);
     for (let i = 0; i < COUNT; i++) {
-      _p3.text(String.fromCharCode(char[i]), pos[i][0], pos[i][1]);
+      gfx.text(String.fromCharCode(char[i]), pos[i][0], pos[i][1]);
     }
   };
 

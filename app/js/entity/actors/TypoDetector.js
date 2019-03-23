@@ -8,7 +8,6 @@ import Debug from '../../debug/Debug.js';
 import Vec2 from '../../math/Vec2.js';
 import cfg from "../../cfg.js";
 
-
 export default function createTypoDetector() {
   
   let e = new Entity({ name: 'typodetector' });
@@ -26,21 +25,19 @@ export default function createTypoDetector() {
 
 
   let spriteRender = new SpriteRender(e, { layerName: 'sprite' });
-  spriteRender.draw = function(_p3) {
-
+  spriteRender.draw = function(gfx) {
     let e = this.entity;
 
-    if(e.isOn === false){
-      return;
-    }
+    if(e.isOn === false) return;
 
     let t = 1/e.timer1;
 
-    _p3.save();
-    _p3.noStroke();
-    _p3.fill(`rgba(200,0,0, ${t}`);
-    _p3.rect(0,0,cfg.gameWidth, cfg.gameHeight);
-    _p3.restore();
+    gfx.push();
+    gfx.noStroke();
+    gfx.fill(200, 0, 0, t * 255);
+    gfx.rect(0, 0, cfg.gameWidth, cfg.gameHeight);
+    gfx.pop();
+
     Debug.add(e.timer);
   };
   e.addComponent(spriteRender);

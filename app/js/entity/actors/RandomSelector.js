@@ -13,10 +13,5 @@ export default function createRandomSelector() {
   e.addComponent(new BHVRandomSelector(e, {}));
 
   e.updateProxy = function(dt) {};
-
-  e.setIterations = function(n){
-  	e.bhvrandomselector.setIterations(n);
-  }
-
   return e;
 }

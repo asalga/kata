@@ -16,48 +16,49 @@ export default function createUI() {
   let w = 300;
   let h = 70;
 
-
   e.addComponent(new Score(e, { pointsPerSecond: 80 }));
   e.addComponent(new Combo(e));
 
   let spriteRender = new SpriteRender(e, { layerName: 'ui' });
-  spriteRender.draw = function(_p3) {
+  spriteRender.draw = function(gfx) {
     let e = this.entity;
 
-    _p3.save();
+    gfx.push();
 
     // Border/Container
-    _p3.fill('rgba(66, 99, 33, 0.5)');
-    _p3.strokeWeight(2);
-    _p3.stroke('rgba(66, 99, 33, 1)');
-    _p3.rect(0, 0, w, h);
+    gfx.fill(66, 99, 33, 128);
+    gfx.strokeWeight(2);
+    gfx.stroke(66, 99, 33);
+    gfx.rect(0, 0, w, h);
 
-    _p3.fill(0,255,0);
-    _p3.strokeWeight(1);
-    _p3.stroke(0);
-    _p3.translate(15, 25);
-    _p3.ctx.font = 'normal 600 25px Courier New';
+    gfx.fill(0,255,0);
+    gfx.strokeWeight(1);
+    gfx.stroke(0);
+    gfx.translate(15, 25);
+
+    gfx.textFont('Courier New');
+    gfx.textSize(25);
     
     let scoreStr = (e.score.points + '').padStart(7, '0');
     let comboStr = `${e.combo.combo}/${e.combo.best}`;
     comboStr = comboStr.padStart(4, ' ');
 
-    _p3.text('スコア:   ' + scoreStr, 0, 0);
+    // gfx.text('スコア:   ' + scoreStr, 0, 0);
+    gfx.text('SCORE:   ' + scoreStr, 0, 0);
 
     // Flash combo
     if(e.combo.combo === e.combo.best && e.combo.combo >= 2){
-      let t = p3.millis()/1000;
+      let t = gfx.millis()/1000;
       let s = (Math.sin(t * 15)+1)/2;
       s *= 100;
-      _p3.fill(0,s + 100, 0);
+      gfx.fill(0, s + 100, 0);
     }
-    _p3.text('ストリーク:  ' + comboStr, 0, 30);
+    // gfx.text('ストリーク:  ' + comboStr, 0, 30);
+    gfx.text('COMBO:  ' + comboStr, 0, 30);
 
-    _p3.restore();
+    gfx.pop();
   };
   e.addComponent(spriteRender);
-
-
 
   return e;
 }

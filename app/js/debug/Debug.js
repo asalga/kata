@@ -32,21 +32,19 @@ export default class Debug {
       return;
     }
 
-    p3.save();
-    p3.noStroke();
-    p3.fill(0,255,255);
-    p3.cvs.textAlign = 'left';
-
+    push();
+    noStroke();
+    fill(0,255,0);
+    
     let y = 20;
     let ySpacing = 18;
 
-    p3.fontSize(20);
-
     strings.forEach(s => {
-      p3.text(s, 10, y);
+      text(s, 10, y);
       y += ySpacing;
     });
-    p3.restore();
+
+    pop();
   }
 
   static postRender() {

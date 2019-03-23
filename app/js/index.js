@@ -1,27 +1,20 @@
 'use strict';
 
-import GameTimer from './core/GameTimer.js';
 import Utils from './Utils.js';
-import P3 from './P3.js';
+import Debug from './debug/Debug.js';
 import Scene from './Scene.js';
 
-import Debug from './debug/Debug.js';
 import Event from './event/Event.js';
 import EventSystem from './event/EventSystem.js';
 
-// Systems
+import GameTimer from './core/GameTimer.js';
+
 import Renderer from './Renderer.js';
 
 import cfg from './cfg.js';
 import Pool from './core/Pool.js';
 
-
-// var sound = new Howl({
-//   src: ['../data/explosion.wav'],
-//   volume: 0.8
-// });
-
-// sound.play();
+window.scene = null;
 
 window.gameTime = 0;
 window.gameFrameCount = 0;
@@ -29,16 +22,13 @@ window.Renderer = Renderer;
 
 window.debug = false;
 window.Debug = Debug;
-window.scene = null;
 
 window.vec2Ctor = 0;
 window.clearArrayCalls = 0;
 
 window.Events = new EventSystem();
 window.ignoreDirty = false;
-window.p3 = null;
 
-let p3;
 let timer;
 let perfTimer = new Date();
 
@@ -50,17 +40,60 @@ document.addEventListener('mousedown', e => new Event({ evtName: 'GAME_MOUSE_DOW
 document.addEventListener('mouseup', e => new Event({ evtName: 'GAME_MOUSE_UP', data: e }).fire());
 document.addEventListener('contextmenu', e => e.preventDefault());
 
+
+window.setup = function(){
+  createCanvas(cfg.gameWidth, cfg.gameHeight);
+
+  Renderer.init();
+
+  Pool.init();
+  scene = new Scene();
+
+  Debug.init({toggleKey: 'Escape'});
+  Debug.setOn(window.debug);
+  scene.restartGame();
+
+  // timer = new GameTimer();
+  // timer.update = function(dt) {
+  //   update(dt);
+  //   preRender();
+  //   render();
+  //   postRender();
+  // };
+  // timer.start();
+}
+
+
+window.draw = function(){
+
+	update(0.016);
+
+	preRender();
+	render();
+	postRender();
+
+	Debug.draw();
+};
+
+
+var sound = new Howl({
+  src: ['../data/explosion.wav'],
+  volume: 0.8
+});
+
+sound.play();
+
 function update(dt) {
   Debug.add(`Game time: ${Math.floor(window.gameTime)}`);
   Debug.add(`Root Entity count: ${scene.entities.size}`);
 
-  let totalVec2Calls = window.vec2Ctor.toLocaleString();
-  Debug.add(`Total Vec2 ctor calls: ${totalVec2Calls}`);
-  // Debug.add('Bullets: ' + window.count);
+  // let totalVec2Calls = window.vec2Ctor.toLocaleString();
+  // Debug.add(`Total Vec2 ctor calls: ${totalVec2Calls}`);
+  // // Debug.add('Bullets: ' + window.count);
 
   scene.update(dt);
 
-  Events.printDebug();
+  // Events.printDebug();
   window.gameTime += dt;
 }
 
@@ -76,17 +109,17 @@ function render() {
 
 function postRender() {
   let timeDiff = new Date().getTime() - perfTimer;
-  // avgDelta += timeDiff;
-  // avgFrames++;
-  // if (avgFrames > 100) {
-  //   avgCalc = avgDelta / avgFrames;
-  //   avgFrames = 0;
-  //   avgDelta = 0;
-  // }
+  avgDelta += timeDiff;
+  avgFrames++;
+  if (avgFrames > 100) {
+    avgCalc = avgDelta / avgFrames;
+    avgFrames = 0;
+    avgDelta = 0;
+  }
 
   Debug.add('render ms: ' + timeDiff);
-  // Debug.add('avg render ms: ' + avgCalc);
-  // Debug.add('clear array calls: ' + window.clearArrayCalls);
+  Debug.add('avg render ms: ' + avgCalc);
+  Debug.add('clear array calls: ' + window.clearArrayCalls);
   // Debug.add('pool available: ' + Pool.count());
 
   Renderer.postRender();
@@ -99,29 +132,48 @@ function postRender() {
   Debug.postRender();
 }
 
-function setup() {
-  let cvs = Utils.getEl('cvs');
-  let ctx = cvs.getContext('2d', { alpha: false });
-  p3 = new P3(cvs, ctx);
-  window.p3 = p3;
+// function setup() {
+//   let cvs = Utils.getEl('cvs');
+//   let ctx = cvs.getContext('2d', { alpha: false });
+//   p3 = new P3(cvs, ctx);
+//   window.p3 = p3;
 
-  Pool.init();
+//   Pool.init();
 
-  scene = new Scene();
+//   scene = new Scene();
 
-  Debug.init({toggleKey: 'Escape'});
-  Debug.setOn(window.debug);
+//   Debug.init({toggleKey: 'Escape'});
+//   Debug.setOn(window.debug);
 
-  scene.restartGame();
+//   scene.restartGame();
 
-  timer = new GameTimer();
-  timer.update = function(dt) {
-    update(dt);
-    preRender();
-    render();
-    postRender();
-  };
-  timer.start();
-}
+//   timer = new GameTimer();
+//   timer.update = function(dt) {
+//     update(dt);
+//     preRender();
+//     render();
+//     postRender();
+//   };
+//   timer.start();
+// }
+// setup();
 
-setup();
+// function setup() {
+//   let cvs = Utils.getEl('cvs');
+//   let ctx = cvs.getContext('2d', { alpha: false });
+//   p3 = new P3(cvs, ctx);
+//   window.p3 = p3;
+//-   Pool.init();
+//-   scene = new Scene();
+//-   Debug.init({toggleKey: 'Escape'});
+//-   Debug.setOn(window.debug);
+//   scene.restartGame();
+//   timer = new GameTimer();
+//   timer.update = function(dt) {
+//     update(dt);
+//     preRender();
+//     render();
+//     postRender();
+//   };
+//   timer.start();
+// }

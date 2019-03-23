@@ -72,7 +72,8 @@ export default class Entity {
     // this.children.forEach(c => c.draw());
 
     // TODO: fix
-    // this.components.forEach(c => {c.draw && c.draw();});
+    if(this.name === 'bhvrandomselector') debugger;
+    this.components.forEach(c => {c.draw && c.draw();});
     p3.restore();
   }
 

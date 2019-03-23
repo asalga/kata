@@ -8,10 +8,10 @@ function createLayer() {
   let cvs = document.createElement('canvas');
   [cvs.width, cvs.height] = [cfg.gameWidth, cfg.gameHeight];
 
-  let p3 = new P3(cvs, cvs.getContext('2d', { alpha: true }));
-  // p3.imageMode('center');
-  // p3.clearColor(25, 80, 10);
-  return p3;
+  // let p3 = new P3(cvs, cvs.getContext('2d', { alpha: true }));
+  // return p3;
+  let p = createGraphics(cvs.width, cvs.height);
+  return p;
 }
 
 // Change the order of these tags to change rendering order
@@ -28,30 +28,35 @@ let layerConfig = [
 let layerMap = new Map();
 let layers = [];
 
-layerConfig.forEach(obj => {
-  let layer = {
-    'name': obj.name,
-    'p3': createLayer(),
-    'cfg': obj.cfg,
-    'renderables': new PriorityQueue()
-  };
-
-  layers.push(layer);
-  layerMap.set(obj.name, layer);
-});
-
 
 export default class Renderer {
+
+  static init(){
+    layerConfig.forEach(obj => {
+      let layer = {
+        'name': obj.name,
+        'p3': createLayer(),
+        'cfg': obj.cfg,
+        'renderables': new PriorityQueue()
+      };
+
+      layers.push(layer);
+      layerMap.set(obj.name, layer);
+    });
+  }
 
   static render() {
 
     // TODO: remove?
-    p3.clear();
+    // p3.clear();
 
     // Place entities in their respective layers
     scene.entities.forEach(e => {
 
       if (e.visible === false || e.opacity === 0) { return; }
+
+
+      // TODO: this needs to be recursive!
 
       // CHILDREN
       e.children.forEach(e => {
@@ -86,7 +91,10 @@ export default class Renderer {
     layers.forEach(_layer => {
       let _p3 = _layer.p3;
 
-      if (_layer.cfg.clearFrame) { _p3.clearAll(); }
+      if (_layer.cfg.clearFrame) {
+         //   //  //_p3.clearAll(); ???
+         _p3.clear();
+      }
 
       let q = _layer.renderables;
       while (q.isEmpty() === false) {
@@ -98,7 +106,8 @@ export default class Renderer {
     // Draw all the layers onto the main canvas
     layers.forEach(layer => {
       // console.log(layer.name);
-      p3.drawImage(layer.p3.cvs, 0, 0)
+      // drawImage(layer.p3.cvs, 0, 0)
+      image(layer.p3, 0, 0)
     });
   }
 
