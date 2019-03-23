@@ -1,7 +1,6 @@
 'use strict';
 
 import PriorityQueue from './core/PriorityQueue.js';
-import P3 from './P3.js';
 import cfg from './cfg.js';
 
 function createLayer() {

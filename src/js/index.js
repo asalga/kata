@@ -40,7 +40,7 @@ let avgCalc = 0;
 
 document.addEventListener('mousedown', e => new Event({ evtName: 'GAME_MOUSE_DOWN', data: e }).fire());
 document.addEventListener('mouseup', e => new Event({ evtName: 'GAME_MOUSE_UP', data: e }).fire());
-document.addEventListener('contextmenu', e => e.preventDefault());
+// document.addEventListener('contextmenu', e => e.preventDefault());
 
 let assets;
 window.preload = function(){
@@ -68,6 +68,11 @@ window.setup = function(){
   //   postRender();
   // };
   // timer.start();
+
+
+  let container = document.getElementById('sketch-container');
+  let cvs = document.getElementById('defaultCanvas0');
+  container.prepend(cvs);
 };
 
 window.draw = function(){
