@@ -6,8 +6,6 @@ import SpriteRender from '../components/SpriteRender.js';
 import RemoveSelf from '../components/RemoveSelf.js';
 import Timer from '../components/Timer.js';
 
-// import Killable from '../components/Killable.js';
-
 import Debug from '../../debug/Debug.js';
 import Vec2 from '../../math/Vec2.js';
 import cfg from "../../cfg.js";
