@@ -9,11 +9,11 @@ import RemoveSelf from './RemoveSelf.js';
 import EntityFactory from '../../entity/EntityFactory.js';
 import Event from '../../event/Event.js';
 
-var sound = new Howl({
-  // src: ['../../../data/explosion.wav'],
-  src: ['../../../data/coin2.wav'],
-  volume: 0.8
-});
+// var sound = new Howl({
+//   // src: ['../../../data/explosion.wav'],
+//   src: ['../../../data/coin2.wav'],
+//   volume: 0.8
+// });
 
 
 export default class Letter extends Component {
@@ -37,7 +37,7 @@ export default class Letter extends Component {
       return;
     }
 
-    sound.play();
+    // sound.play();
 
     this.hittable = false;
     this.wasHit = true;

@@ -3,6 +3,7 @@
 import Utils from './Utils.js';
 import Debug from './debug/Debug.js';
 import Scene from './Scene.js';
+import Assets from './Assets.js';
 
 import Event from './event/Event.js';
 import EventSystem from './event/EventSystem.js';
@@ -19,6 +20,7 @@ window.scene = null;
 window.gameTime = 0;
 window.gameFrameCount = 0;
 window.Renderer = Renderer;
+
 
 window.debug = false;
 window.Debug = Debug;
@@ -40,6 +42,11 @@ document.addEventListener('mousedown', e => new Event({ evtName: 'GAME_MOUSE_DOW
 document.addEventListener('mouseup', e => new Event({ evtName: 'GAME_MOUSE_UP', data: e }).fire());
 document.addEventListener('contextmenu', e => e.preventDefault());
 
+let assets;
+window.preload = function(){
+  assets = new Assets();
+  assets.preload();
+};
 
 window.setup = function(){
   createCanvas(cfg.gameWidth, cfg.gameHeight);
@@ -61,10 +68,13 @@ window.setup = function(){
   //   postRender();
   // };
   // timer.start();
-}
-
+};
 
 window.draw = function(){
+
+  if(!assets.isDone()){
+    return;
+  }
 
 	update(0.016);
 
@@ -76,12 +86,11 @@ window.draw = function(){
 };
 
 
-var sound = new Howl({
-  src: ['../data/explosion.wav'],
-  volume: 0.8
-});
-
-sound.play();
+// var sound = new Howl({
+//   src: ['../data/explosion.wav'],
+//   volume: 0.8
+// });
+// sound.play();
 
 function update(dt) {
   Debug.add(`Game time: ${Math.floor(window.gameTime)}`);

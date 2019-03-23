@@ -113,15 +113,6 @@ module.exports = function(grunt) {
             dest: `${app}/`,
             filter: 'isFile'
           },
-          // // DATA
-          // {
-          //   expand: true,
-          //   cwd: `${config.target}/data`,
-          //   src: '**/*.json',
-          //   dest: `${app}/data/`,
-          //   filter: 'isFile'
-          // },
-
           // JS
           {
             expand: true,
@@ -131,7 +122,6 @@ module.exports = function(grunt) {
             dest: `${app}/js/`,
             filter: 'isFile'
           },
-
           // JS LIBS
           {
             expand: true,
@@ -140,36 +130,39 @@ module.exports = function(grunt) {
             dest: `${app}/libs`,
             filter: 'isFile'
           },
-
+          // JSON
+          {
+            expand: true,
+            cwd: `data/json`,
+            src: ['**/*.json'],
+            dest: `${app}/data/json`,
+            filter: 'isFile'
+          },
           // AUDIO
           {
             expand: true,
-            cwd: `data/`,
+            cwd: `data/audio`,
             src: ['**/*.{mp3,ogg,wav}'],
-            dest: `${app}/data`,
+            dest: `${app}/data/audio`,
             filter: 'isFile'
           },
-
-          // // IMAGES
-          // {
-          //   expand: true,
-          //   flatten: false,
-          //   cwd: `${config.target}/data/`,
-          //   src: ['**/*.{jpg,jpeg,png,gif,svg}'],
-          //   dest: `${app}/data/`,
-          //   filter: 'isFile'
-          // },
-          
-          // // SHADERS
-          // {
-          //   expand: true,
-          //   flatten: false,
-          //   cwd: `${config.target}/data/`,
-          //   src: ['**/*.glsl'],
-          //   dest: `${app}/data/`,
-          //   filter: 'isFile'
-          // }
-
+          // IMAGES
+          {
+            expand: true,
+            cwd: `data/img`,
+            src: ['**/*.{jpg,jpeg,png,gif,svg}'],
+            dest: `${app}/data/img`,
+            filter: 'isFile'
+          },
+          // SHADERS
+          {
+            expand: true,
+            flatten: false,
+            cwd: `${src}/shaders/`,
+            src: ['**/*.glsl'],
+            dest: `${app}/shaders`,
+            filter: 'isFile'
+          }
         ]
       }
     },
@@ -249,15 +242,11 @@ module.exports = function(grunt) {
       },
       // AUDIO
       audio: {
-        files: [
-          `data/**/*.{mp3,ogg,wav}`
-        ],
+        files: [`data/**/*.{mp3,ogg,wav}`],
         tasks: [
           'copy:dev'
         ],
-        options: {
-          livereload: true
-        }
+        options: {livereload: true}
       },
       // // IMAGES
       // images: {
@@ -285,15 +274,11 @@ module.exports = function(grunt) {
       // },
       // STYLE
       style: {
-        files: [
-          `src/css/style.css`
-        ],
+        files: [`src/css/style.css`],
         tasks: [
           'copy:dev'
         ],
-        options: {
-          livereload: true
-        }
+        options: {livereload: true}
       },
       // MARKUP
       markup: {
@@ -304,9 +289,7 @@ module.exports = function(grunt) {
           'copy:dev'
           // 'processhtml'
         ],
-        options: {
-          livereload: true
-        }
+        options: {livereload: true}
       }
     }
   });
