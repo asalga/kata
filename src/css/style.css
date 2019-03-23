@@ -7,12 +7,15 @@ body {
 }
 
 #p5_loading {
+  /*border: 2px dashed #00FF00;*/
   color: white;
   font-family: "Comic Sans MS", cursive, sans-serif;
   font-size: 3em;
   font-weight: bold;
   text-align: center;
   margin: 0 auto;
+  width: 640px;
+  /*height: 640px;*/
 }
 
 div.text {
@@ -22,8 +25,6 @@ div.text {
 }
 
 a.kblink {
- /* margin: auto;
-  width: 50%;*/
   color: green;
   transition: 0.5s;  
   font-family: monospace;
