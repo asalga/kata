@@ -21,6 +21,7 @@ window.gameTime = 0;
 window.gameFrameCount = 0;
 window.Renderer = Renderer;
 
+
 window.debug = false;
 window.Debug = Debug;
 
