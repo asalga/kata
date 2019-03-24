@@ -13,4 +13,5 @@
   - add boxey tunnel shader
   - update background numchars
   - add spritesheet support
-  - materialize chars at top.
+  - materialize chars at top
+  
