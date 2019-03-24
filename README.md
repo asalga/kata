@@ -10,3 +10,7 @@
   - create audioEventListener
   - Add BHV MultiSelectorNode
   - Add pause option
+  - add boxey tunnel shader
+  - update background numchars
+  - add spritesheet support
+  - materialize chars at top.
