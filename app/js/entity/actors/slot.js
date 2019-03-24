@@ -3,14 +3,13 @@
 import Entity from '../Entity.js';
 import EntityFactory from '../EntityFactory.js';
 import SpriteRender from '../components/SpriteRender.js';
-// import Letter from '../components/Letter.js';
+import BHVLeaf from '../components/BHVLeaf.js';
 
 import Debug from '../../debug/Debug.js';
 import Vec2 from '../../math/Vec2.js';
 import cfg from "../../cfg.js";
-// import timer from "../../Timer.js";
 
-let size = 160;
+let size = 80;
 
 export default function createSlot() {
 
@@ -21,33 +20,40 @@ export default function createSlot() {
 
   e.timer = 0;
 
-  // let letter = new Letter(e, {letter: char});
-  // e.addComponent(letter);
+  let launchChar = function(){
+    let glyph = EntityFactory.create('glyph');
+    glyph.pos.set(e.pos);
+    scene.add(glyph);
+  };
+  e.addComponent(new BHVLeaf(e, {exe: launchChar}))
 
   let spriteRender = new SpriteRender(e, { layerName: 'sprite' });
-  spriteRender.draw = function() {
-    p3.save();
-    p3.stroke(0, 255, 0);
-    p3.noFill();
-    p3.rect(e.pos.x, e.pos.y, size ,size);
-    p3.restore();
+  spriteRender.draw = function(gfx) {
+    gfx.push();
+    gfx.stroke(0, 255, 0);
+    gfx.noFill();
+    gfx.rect(e.pos.x, e.pos.y, size ,size);
+    gfx.pop();
   };
   e.addComponent(spriteRender);
 
+  
+
   e.updateProxy = function(dt) {
-    this.timer += dt;
 
-    if(this.timer > 2){
-      this.timer = 0;
+    // this.timer += dt;
+
+    // if(this.timer > 2){
+    //   this.timer = 0;
       
-      let r = Math.floor(p3.random(0,3));
+    //   let r = Math.floor(p3.random(0,3));
 
-      if(r < 1){
-        let glyph = EntityFactory.create('glyph');
-        glyph.pos.set(e.pos);
-        scene.add(glyph);
-      }
-     }
+    //   if(r < 1){
+    //     let glyph = EntityFactory.create('glyph');
+    //     glyph.pos.set(e.pos);
+    //     scene.add(glyph);
+    //   }
+    // }
   };
 
   return e;

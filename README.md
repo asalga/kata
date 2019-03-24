@@ -7,6 +7,11 @@
   - fix resetting BHV nodes
   - Add audio manager
   - Add option for romanji pronounciation
-  - Fix Test.js file
-  - Make Letter Selector use KanaMap
-  - move char.js into data
+  - create audioEventListener
+  - Add BHV MultiSelectorNode
+  - Add pause option
+  - add boxey tunnel shader
+  - update background numchars
+  - add spritesheet support
+  - materialize chars at top
+  

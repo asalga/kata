@@ -111,5 +111,47 @@
     ],
     "points":200,
     "difficulty":5
+  },
+
+
+  {
+    "jpChar":"た",
+    "enChar":"q",
+    "romanji":"ta",
+    "diacritic":"none",
+    "vert-side":"left",
+    "row":1,
+    "points":200,
+    "difficulty": 5
+  },
+  {
+    "jpChar":"て",
+    "enChar":"w",
+    "romanji":"te",
+    "diacritic":"none",
+    "vert-side":"left",
+    "row":1,
+    "points":200,
+    "difficulty": 5
+  },
+  {
+    "jpChar":"い",
+    "enChar":"e",
+    "romanji":"ii",
+    "diacritic":"none",
+    "vert-side":"left",
+    "row":1,
+    "points":200,
+    "difficulty": 5
+  },
+  {
+    "jpChar":"す",
+    "enChar":"r",
+    "romanji":"su",
+    "diacritic":"none",
+    "vert-side":"left",
+    "row":1,
+    "points":200,
+    "difficulty": 5
   }
 ]

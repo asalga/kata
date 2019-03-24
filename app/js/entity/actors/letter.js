@@ -7,8 +7,6 @@ import Letter from '../components/Letter.js';
 import ScorePoints from '../components/ScorePoints.js';
 import Killable from '../components/Killable.js';
 
-// import chars from '../../chars.js';
-
 import Debug from '../../debug/Debug.js';
 import Vec2 from '../../math/Vec2.js';
 import cfg from "../../cfg.js";
@@ -28,6 +26,7 @@ export default function createLetter() {
 
   let ls = EntityFactory.create('letterselector');
   ls.addSelection({'row': 2});
+  ls.addSelection({'row': 1});
   let kana = ls.getChar();
   let charData = ls.getKanaData(kana);
 
