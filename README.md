@@ -7,5 +7,6 @@
   - fix resetting BHV nodes
   - Add audio manager
   - Add option for romanji pronounciation
-  - Fix Test.js file
   - create audioEventListener
+  - Add BHV MultiSelectorNode
+  - Add pause option
