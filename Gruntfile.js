@@ -1,7 +1,5 @@
 'use strict';
 
-/*
- */
 module.exports = function(grunt) {
 
   const LivereloadPort = 35729;
@@ -19,13 +17,6 @@ module.exports = function(grunt) {
   const tmp = '.tmp';
   const app = 'app';
   const lib = 'src/libs';
-
-  // load by default if we can't find the target
-  // let config = {
-  //   target: `${basePath}/examples/p5-require`,
-  //   library: 'p5js-0.6',
-  //   bundleMethod: 'concat'
-  // };
 
   // /*
   //  */
@@ -116,7 +107,6 @@ module.exports = function(grunt) {
           // JS
           {
             expand: true,
-            // cwd: `${config.target}/data`,
             cwd: `${src}/js/`,
             src: '**/*.js',
             dest: `${app}/js/`,
@@ -261,17 +251,15 @@ module.exports = function(grunt) {
       //   }
       // },
       // DATA
-      // data: {
-      //   files: [
-      //     `${config.target}/data/**/*.{json,glsl}`
-      //   ],
-      //   tasks: [
-      //     'copy:dev'
-      //   ],
-      //   options: {
-      //     livereload: true
-      //   }
-      // },
+      data: {
+        files: ['data/**/*.*'],
+        tasks: [
+          'copy:dev'
+        ],
+        options: {
+          livereload: true
+        }
+      },      
       // STYLE
       style: {
         files: [`src/css/style.css`],
