@@ -42,14 +42,7 @@ document.addEventListener('mousedown', e => new Event({ evtName: 'GAME_MOUSE_DOW
 document.addEventListener('mouseup', e => new Event({ evtName: 'GAME_MOUSE_UP', data: e }).fire());
 // document.addEventListener('contextmenu', e => e.preventDefault());
 
-let assets;
-window.preload = function(){
-  assets = new Assets();
-  assets.preload();
-};
-
-window.setup = function(){
-  createCanvas(cfg.gameWidth, cfg.gameHeight);
+let test = function(){
 
   Renderer.init();
 
@@ -68,11 +61,19 @@ window.setup = function(){
   //   postRender();
   // };
   // timer.start();
-
-
   let container = document.getElementById('sketch-container');
   let cvs = document.getElementById('defaultCanvas0');
   container.prepend(cvs);
+};
+
+let assets;
+window.preload = function(){
+  assets = new Assets();
+  assets.preload(test);
+};
+
+window.setup = function(){
+  createCanvas(cfg.gameWidth, cfg.gameHeight);
 };
 
 window.draw = function(){
@@ -89,13 +90,6 @@ window.draw = function(){
 
 	Debug.draw();
 };
-
-
-// var sound = new Howl({
-//   src: ['../data/explosion.wav'],
-//   volume: 0.8
-// });
-// sound.play();
 
 function update(dt) {
   Debug.add(`Game time: ${Math.floor(window.gameTime)}`);

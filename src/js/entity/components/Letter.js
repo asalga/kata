@@ -87,7 +87,7 @@ export default class Letter extends Component {
     this.hittable = false;
 
     //new Event({ evtName: 'decreasescoreimmediate', data:d }).fire();
-    new Event({ evtName: 'missed', data: {e:this.entity} }).fire();
+    new Event({ evtName: 'missed', data: {e:this.entity, onlyOnce: true} }).fire();
     this.entity.addComponent(new RemoveSelf(this.entity, {timer: 1}));
   }
 

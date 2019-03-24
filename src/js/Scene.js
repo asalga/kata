@@ -75,6 +75,8 @@ export default class Scene {
 
     let kblistener = EntityFactory.create('keyboardlistener');
 
+    this.add(EntityFactory.create('audioeventlistener'));
+
     this.add(EntityFactory.create('background'));
     this.add(EntityFactory.create('typo'));
     this.add(EntityFactory.create('ui'));

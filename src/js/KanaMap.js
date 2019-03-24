@@ -7,7 +7,7 @@ let firstTime = true;
 
 function loadData(){
 	let assets = new Assets();
-	let chars = assets.get('chars');
+	let chars = assets.get('json','chars');
 
 	chars.forEach( g => {
 	  charMap.set(g.jpChar, g);

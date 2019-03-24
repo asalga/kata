@@ -7,6 +7,8 @@ import slot from './actors/CharSlot.js';
 import ui from './actors/Ui.js';
 import typo from './actors/TypoDetector.js';
 import empty from './actors/Empty.js';
+import audio from './actors/AudioEventListener.js';
+
 
 // BHV
 import sequenceselector from './actors/SequenceSelector.js';
@@ -23,6 +25,7 @@ let createFuncs = new Map([
 	['ui', ui],
 	['typo', typo],
 	['empty', empty],
+	['audioeventlistener', audio],
 
 	['sequenceselector', sequenceselector],
 	['randomselector', randomselector],

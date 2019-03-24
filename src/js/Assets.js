@@ -15,18 +15,27 @@ export default function Assets(p) {
   }
 
   instance = this;
-  // this.p5 = this.p5 || p;
+  this.cbCalled = false;
+  this.cb = function(){};
 
-  this.images = {};
-  this.atlases = {};
-  this.audio = {};
-  this.json = {};
+  // this.images = {};
+  // this.atlases = {};
+  // this.audio = {};
+  // this.json = {};
+
+  this.assetTypes = {
+    'image': {},
+    'atlas': {},
+    'audio': {},
+    'json': {}
+  };
 
   this.numAssetsLoaded = 0;
 
   /*
    */
-  this.preload = function() {
+  this.preload = function(cb) {
+    this.cb = cb;
 
     if (this.isDone()) {
       return;
@@ -51,7 +60,6 @@ export default function Assets(p) {
             });
 
             that.atlases[v.name] = atlas;
-
             that.numAssetsLoaded++;
           };
           xhr.open('GET', v.meta);
@@ -62,8 +70,8 @@ export default function Assets(p) {
 
     // ** AUDIO
     Manifest.audio.forEach((v) => {
-      // 
-      that.audio[v.path] = new Howl({
+
+      let h = new Howl({
         src: v.path,
         volume: 1,
         loop: false,
@@ -72,6 +80,9 @@ export default function Assets(p) {
           that.numAssetsLoaded++;
         }
       });
+
+      // that.audio[v.path] = h;
+      that.assetTypes['audio'][v.name] = h;
     });
 
     // ** JSON
@@ -89,16 +100,18 @@ export default function Assets(p) {
         })
         .then(function(data){
           that.numAssetsLoaded++;
-          that.json[data.n] = data.json
+          that.assetTypes['json'][data.n] = data.json;
+          // that.json[data.n] = data.json
         });
     })
 
     // ** IMAGES **
     if(Manifest.images){
       Manifest.images.forEach(v => {
-        loadImage(v, p5img => {
-          that.images[v] = p5img;
+        loadImage(v.path, p5img => {
+          // that.images[v] = p5img;
           that.numAssetsLoaded++;
+          that.assetTypes['image'][v.name] = p5img;
         });
       });
     }
@@ -116,30 +129,41 @@ export default function Assets(p) {
 
     let totalAssets = numImages + numAtlases + numAudio + numDatas;
 
+    if(this.numAssetsLoaded === totalAssets && this.cbCalled === false){
+      this.cbCalled = true;
+      this.cb();
+    }
+
     return this.numAssetsLoaded === totalAssets;
   };
 
   /*
     Should find a better way of deciding which object to peek in.
    */
-  this.get = function(key) {
+  this.get = function(...args) {
 
-    // We tried to get an asset that wasn't downloaded yet.
-    if (!this.images[key] && !this.atlases[key] && !this.audio[key] && !this.json[key]) {
-      throw Error(`${key} needs to be preloaded before it can be used.`);
+    if(args.length === 2){
+      let type = args[0];
+      let k = args[1];
+      return this.assetTypes[type][k];
     }
 
-    if(this.json[key]){
-      return this.json[key]
-    }
+    // // We tried to get an asset that wasn't downloaded yet.
+    // if (!this.images[key] && !this.atlases[key] && !this.audio[key] && !this.json[key]) {
+    //   throw Error(`${key} needs to be preloaded before it can be used.`);
+    // }
 
-    if (this.images[key]) {
-      return this.images[key];
-    }
+    // if(this.json[key]){
+    //   return this.json[key]
+    // }
 
-    if (this.audio[key]) {
-      return this.audio[key];
-    }
+    // if (this.images[key]) {
+    //   return this.images[key];
+    // }
+
+    // if (this.audio[key]) {
+    //   return this.audio[key];
+    // }
   };
 
 };

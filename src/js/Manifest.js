@@ -2,18 +2,29 @@
 
 export default {
   images: [
-    'data/img/i.jpg'
+    {
+      name: 'img',
+      path: 'data/img/i.jpg'
+    }
   ],
 
-  json: [{
-    name: 'chars',
-  	path: 'data/json/chars.json'
-  }],
+  json: [
+    {
+      name: 'chars',
+    	path: 'data/json/chars.json'
+    }
+  ],
 
   // atlases: [{}],
 
-  audio: [{
+  audio: [
+    {
+      name: 'coin',
       path: 'data/audio/coin.wav'
+    },
+    {
+      name: 'missed',
+      path: 'data/audio/missed2.wav'
     }
   ]
 };
