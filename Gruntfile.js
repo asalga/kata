@@ -86,6 +86,19 @@ module.exports = function(grunt) {
      *
      */
     copy: {
+
+      font_to_img: {
+        files: [
+          // MARKUP
+          {
+            expand: true,
+            cwd: `tools`,
+            src: '**/*.*',
+            dest: `${app}/`,
+            filter: 'isFile'
+          }]
+      },
+
       dev: {
         files: [
           // MARKUP
@@ -217,6 +230,20 @@ module.exports = function(grunt) {
         spawn: true,
         livereload: true
       },
+
+
+      font_to_img: {
+        files: [
+          'tools/**/*'
+        ],
+        tasks: [
+          'copy:font_to_img'
+        ],
+        options: {
+          livereload: true
+        }
+      },
+
       scripts_dev: {
         files: [
           `${src}/js/**/*.js`
@@ -308,6 +335,11 @@ module.exports = function(grunt) {
     'watch'
   ]);
 
+  grunt.registerTask('font_to_img', [
+    'copy:font_to_img',
+    'connect:livereload',
+    'watch'
+  ])
 
   grunt.registerTask('prod', [
     'copy:dev',
