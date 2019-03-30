@@ -13,7 +13,11 @@ export default function createAudioEventListener() {
   let assets = new Assets();
   let hurt = assets.get('audio', 'missed');
 
-  e.on('missed', (evt) => hurt.play() );
+  e.on('missed', (evt) => {
+  	// hurt.play();
+  	console.log('missed');
+
+  });
 
   return e;
 }

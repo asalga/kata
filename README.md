@@ -1,6 +1,7 @@
 # KATA
 
 ##### TODO
+  - Fix playing sound on miss 
   - move engine to submodule
   - show typo'ed char
   - make rendering recursive
@@ -14,4 +15,3 @@
   - update background numchars
   - add spritesheet support
   - materialize chars at top
-  - add build number to build process

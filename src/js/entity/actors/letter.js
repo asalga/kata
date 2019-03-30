@@ -15,7 +15,7 @@ export default function createLetter() {
   
   let e = new Entity({ name: 'letter' });
 
-  e.vel.y = 150;
+  e.vel.y = 100;
 
   e.pos.x = Math.floor(random(0,10)) * (cfg.gameWidth/10);
   e.pos.y = Math.random(-200, -150);
