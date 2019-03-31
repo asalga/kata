@@ -12,8 +12,6 @@ import Event from '../../event/Event.js';
 import SpriteParticleFactory from '../../effects/SpriteParticleFactory.js';
 import Explode from '../../effects/ExplodeBehaviour.js';
 
-let testing = null;
-
 export default class Letter extends Component {
   constructor(e, cfg) {
     super(e, 'letter');
@@ -50,12 +48,13 @@ export default class Letter extends Component {
     let fadeTimer = new Timer(this.entity, { countdown: 2 });
     this.entity.addComponent(fadeTimer);
 
-    testing = SpriteParticleFactory.createSprite({
+    this.testing = SpriteParticleFactory.createSprite({
       name: 'chi',
       rot: false,
       trails: false
     });
-    testing.mutator = new Explode({sprite:testing, timer: .1});
+    this.testing.mutator = new Explode({sprite:this.testing, timer: 0});
+    let that = this;
 
     // Replace the sprite renderer
     this.entity.removeComponentByName('spriterender');
@@ -64,7 +63,11 @@ export default class Letter extends Component {
       let e = this.entity;
 
       gfx.push();
-      testing.render(gfx);
+      gfx.translate(e.pos.x, e.pos.y);
+
+      if(that.testing){
+        that.testing.render(gfx);
+      }
       // gfx.textSize(50);
       // gfx.noStroke();
       // let t = e.timer.time/.2;
@@ -80,7 +83,6 @@ export default class Letter extends Component {
       // gfx.textAlign(CENTER, CENTER);
       // // gfx.text(e.letter.letter, 30-(1+e.timer.time), 30);
       // gfx.text(e.letter.jpChar, 0, 0);
-
       gfx.pop();
     };
     this.entity.addComponent(renderAway);
@@ -98,8 +100,8 @@ export default class Letter extends Component {
   }
 
   update(dt) {
-    if(testing){
-      testing.update(dt)
+    if(this.testing){
+      this.testing.update(dt)
     };
 
     if(this.hasBeenAdded === false && this.entity.pos.y > 0){

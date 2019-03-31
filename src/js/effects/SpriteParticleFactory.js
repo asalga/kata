@@ -68,10 +68,13 @@ export default class SpriteParticleFactory {
   static initWithAtlas(atlas){
   	let testArr = Object.entries(atlas.frames)[0];
 
+  	let maskFn = function(r,g,b,a){ return g > 250;};
+
   	SpriteParticleFactory.allocateParticlesWithImage({
   		'name': testArr[0],
   		'img': testArr[1],
-  		'size': 2
+  		'size': 1,
+  		maskFn
   	});
 
   	// let iter = atlas.getIterator();
@@ -89,10 +92,9 @@ export default class SpriteParticleFactory {
       'img': cfg.img
     };
 
-    let maskFn = cfg.mask;
     let name = cfg.name;
 
-    let [slowArrPos, slowArrCol] = SpriteParticleFactory.getPositionsAndColors(cfg.img, cfg.size, maskFn);
+    let [slowArrPos, slowArrCol] = SpriteParticleFactory.getPositionsAndColors(cfg.img, cfg.size, cfg.maskFn);
     let pxCount = slowArrPos.length / 2;
 
     // Sprites[name].img = cfg.img;

@@ -32,8 +32,10 @@ export default class SpriteParticle{
 	}
 
 	render(gfx) {
-		if(this.isAlive === false) return;
-
+		if(this.isAlive === false){
+			debugger;
+			return;
+		}
 		let x, y;
 		let r, g, b, a;
 
@@ -64,15 +66,15 @@ export default class SpriteParticle{
 			
 		// 		this.totalTime += (t2-t1);
 		// 		stroke(255);
-		pop();
+		gfx.pop();
 	}
 
 	update(dt){
 		this.timer += dt;
 		this.mutator && this.mutator.update(dt);
 
-		if(this.timer > 4){
-			this.isAlive = false;
+		if(this.timer > 1.5){
+			// this.isAlive = false;
 		}
 	}
 
@@ -116,30 +118,31 @@ export default class SpriteParticle{
 			dst[i] = src[i];
 		}
 	}
-}
 
+	 // push(v, p) {
+		//  let _temp = createVector();
+		//  let m = 1;
+		//  let _dist;// = createVector();
 
-	//  push(v, p) {
-	// 	 let _temp = createVector();
-	// 	 let m=1;
-	// 	 let _dist;// = createVector();
-
-	//    for (let i = 0; i < this.pxCount; i++) {	
-	// 			_temp.set(this.pos[i*2 + 0], this.pos[i*2 +1]);
+	 //   for (let i = 0; i < this.pxCount; i++) {	
+		// 		_temp.set(this.pos[i*2 + 0], this.pos[i*2 +1]);
 	  
-	// 		  _dist = 1 / (0.99**(_temp.dist(p)));
+		// 	  _dist = 1 / (0.99**(_temp.dist(p)));
 	 
-	// 			// _temp.sub(v, p)*1;
+		// 		// _temp.sub(v, p)*1;
 	 
-	// 			//m = _temp.mag() * .05;
+		// 		//m = _temp.mag() * .05;
 		
-	//       this.acc[i * 2 + 0] +=  v.x  * (_dist) * 10;
-	//       this.acc[i * 2 + 1] +=  v.y  * (_dist) * 10;
+	 //      this.acc[i * 2 + 0] +=  v.x  * (_dist) * 10;
+	 //      this.acc[i * 2 + 1] +=  v.y  * (_dist) * 10;
 		
-	// 		 // if(i === 0){console.log(this.acc[i * 2 + 0]);}
+		// 	 // if(i === 0){console.log(this.acc[i * 2 + 0]);}
 		
-	// 		}
-	//  }
+		// 	}
+	 // }
+
+
+}
 
 
 
