@@ -18,11 +18,6 @@ export default function Assets(p) {
   this.cbCalled = false;
   this.cb = function(){};
 
-  // this.images = {};
-  // this.atlases = {};
-  // this.audio = {};
-  // this.json = {};
-
   this.assetTypes = {
     'image': {},
     'atlas': {},
@@ -45,31 +40,30 @@ export default function Assets(p) {
 
     // ** ATLASES **
     if(Manifest.atlases){
-      Manifest.atlases.forEach((v) => {
+      Manifest.atlases.forEach( a => {
 
-        loadImage(v.atlas, function(atlasImg) {
+        loadImage(a.imgPath, function(atlasImg) {
           // Once the image is loaded, get the meta file
           let xhr = new XMLHttpRequest();
           xhr.onload = function() {
-
             let atlas = new Atlas({
-              name: v.name,
-              img: atlasImg,
-              meta: xhr.responseText,
-              p: that.p5
+              name: a.name,
+              p5Img: atlasImg,
+              meta: xhr.responseText
             });
 
-            that.atlases[v.name] = atlas;
+            that.assetTypes['atlas'][a.name] = atlas;
             that.numAssetsLoaded++;
+            console.log(a.name, ' loaded');
           };
-          xhr.open('GET', v.meta);
+          xhr.open('GET', a.metaPath);
           xhr.send();
         });
       });
     }
 
     // ** AUDIO
-    Manifest.audio.forEach((v) => {
+    Manifest.audio.forEach( v => {
 
       let h = new Howl({
         src: v.path,

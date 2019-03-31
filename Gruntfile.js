@@ -33,6 +33,8 @@ module.exports = function(grunt) {
   //   grunt.log.writeln(e);
   // }
 
+  
+
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
   grunt.initConfig({
@@ -141,6 +143,24 @@ module.exports = function(grunt) {
             dest: `${app}/data/json`,
             filter: 'isFile'
           },
+          // FONT
+          {
+            expand: true,
+            cwd: `data/font`,
+            src: ['**/*.ttf'],
+            dest: `${app}/data/font`,
+            filter: 'isFile'
+          },
+          // ATLAS
+          {
+            expand: true,
+            cwd: `data/atlas`,
+            src: ['*.json', '*.png'],
+            dest: `${app}/data/atlas`,
+            filter: 'isFile'
+          },
+          // texturepacker data/atlas/hiragana/_hiragana.tps 
+          
           // AUDIO
           {
             expand: true,

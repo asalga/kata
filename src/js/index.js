@@ -15,6 +15,8 @@ import Renderer from './Renderer.js';
 import cfg from './cfg.js';
 import Pool from './core/Pool.js';
 
+
+
 window.scene = null;
 
 window.gameTime = 0;
@@ -74,6 +76,7 @@ window.preload = function(){
 
 window.setup = function(){
   createCanvas(cfg.gameWidth, cfg.gameHeight);
+  // window.testFont = loadFont('data/font/thin.ttf');
 };
 
 window.draw = function(){

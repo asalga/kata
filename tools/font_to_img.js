@@ -6,9 +6,10 @@ let isDone = false;
 let timer = 0;
 let currChar = 0;
 let sz = 40;
+let font;
 
 window.preload = function() {
-  // font = loadFont('data/fonts/SourceSansPro-Regular.otf');
+  font = loadFont('data/font/light.ttf');
 }
 
 window.setup = function(){
@@ -37,7 +38,7 @@ window.draw = function (){
 	let romanji = c.romanji;
 
 	noStroke();
-	fill(0,0,0)
+	fill(0, 255, 0)
 	text( jpChar, sz, sz);
 	
 	if(timer > 10){

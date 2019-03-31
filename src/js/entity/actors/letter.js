@@ -7,10 +7,12 @@ import Letter from '../components/Letter.js';
 import ScorePoints from '../components/ScorePoints.js';
 import Killable from '../components/Killable.js';
 
+import Assets from '../../Assets.js';
 import Debug from '../../debug/Debug.js';
 import Vec2 from '../../math/Vec2.js';
 import cfg from "../../cfg.js";
 
+let assets = new Assets();
 export default function createLetter() {
   
   let e = new Entity({ name: 'letter' });
@@ -38,24 +40,28 @@ export default function createLetter() {
   spriteRender.draw = function(gfx) {
     gfx.push();
 
-    gfx.textSize(50);
-    gfx.textAlign(CENTER, CENTER);
+    let atlas = assets.get('atlas', 'hiragana');
+    let char = atlas.get(charData.romanji);
 
-    gfx.noStroke();
-
-    if(e.pos.y < 0){
-      gfx.fill(130);
-    }
-    else if(e.letter.wasMissed){
-      gfx.fill(255, 0, 0);
-    }
-    else{
-      gfx.fill(50, 255, 20);
-    }
+    // gfx.textFont(testFont);
+    // gfx.textSize(50);
+    // gfx.textAlign(CENTER, CENTER);
+    // gfx.noStroke();
+    // if(e.pos.y < 0){
+    //   gfx.fill(130);
+    // }
+    // else if(e.letter.wasMissed){
+    //   gfx.fill(255, 0, 0);
+    // }
+    // else{
+    //   gfx.fill(50, 255, 20);
+    // }
 
     gfx.translate(e.pos.x, e.pos.y);
-    gfx.text(e.letter.jpChar, 40, 40);
 
+    gfx.image(char, 0, 0);   
+    // gfx.text(e.letter.jpChar, 40, 40);
+ 
     gfx.pop();
   };
   e.addComponent(spriteRender);
