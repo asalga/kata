@@ -50,12 +50,15 @@ export default class SpriteParticleFactory {
   static createSprite(cfg) {
     if (!Sprites[cfg.name]) debugger;
 
+    // TODO: search for available sprites
+
     let _sprite = Sprites[cfg.name];
     let s = new SpriteParticle({
       sprite: _sprite,
       pos: _sprite.pos.slice(),
       col: _sprite.col.slice(),
-      size: _sprite.size
+      size: _sprite.size,
+      position: cfg.position
     });
 
     return s;
@@ -66,21 +69,22 @@ export default class SpriteParticleFactory {
   	particle for each one
   */
   static initWithAtlas(atlas){
-  	let testArr = Object.entries(atlas.frames)[0];
+  	let maskFn = (r,g,b,a) => g > 250;
 
-  	let maskFn = function(r,g,b,a){ return g > 250;};
+  	let allChars = Object.entries(atlas.frames);
 
-  	SpriteParticleFactory.allocateParticlesWithImage({
-  		'name': testArr[0],
-  		'img': testArr[1],
-  		'size': 1,
-  		maskFn
+  	allChars.forEach( (f) => {
+  		let name = f[0];
+  		let img = f[1];
+  		let size = 1;
+
+	  	SpriteParticleFactory.allocateParticlesWithImage({
+	  		'name': name,
+	  		'img': img,
+	  		'size': size,
+	  		'maskFn': maskFn
+	  	});
   	});
-
-  	// let iter = atlas.getIterator();
-  	// do{
-  	// }while(iter.next());
-  	// while(iter.next
   }
 
   /*

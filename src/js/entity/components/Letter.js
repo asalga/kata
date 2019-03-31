@@ -21,6 +21,7 @@ export default class Letter extends Component {
 
     this.jpChar = cfg.data.jpChar;
     this.enChar = cfg.data.enChar;
+    this.romanji = cfg.data.romanji;
 
     this.wasMissed = false;
     this.wasHit = false;
@@ -45,15 +46,15 @@ export default class Letter extends Component {
       scene.add(answer);
     }
 
-    let fadeTimer = new Timer(this.entity, { countdown: 2 });
-    this.entity.addComponent(fadeTimer);
-
-    this.testing = SpriteParticleFactory.createSprite({
-      name: 'chi',
+    // let fadeTimer = new Timer(this.entity, { countdown: 2 });
+    // this.entity.addComponent(fadeTimer);
+    this.sprite = SpriteParticleFactory.createSprite({
+      name: this.romanji,
       rot: false,
-      trails: false
+      trails: false,
+      position: this.entity.pos
     });
-    this.testing.mutator = new Explode({sprite:this.testing, timer: 0});
+    this.sprite.mutator = new Explode({sprite:this.sprite});
     let that = this;
 
     // Replace the sprite renderer
@@ -65,8 +66,8 @@ export default class Letter extends Component {
       gfx.push();
       gfx.translate(e.pos.x, e.pos.y);
 
-      if(that.testing){
-        that.testing.render(gfx);
+      if(that.sprite){
+        that.sprite.render(gfx);
       }
       // gfx.textSize(50);
       // gfx.noStroke();
@@ -96,12 +97,12 @@ export default class Letter extends Component {
 
     //new Event({ evtName: 'decreasescoreimmediate', data:d }).fire();
     new Event({ evtName: 'missed', data: {e:this.entity, onlyOnce: true} }).fire();
-    this.entity.addComponent(new RemoveSelf(this.entity, {timer: 1}));
+    // this.entity.addComponent(new RemoveSelf(this.entity, {timer: 3}));
   }
 
   update(dt) {
-    if(this.testing){
-      this.testing.update(dt)
+    if(this.sprite){
+      this.sprite.update(dt)
     };
 
     if(this.hasBeenAdded === false && this.entity.pos.y > 0){

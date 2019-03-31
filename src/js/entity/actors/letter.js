@@ -34,9 +34,9 @@ export default function createLetter() {
 
   e.addComponent(new Letter(e, { data: charData }));
   e.addComponent(new ScorePoints(e, { points: charData.points }));
-  e.addComponent(new Killable(e, { timeToDeath: 1}));
+  e.addComponent(new Killable(e, { timeToDeath: 3}));
 
-  let spriteRender = new SpriteRender(e, { layerName: 'sprite' });
+  let spriteRender = new SpriteRender(e, { layerName: 'sprite', timer: 0.1 });
   spriteRender.draw = function(gfx) {
     gfx.push();
 

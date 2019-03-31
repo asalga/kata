@@ -8,7 +8,7 @@ export default class SpriteParticle{
 		this.isAlive = true;
 		this.timer = 0;
 
-		this.position = createVector();
+		// this.position = createVector();
 		this.trailsOn = cfg.trailsOn;
 		this.trailsWidth = cfg.trailsWidth;
 
@@ -19,6 +19,8 @@ export default class SpriteParticle{
 
 		this.size = cfg.size;
 
+		this.position = cfg.position;
+		
 		this.col = cfg.col;
 		this.pos = cfg.pos;
 		this.pxCount = cfg.pos.length/2;
@@ -32,6 +34,7 @@ export default class SpriteParticle{
 	}
 
 	render(gfx) {
+
 		if(this.isAlive === false){
 			debugger;
 			return;
@@ -40,7 +43,7 @@ export default class SpriteParticle{
 		let r, g, b, a;
 
 		gfx.push();
-		gfx.translate(this.position.x, this.position.y);
+		// gfx.translate(this.position.x, this.position.y);
 		gfx.noStroke();
 
 		for (let i = 0; i < this.pxCount; i++) {
