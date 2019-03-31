@@ -14,10 +14,8 @@ window.preload = function() {
 
 window.setup = function(){
 	createCanvas(sz*2, sz*2);
-	
 	textSize(50);
-	// textFont('monospace');
-	// textFont("Comic Sans MS");
+	// textFont(font);
 	textAlign(CENTER, CENTER);
 }
 

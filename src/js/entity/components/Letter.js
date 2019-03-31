@@ -9,6 +9,10 @@ import RemoveSelf from './RemoveSelf.js';
 import EntityFactory from '../../entity/EntityFactory.js';
 import Event from '../../event/Event.js';
 
+import SpriteParticleFactory from '../../effects/SpriteParticleFactory.js';
+import Explode from '../../effects/ExplodeBehaviour.js';
+
+let testing = null;
 
 export default class Letter extends Component {
   constructor(e, cfg) {
@@ -46,6 +50,13 @@ export default class Letter extends Component {
     let fadeTimer = new Timer(this.entity, { countdown: 2 });
     this.entity.addComponent(fadeTimer);
 
+    testing = SpriteParticleFactory.createSprite({
+      name: 'chi',
+      rot: false,
+      trails: false
+    });
+    testing.mutator = new Explode({sprite:testing, timer: .1});
+
     // Replace the sprite renderer
     this.entity.removeComponentByName('spriterender');
     let renderAway = new SpriteRender(this.entity, { layerName: 'sprite' });
@@ -53,27 +64,22 @@ export default class Letter extends Component {
       let e = this.entity;
 
       gfx.push();
-
-      gfx.textSize(50);
-      gfx.noStroke();
-
-      let t = e.timer.time/.2;
-      
-      gfx.translate(e.pos.x, e.pos.y);
-      gfx.scale(1+t, 1+t);
-
-      let x = -(t*80)/4;
-      let test = (1 + t) ** 3;
-      gfx.translate(x + 40 + test, x + 40 + test);
-      gfx.rotate(100);
-
-      let g = cfg.GREEN.slice();
-      g[3] = (1 - t) * 255;
-      gfx.fill(g);
-      gfx.textAlign(CENTER, CENTER);
-
-      // gfx.text(e.letter.letter, 30-(1+e.timer.time), 30);
-      gfx.text(e.letter.jpChar, 0, 0);
+      testing.render(gfx);
+      // gfx.textSize(50);
+      // gfx.noStroke();
+      // let t = e.timer.time/.2;
+      // gfx.translate(e.pos.x, e.pos.y);
+      // gfx.scale(1+t, 1+t);
+      // let x = -(t*80)/4;
+      // let test = (1 + t) ** 3;
+      // gfx.translate(x + 40 + test, x + 40 + test);
+      // gfx.rotate(100);
+      // let g = cfg.GREEN.slice();
+      // g[3] = (1 - t) * 255;
+      // gfx.fill(g);
+      // gfx.textAlign(CENTER, CENTER);
+      // // gfx.text(e.letter.letter, 30-(1+e.timer.time), 30);
+      // gfx.text(e.letter.jpChar, 0, 0);
 
       gfx.pop();
     };
@@ -92,6 +98,10 @@ export default class Letter extends Component {
   }
 
   update(dt) {
+    if(testing){
+      testing.update(dt)
+    };
+
     if(this.hasBeenAdded === false && this.entity.pos.y > 0){
       this.hittable = true;
       this.hasBeenAdded = true;

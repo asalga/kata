@@ -1,5 +1,7 @@
 'use strict';
 
+// import GameTimer from './core/GameTimer.js';
+
 import Utils from './Utils.js';
 import Debug from './debug/Debug.js';
 import Scene from './Scene.js';
@@ -8,14 +10,12 @@ import Assets from './Assets.js';
 import Event from './event/Event.js';
 import EventSystem from './event/EventSystem.js';
 
-import GameTimer from './core/GameTimer.js';
-
 import Renderer from './Renderer.js';
 
 import cfg from './cfg.js';
 import Pool from './core/Pool.js';
 
-
+import SpriteParticleFactory from './effects/SpriteParticleFactory.js';
 
 window.scene = null;
 
@@ -23,55 +23,46 @@ window.gameTime = 0;
 window.gameFrameCount = 0;
 window.Renderer = Renderer;
 
-
 window.debug = false;
 window.Debug = Debug;
-
 window.vec2Ctor = 0;
 window.clearArrayCalls = 0;
 
 window.Events = new EventSystem();
 window.ignoreDirty = false;
 
-let timer;
 let perfTimer = new Date();
 
 let avgDelta = 0;
 let avgFrames = 0;
 let avgCalc = 0;
+window.testingEffect = null;
+
+let assets;
 
 document.addEventListener('mousedown', e => new Event({ evtName: 'GAME_MOUSE_DOWN', data: e }).fire());
 document.addEventListener('mouseup', e => new Event({ evtName: 'GAME_MOUSE_UP', data: e }).fire());
 // document.addEventListener('contextmenu', e => e.preventDefault());
 
-let test = function(){
-
+let preloadCallback = function(){
   Renderer.init();
-
-  Pool.init();
-  scene = new Scene();
-
+  Pool.init();  
+  SpriteParticleFactory.initWithAtlas(assets.get('atlas','hiragana'));
   Debug.init({toggleKey: 'Escape'});
   Debug.setOn(window.debug);
+  
+  scene = new Scene();
   scene.restartGame();
 
-  // timer = new GameTimer();
-  // timer.update = function(dt) {
-  //   update(dt);
-  //   preRender();
-  //   render();
-  //   postRender();
-  // };
-  // timer.start();
   let container = document.getElementById('sketch-container');
   let cvs = document.getElementById('defaultCanvas0');
   container.prepend(cvs);
 };
 
-let assets;
+
 window.preload = function(){
   assets = new Assets();
-  assets.preload(test);
+  assets.preload(preloadCallback);
 };
 
 window.setup = function(){
@@ -85,13 +76,18 @@ window.draw = function(){
     return;
   }
 
-	update(0.016);
+  update(0.016);
 
-	preRender();
-	render();
-	postRender();
+  preRender();
+  render();
+  postRender();
 
-	Debug.draw();
+  // if(window.testingEffect){
+  //   window.testingEffect.update(0.016);
+  //   window.testingEffect.render();
+  // }
+
+  Debug.draw();
 };
 
 function update(dt) {
@@ -100,7 +96,7 @@ function update(dt) {
 
   // let totalVec2Calls = window.vec2Ctor.toLocaleString();
   // Debug.add(`Total Vec2 ctor calls: ${totalVec2Calls}`);
-  // // Debug.add('Bullets: ' + window.count);
+  // Debug.add('Bullets: ' + window.count);
 
   scene.update(dt);
 
@@ -142,49 +138,3 @@ function postRender() {
   Debug.draw();
   Debug.postRender();
 }
-
-// function setup() {
-//   let cvs = Utils.getEl('cvs');
-//   let ctx = cvs.getContext('2d', { alpha: false });
-//   p3 = new P3(cvs, ctx);
-//   window.p3 = p3;
-
-//   Pool.init();
-
-//   scene = new Scene();
-
-//   Debug.init({toggleKey: 'Escape'});
-//   Debug.setOn(window.debug);
-
-//   scene.restartGame();
-
-//   timer = new GameTimer();
-//   timer.update = function(dt) {
-//     update(dt);
-//     preRender();
-//     render();
-//     postRender();
-//   };
-//   timer.start();
-// }
-// setup();
-
-// function setup() {
-//   let cvs = Utils.getEl('cvs');
-//   let ctx = cvs.getContext('2d', { alpha: false });
-//   p3 = new P3(cvs, ctx);
-//   window.p3 = p3;
-//-   Pool.init();
-//-   scene = new Scene();
-//-   Debug.init({toggleKey: 'Escape'});
-//-   Debug.setOn(window.debug);
-//   scene.restartGame();
-//   timer = new GameTimer();
-//   timer.update = function(dt) {
-//     update(dt);
-//     preRender();
-//     render();
-//     postRender();
-//   };
-//   timer.start();
-// }
