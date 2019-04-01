@@ -18,19 +18,16 @@ export default class SpriteParticle{
 		this.center = createVector(this.sprite.img.width, this.sprite.img.width);
 
 		this.size = cfg.size;
-
 		this.position = cfg.position;
-		
+
 		this.col = cfg.col;
 		this.pos = cfg.pos;
 		this.pxCount = cfg.pos.length/2;
 
-		// this.alphaSpeed = new Float32Array(this.pxCount);
-		// this.setupAlphaSpeed();
-
 		this.vel = new Float32Array(this.pxCount * 2);
 		this.acc = new Float32Array(this.pxCount * 2);
-		this.rot = new Float32Array(this.pxCount);
+		// this.rot = new Float32Array(this.pxCount);
+		// this.alphaSpeed = new Float32Array(this.pxCount);
 	}
 
 	render(gfx) {
@@ -46,6 +43,9 @@ export default class SpriteParticle{
 		// gfx.translate(this.position.x, this.position.y);
 		gfx.noStroke();
 
+		// gfx.beginShape(POINTS);
+		// gfx.strokeWeight(1);
+		// gfx.stroke(233);
 		for (let i = 0; i < this.pxCount; i++) {
 			x = this.pos[i * 2 + 0] * this.size;
 			y = this.pos[i * 2 + 1] * this.size;
@@ -55,9 +55,11 @@ export default class SpriteParticle{
 			b = this.col[i * 4 + 2];
 			a = this.col[i * 4 + 3];
 
+			// gfx.vertex(x,y);
 			gfx.fill(r, g, b, a);
 			gfx.rect(x, y, this.size * this.size  , this.size * this.size);
 		}
+		gfx.endShape();
 
 		// let t1 = new Date();
 		// for (let i = 0; i < this.pxCount; i++) {
@@ -112,7 +114,7 @@ export default class SpriteParticle{
 		this.clearAcceleration();
 		this.clearVelocities();
 
-		this.mutator.reset();
+		this.mutator && this.mutator.reset();
 	}
 
 	copyArray(dst, src){

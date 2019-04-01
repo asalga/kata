@@ -11,7 +11,7 @@ export default class Killable extends Component {
     super(e, 'killable');
   
     let defaults = {
-      timeToDeath: 1
+      timeToDeath: 0
     };
 
     Utils.applyProps(this, defaults, cfg);  

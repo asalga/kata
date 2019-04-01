@@ -1,12 +1,16 @@
+'use strict';
+
+import cfg from '../cfg.js';
+
 function sign(n) {
   return n > 0 ? 1 : -1;
 }
+let Gravity = 10;
+
 
 class Behaviour {
-
   constructor(cfg) {
     this.sprite = cfg.sprite;
-    // this.alphaSpeed = new Float32Array(this.sprite.pxCount);
   }
 
   applyForce(v) {
@@ -22,112 +26,115 @@ export default class Explode extends Behaviour {
 
   constructor(cfg) {
     super(cfg);
-    this.noiseOffset = random(0, 100);
     this.target = cfg.target;
-    this.timer = cfg.timer || 0;
-    this.isPlaying = false;
-    this.timerStarted = false;
+    this.isDone = cfg.isDone || function(){};
+    this.alphaSpeed = new Float32Array(cfg.sprite.pxCount);
+    this.reset();
   }
 
-  explode(p) {
-    this.timerStarted = true;
+  execute(p) {
     this.isPlaying = true;
-    let v = createVector(0, 0);
-    let m;
-    let up = -350;
 
-    for (let i = 0; i < this.sprite.pxCount; i++) {
+    let v = createVector();
+    let m;
+    let up = -100;
+
+    for (let i = 0; i < this.sprite.pxCount; ++i) {
 
       v.set(this.sprite.pos[i * 2 + 0], this.sprite.pos[i * 2 + 1]);
       v.sub(p);
-      m = v.mag() * .85;
+      m = v.mag() * 0.6;
 
-      this.sprite.acc[i * 2 + 0] += (50 / m) * v.x + sign(v.x) + (noise((i + this.noiseOffset) * 13) * 2 - 1) * 50;
-      this.sprite.acc[i * 2 + 1] += up + (50 / m) * v.y + sign(v.x) + (noise(i + this.noiseOffset * 3) * 2 - 1) * 150;
+      this.sprite.acc[i * 2 + 0] +=      (50 / m) * v.x + sign(v.x) + (noise((i + this.noiseOffset) * 3) * 2 - 1) * 150;
+      this.sprite.acc[i * 2 + 1] += up + (50 / m) * v.y + sign(v.y) + (noise((i + this.noiseOffset) * 13) * 2 - 1) * 50;
+      // this.sprite.acc[i * 2 + 0] +=      (50 / m) * v.x;
+      // this.sprite.acc[i * 2 + 1] += up + (50 / m) * v.y;
     }
   }
-
 
   reset() {
-    // this.isPlaying = true;
+  	this.sprite.reset();
 
-    // let x, y, rot, a;
-    // // this.offset = this.sprite.position.x /100;
+  	this.noiseOffset = random(0, 1);
+    this.isPlaying = false;
 
-    // for(let i = 0; i < this.sprite.pxCount; i++){
-
-    // 	x = this.sprite.pos[i * 2 + 0] / 150;
-    // 	y = this.sprite.pos[i * 2 + 1] / 150;
-
-    // 	rot = (noise(x + this.offset, y + this.offset))-1;
-
-    // 	this.flowField[i*2 +0] = cos(rot * TWO_PI) * 10;
-    // 	this.flowField[i*2 +1] = sin(rot * TWO_PI) * 10;
-
-    // 	a = random(0.4, 0.8) + (noise((x + this.offset)*1, (y + this.offset) * 1));
-    // 	this.alphaSpeed[i] = a * 200;
-    // }
+    let a;
+    for(let i = 0; i < this.sprite.pxCount; ++i){
+    	// a = random(0.4, 0.8) + (noise((x + this.offset), (y + this.offset)));
+    	a = random(0.2, 0.7);
+    	this.alphaSpeed[i] = a * 400;
+    }
   }
-
 
   update(dt) {
-    this.timer -= dt;
-
-    if (this.timer < 0 && this.isPlaying === false) {
-    	
-      this.isPlaying = true;
-      this.explode(createVector(this.sprite.center.x/2, this.sprite.center.y/2));
-    }
-
-    if (this.timer < -3) {
-    	// debugger;
-      this.sprite.reset();
-    }
-
     if (this.isPlaying) {
-      this.applyForce(createVector(0, 15));
+      this.applyForce(createVector(0, Gravity));
     }
 
-    for (let i = 0; i < this.sprite.pxCount; i++) {
-      //this.trails[i].add({x:this.pos[i*2+0], y: this.pos[i*2+1]});
+    let done = true;
 
-      this.sprite.vel[i * 2 + 0] += this.sprite.acc[i * 2 + 0];
-      this.sprite.vel[i * 2 + 1] += this.sprite.acc[i * 2 + 1];
+    let v = this.sprite.vel;
+    let a = this.sprite.acc;
+    let p = this.sprite.pos;
 
-      this.sprite.pos[i * 2 + 0] += dt * this.sprite.vel[i * 2 + 0];
-      this.sprite.pos[i * 2 + 1] += dt * this.sprite.vel[i * 2 + 1];
+    for (let i = 0; i < this.sprite.pxCount; ++i) {
+      // this.trails[i].add({x:this.pos[i*2+0], y: this.pos[i*2+1]});
 
-			this.sprite.col[i * 4 + 3] -= dt * 100;
+      v[i * 2 + 0] += a[i * 2 + 0];
+      v[i * 2 + 1] += a[i * 2 + 1];
+
+      p[i * 2 + 0] += dt * v[i * 2 + 0];
+      p[i * 2 + 1] += dt * v[i * 2 + 1];
 
       // bounce off walls
-      if(this.sprite.position.x + this.sprite.pos[i*2] < 0){
-      	this.sprite.vel[i*2] = -this.sprite.vel[i*2];
+      if(this.sprite.position.x + p[i * 2] < 0){
+      	v[i * 2] *= -1;
       }
-      
-      if(this.sprite.position.x + this.sprite.pos[i*2] > 640){
-      	this.sprite.vel[i*2] = -this.sprite.vel[i*2];
+      if(this.sprite.position.x + p[i * 2] > cfg.gameWidth){
+      	v[i * 2] *= -1;
       }
-      // if (abs(this.vel[i*2]) > 0) {
-      // this.col[i * 4 + 3] = this.col[i * 4 + 3]  * this.alphaSpeed[i] * 0.95;
-      //dt * this.alphaSpeed[i] * 100;
-      // }
+      if(this.sprite.position.y + p[i * 2 + 1] > cfg.gameHeight){
+      	v[i * 2 + 1] *= -1 * random(0,1);
+      }
 
-      // this.vel[i*2+0] *= 0.9;
-      // this.vel[i*2+1] += 2.1;
-      // if(this.pos[i*2+1] < 0){
-      // this.pos[i*2+1] = 0;
-      // this.vel[i*2+1] = -this.vel[i*2+1];
-      // }
+      this.sprite.col[i * 4 + 3] -= dt * this.alphaSpeed[i];
+
+      if(this.sprite.col[i * 4 + 3] > 100){
+      	done = false;
+      }
+
+      // just playing around
+			// this.sprite.vel[i * 2 + 0] *= .99;
+			// this.sprite.vel[i * 2 + 1] *= .99;
     }
 
-    this.sprite.clearAcceleration();
+    if(done){
+    	this.isDone();
+    }
+    else{
+    	this.sprite.clearAcceleration();
+    }
+  }
+}
+
+
+// let x, y, rot, a;
+// this.offset = this.sprite.position.x /100;
+
+// for(let i = 0; i < this.sprite.pxCount; i++){
+
+// 	x = this.sprite.pos[i * 2 + 0] / 150;
+// 	y = this.sprite.pos[i * 2 + 1] / 150;
+
+// 	rot = (noise(x + this.offset, y + this.offset))-1;
+
+// 	this.flowField[i*2 +0] = cos(rot * TWO_PI) * 10;
+// 	this.flowField[i*2 +1] = sin(rot * TWO_PI) * 10;
+// }
 
     // for (let i = 0; i < this.pxCount; i++) {
-    //   this.trails[i].add({
-    //     x: this.pos[i * 2 + 0],
-    //     y: this.pos[i * 2 + 1]
-    //   });
-    // }
-  }
-
-}
+//   this.trails[i].add({
+//     x: this.pos[i * 2 + 0],
+//     y: this.pos[i * 2 + 1]
+//   });
+// }

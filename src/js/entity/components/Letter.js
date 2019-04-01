@@ -10,7 +10,7 @@ import EntityFactory from '../../entity/EntityFactory.js';
 import Event from '../../event/Event.js';
 
 import SpriteParticleFactory from '../../effects/SpriteParticleFactory.js';
-import Explode from '../../effects/ExplodeBehaviour.js';
+import ExplodeBehaviour from '../../effects/ExplodeBehaviour.js';
 
 export default class Letter extends Component {
   constructor(e, cfg) {
@@ -37,8 +37,6 @@ export default class Letter extends Component {
     this.hittable = false;
     this.wasHit = true;
 
-    this.entity.killable.kill();
-
     if(cfg.showRomanjiAnswer || cfg.hearRomanjiAnswer){
       let answer = EntityFactory.create('romanjianswer');
       answer.setAnswer(this.jpChar);
@@ -46,15 +44,18 @@ export default class Letter extends Component {
       scene.add(answer);
     }
 
-    // let fadeTimer = new Timer(this.entity, { countdown: 2 });
-    // this.entity.addComponent(fadeTimer);
+    let cb = function(){
+      this.entity.killable.kill();
+    }.bind(this);
+
     this.sprite = SpriteParticleFactory.createSprite({
       name: this.romanji,
       rot: false,
       trails: false,
       position: this.entity.pos
     });
-    this.sprite.mutator = new Explode({sprite:this.sprite});
+    this.sprite.mutator = new ExplodeBehaviour({sprite:this.sprite, isDone: cb});
+    this.sprite.mutator.execute(createVector(this.sprite.center.x/2, this.sprite.center.y/2));
     let that = this;
 
     // Replace the sprite renderer
@@ -65,25 +66,7 @@ export default class Letter extends Component {
 
       gfx.push();
       gfx.translate(e.pos.x, e.pos.y);
-
-      if(that.sprite){
-        that.sprite.render(gfx);
-      }
-      // gfx.textSize(50);
-      // gfx.noStroke();
-      // let t = e.timer.time/.2;
-      // gfx.translate(e.pos.x, e.pos.y);
-      // gfx.scale(1+t, 1+t);
-      // let x = -(t*80)/4;
-      // let test = (1 + t) ** 3;
-      // gfx.translate(x + 40 + test, x + 40 + test);
-      // gfx.rotate(100);
-      // let g = cfg.GREEN.slice();
-      // g[3] = (1 - t) * 255;
-      // gfx.fill(g);
-      // gfx.textAlign(CENTER, CENTER);
-      // // gfx.text(e.letter.letter, 30-(1+e.timer.time), 30);
-      // gfx.text(e.letter.jpChar, 0, 0);
+      that.sprite.render(gfx);
       gfx.pop();
     };
     this.entity.addComponent(renderAway);
@@ -102,7 +85,7 @@ export default class Letter extends Component {
 
   update(dt) {
     if(this.sprite){
-      this.sprite.update(dt)
+      this.sprite.update(dt);
     };
 
     if(this.hasBeenAdded === false && this.entity.pos.y > 0){
@@ -111,3 +94,21 @@ export default class Letter extends Component {
     }
   }
 }
+// let fadeTimer = new Timer(this.entity, { countdown: 2 });
+    // this.entity.addComponent(fadeTimer);
+
+     // gfx.textSize(50);
+      // gfx.noStroke();
+      // let t = e.timer.time/.2;
+      // gfx.translate(e.pos.x, e.pos.y);
+      // gfx.scale(1+t, 1+t);
+      // let x = -(t*80)/4;
+      // let test = (1 + t) ** 3;
+      // gfx.translate(x + 40 + test, x + 40 + test);
+      // gfx.rotate(100);
+      // let g = cfg.GREEN.slice();
+      // g[3] = (1 - t) * 255;
+      // gfx.fill(g);
+      // gfx.textAlign(CENTER, CENTER);
+      // // gfx.text(e.letter.letter, 30-(1+e.timer.time), 30);
+      // gfx.text(e.letter.jpChar, 0, 0);
