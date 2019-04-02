@@ -90,14 +90,14 @@ export default class Explode extends Behaviour {
       p[i * 2 + 1] += dt * v[i * 2 + 1];
 
       // bounce off walls
-      if(this.sprite.position.x + p[i * 2] < 0){
+      if(this.sprite.position.x + p[i * 2]*2 < 0){
       	v[i * 2] *= -1;
       }
-      if(this.sprite.position.x + p[i * 2] > cfg.gameWidth){
+      if(this.sprite.position.x + p[i * 2]*2 > cfg.gameWidth){
       	v[i * 2] *= -1;
       }
-      if(this.sprite.position.y + p[i * 2 + 1] > cfg.gameHeight){
-      	v[i * 2 + 1] *= -1 * random(0,1);
+      if(this.sprite.position.y + p[i * 2 + 1]*3 > cfg.gameHeight){
+      	v[i * 2 + 1] *= -1.5 * random(0.5,0.8);
       }
 
       this.sprite.col[i * 4 + 3] -= dt * this.alphaSpeed[i];
