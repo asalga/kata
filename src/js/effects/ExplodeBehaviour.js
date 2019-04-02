@@ -43,10 +43,13 @@ export default class Explode extends Behaviour {
 
       v.set(this.sprite.pos[i * 2 + 0], this.sprite.pos[i * 2 + 1]);
       v.sub(p);
-      m = v.mag() * 0.6;
+      m = v.mag() * 1;
 
-      this.sprite.acc[i * 2 + 0] +=      (50 / m) * v.x + sign(v.x) + (noise((i + this.noiseOffset) * 3) * 2 - 1) * 150;
-      this.sprite.acc[i * 2 + 1] += up + (50 / m) * v.y + sign(v.y) + (noise((i + this.noiseOffset) * 13) * 2 - 1) * 50;
+      // this.sprite.acc[i * 2 + 0] +=      (50 / m) * v.x + sign(v.x) + (noise((i + this.noiseOffset) * 13) * 2 - 1) * 15;
+      // this.sprite.acc[i * 2 + 1] += up + (50 / m) * v.y + sign(v.y) + (noise((i + this.noiseOffset) * 13) * 2 - 1) * 15;
+
+      this.sprite.acc[i * 2 + 0] +=      (50 / m) * v.x + sign(v.x) + (noise((i + this.noiseOffset) * 13) * 2 - 1) * 150;
+      this.sprite.acc[i * 2 + 1] += up + (50 / m) * v.y + sign(v.y) + (noise((i + this.noiseOffset) * 3) * 2 - 1) * 50;
       // this.sprite.acc[i * 2 + 0] +=      (50 / m) * v.x;
       // this.sprite.acc[i * 2 + 1] += up + (50 / m) * v.y;
     }

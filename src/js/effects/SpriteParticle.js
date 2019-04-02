@@ -46,9 +46,11 @@ export default class SpriteParticle{
 		// gfx.beginShape(POINTS);
 		// gfx.strokeWeight(1);
 		// gfx.stroke(233);
+		// gfx.strokeWeight(2);
+		debugger;
 		for (let i = 0; i < this.pxCount; i++) {
-			x = this.pos[i * 2 + 0] * this.size;
-			y = this.pos[i * 2 + 1] * this.size;
+			x = this.pos[i * 2 + 0] * this.size *2;
+			y = this.pos[i * 2 + 1] * this.size *3;
 
 			r = this.col[i * 4 + 0];
 			g = this.col[i * 4 + 1];
@@ -56,8 +58,11 @@ export default class SpriteParticle{
 			a = this.col[i * 4 + 3];
 
 			// gfx.vertex(x,y);
+			// gfx.stroke(r,g,b,a);
+			// gfx.point(x,y);
+
 			gfx.fill(r, g, b, a);
-			gfx.rect(x, y, this.size * this.size  , this.size * this.size);
+			gfx.rect(x, y, this.size * this.size * 3 , this.size * this.size * 3);
 		}
 		gfx.endShape();
 

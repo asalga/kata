@@ -5,7 +5,7 @@ import data from './data.js';
 let isDone = false;
 let timer = 0;
 let currChar = 0;
-let sz = 40;
+let sz = 32;
 let font;
 
 window.preload = function() {
@@ -37,7 +37,7 @@ window.draw = function (){
 
 	noStroke();
 	fill(0, 255, 0)
-	text( jpChar, sz, sz);
+	text(jpChar, sz, sz);
 	
 	if(timer > 10){
 		save(`${romanji}.png`);

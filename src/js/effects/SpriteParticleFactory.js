@@ -9,34 +9,35 @@ export default class SpriteParticleFactory {
   static getPositionsAndColors(img, sz, maskFn) {
     img.loadPixels();
 
-    let imgW = img.width;
-    let imgH = img.height;
     let positions = [];
     let colors = [];
     let col, r, g, b, a;
     let x = 0,
       y = 0;
+    let pxScale = 2;
 
-    for (let i = 0; i < img.pixels.length; i += 4) {
+    for (let i = 0; i < img.pixels.length; i += 4 * pxScale) {
 
-      r = img.pixels[i + 0];
-      g = img.pixels[i + 1];
-      b = img.pixels[i + 2];
-      a = img.pixels[i + 3];
+      r = img.pixels[(i + 0)];
+      g = img.pixels[(i + 1)];
+      b = img.pixels[(i + 2)];
+      a = img.pixels[(i + 3)];
 
       ////////////////////////////////////////////////////////////////
       if (!maskFn) {
-        positions.push(x * sz, y * sz);
+        positions.push(x / 2, y  /2 );
         colors.push(r, g, b, 255);
       } else if (maskFn(r, g, b, a)) {
-        positions.push(x * sz, y * sz);
+        positions.push(x * sz / 2, y * sz / 2);
         colors.push(r, g, b, 255);
       }
 
-      x++;
-      if (i > 0 && x % img.width === 0) {
+      x+=pxScale;
+      // if (i > 0 && x % img.width === 0) {
+      if (i > 0 && i % (img.width*4*1) === 0) {
         x = 0;
-        y++;
+        y += 2;
+        i += img.width * 4 * pxScale;
       }
     }
 
@@ -69,21 +70,21 @@ export default class SpriteParticleFactory {
   	particle for each one
   */
   static initWithAtlas(atlas){
-  	let maskFn = (r,g,b,a) => g > 250;
+  	let maskFn = (r,g,b,a) => g === 255;
 
   	let allChars = Object.entries(atlas.frames);
 
-  	allChars.forEach( (f) => {
+  	allChars.forEach( f => {
   		let name = f[0];
   		let img = f[1];
   		let size = 1;
 
-	  	SpriteParticleFactory.allocateParticlesWithImage({
-	  		'name': name,
-	  		'img': img,
-	  		'size': size,
-	  		'maskFn': maskFn
-	  	});
+	  	SpriteParticleFactory.allocateParticlesWithImage({name,img,size, maskFn});
+	  	// 	'name': name,
+	  	// 	'img': img,
+	  	// 	'size': size,
+	  	// 	'maskFn': maskFn
+	  	// });
   	});
   }
 
