@@ -44,13 +44,13 @@ document.addEventListener('mousedown', e => new Event({ evtName: 'GAME_MOUSE_DOW
 document.addEventListener('mouseup', e => new Event({ evtName: 'GAME_MOUSE_UP', data: e }).fire());
 // document.addEventListener('contextmenu', e => e.preventDefault());
 
-let preloadCallback = function(){
+let preloadCallback = function() {
   Renderer.init();
-  Pool.init();  
-  SpriteParticleFactory.initWithAtlas(assets.get('atlas','hiragana'));
-  Debug.init({toggleKey: 'Escape'});
+  Pool.init();
+  SpriteParticleFactory.initWithAtlas(assets.get('atlas', 'hiragana'));
+  Debug.init({ toggleKey: 'Escape' });
   Debug.setOn(window.debug);
-  
+
   scene = new Scene();
   scene.restartGame();
 
@@ -60,19 +60,19 @@ let preloadCallback = function(){
 };
 
 
-window.preload = function(){
+window.preload = function() {
   assets = new Assets();
   assets.preload(preloadCallback);
 };
 
-window.setup = function(){
+window.setup = function() {
   createCanvas(cfg.gameWidth, cfg.gameHeight);
   // window.testFont = loadFont('data/font/thin.ttf');
 };
 
-window.draw = function(){
+window.draw = function() {
 
-  if(!assets.isDone()){
+  if (!assets.isDone()) {
     return;
   }
 

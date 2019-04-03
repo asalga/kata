@@ -29,22 +29,22 @@ export default class Letter extends Component {
     this.hasBeenAdded = false;
   }
 
-  hit(){
-    if(this.wasMissed || this.wasHit || this.hasBeenAdded === false){
+  hit() {
+    if (this.wasMissed || this.wasHit || this.hasBeenAdded === false) {
       return;
     }
 
     this.hittable = false;
     this.wasHit = true;
 
-    if(cfg.showRomanjiAnswer || cfg.hearRomanjiAnswer){
+    if (cfg.showRomanjiAnswer || cfg.hearRomanjiAnswer) {
       let answer = EntityFactory.create('romanjianswer');
       answer.setAnswer(this.jpChar);
       answer.pos.set(this.entity.pos);
       scene.add(answer);
     }
 
-    let cb = function(){
+    let cb = function() {
       this.entity.killable.kill();
     }.bind(this);
 
@@ -54,8 +54,8 @@ export default class Letter extends Component {
       trails: false,
       position: this.entity.pos
     });
-    this.sprite.mutator = new ExplodeBehaviour({sprite:this.sprite, isDone: cb});
-    this.sprite.mutator.execute(createVector(this.sprite.center.x/2, this.sprite.center.y/2));
+    this.sprite.mutator = new ExplodeBehaviour({ sprite: this.sprite, isDone: cb });
+    this.sprite.mutator.execute(createVector(this.sprite.center.x / 2, this.sprite.center.y / 2));
     let that = this;
 
     // Replace the sprite renderer
@@ -72,43 +72,43 @@ export default class Letter extends Component {
     this.entity.addComponent(renderAway);
   }
 
-  miss(){
-    if(this.wasMissed) return;
+  miss() {
+    if (this.wasMissed) return;
 
     this.wasMissed = true;
     this.hittable = false;
 
     //new Event({ evtName: 'decreasescoreimmediate', data:d }).fire();
-    new Event({ evtName: 'missed', data: {e:this.entity, onlyOnce: true} }).fire();
+    new Event({ evtName: 'missed', data: { e: this.entity, onlyOnce: true } }).fire();
     // this.entity.addComponent(new RemoveSelf(this.entity, {timer: 3}));
   }
 
   update(dt) {
-    if(this.sprite){
+    if (this.sprite) {
       this.sprite.update(dt);
     };
 
-    if(this.hasBeenAdded === false && this.entity.pos.y > 0){
+    if (this.hasBeenAdded === false && this.entity.pos.y > 0) {
       this.hittable = true;
       this.hasBeenAdded = true;
     }
   }
 }
 // let fadeTimer = new Timer(this.entity, { countdown: 2 });
-    // this.entity.addComponent(fadeTimer);
+// this.entity.addComponent(fadeTimer);
 
-     // gfx.textSize(50);
-      // gfx.noStroke();
-      // let t = e.timer.time/.2;
-      // gfx.translate(e.pos.x, e.pos.y);
-      // gfx.scale(1+t, 1+t);
-      // let x = -(t*80)/4;
-      // let test = (1 + t) ** 3;
-      // gfx.translate(x + 40 + test, x + 40 + test);
-      // gfx.rotate(100);
-      // let g = cfg.GREEN.slice();
-      // g[3] = (1 - t) * 255;
-      // gfx.fill(g);
-      // gfx.textAlign(CENTER, CENTER);
-      // // gfx.text(e.letter.letter, 30-(1+e.timer.time), 30);
-      // gfx.text(e.letter.jpChar, 0, 0);
+// gfx.textSize(50);
+// gfx.noStroke();
+// let t = e.timer.time/.2;
+// gfx.translate(e.pos.x, e.pos.y);
+// gfx.scale(1+t, 1+t);
+// let x = -(t*80)/4;
+// let test = (1 + t) ** 3;
+// gfx.translate(x + 40 + test, x + 40 + test);
+// gfx.rotate(100);
+// let g = cfg.GREEN.slice();
+// g[3] = (1 - t) * 255;
+// gfx.fill(g);
+// gfx.textAlign(CENTER, CENTER);
+// // gfx.text(e.letter.letter, 30-(1+e.timer.time), 30);
+// gfx.text(e.letter.jpChar, 0, 0);

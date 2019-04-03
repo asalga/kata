@@ -27,7 +27,7 @@ export default class Explode extends Behaviour {
   constructor(cfg) {
     super(cfg);
     this.target = cfg.target;
-    this.isDone = cfg.isDone || function(){};
+    this.isDone = cfg.isDone || function() {};
     this.alphaSpeed = new Float32Array(cfg.sprite.pxCount);
     this.reset();
   }
@@ -38,7 +38,8 @@ export default class Explode extends Behaviour {
     let v = createVector();
     let m;
     let up = -100;
-
+    this.posOnExplode = createVector(this.sprite.position.x, this.sprite.position.y);
+    console.log(this.posOnExplode);
     for (let i = 0; i < this.sprite.pxCount; ++i) {
 
       v.set(this.sprite.pos[i * 2 + 0], this.sprite.pos[i * 2 + 1]);
@@ -48,7 +49,7 @@ export default class Explode extends Behaviour {
       // this.sprite.acc[i * 2 + 0] +=      (50 / m) * v.x + sign(v.x) + (noise((i + this.noiseOffset) * 13) * 2 - 1) * 15;
       // this.sprite.acc[i * 2 + 1] += up + (50 / m) * v.y + sign(v.y) + (noise((i + this.noiseOffset) * 13) * 2 - 1) * 15;
 
-      this.sprite.acc[i * 2 + 0] +=      (50 / m) * v.x + sign(v.x) + (noise((i + this.noiseOffset) * 13) * 2 - 1) * 150;
+      this.sprite.acc[i * 2 + 0] += (50 / m) * v.x + sign(v.x) + (noise((i + this.noiseOffset) * 13) * 2 - 1) * 150;
       this.sprite.acc[i * 2 + 1] += up + (50 / m) * v.y + sign(v.y) + (noise((i + this.noiseOffset) * 3) * 2 - 1) * 50;
       // this.sprite.acc[i * 2 + 0] +=      (50 / m) * v.x;
       // this.sprite.acc[i * 2 + 1] += up + (50 / m) * v.y;
@@ -56,16 +57,16 @@ export default class Explode extends Behaviour {
   }
 
   reset() {
-  	this.sprite.reset();
+    this.sprite.reset();
 
-  	this.noiseOffset = random(0, 1);
+    this.noiseOffset = random(0, 1);
     this.isPlaying = false;
 
     let a;
-    for(let i = 0; i < this.sprite.pxCount; ++i){
-    	// a = random(0.4, 0.8) + (noise((x + this.offset), (y + this.offset)));
-    	a = random(0.2, 0.7);
-    	this.alphaSpeed[i] = a * 400;
+    for (let i = 0; i < this.sprite.pxCount; ++i) {
+      // a = random(0.4, 0.8) + (noise((x + this.offset), (y + this.offset)));
+      a = random(0.2, 0.7);
+      this.alphaSpeed[i] = a * 400;
     }
   }
 
@@ -80,6 +81,7 @@ export default class Explode extends Behaviour {
     let a = this.sprite.acc;
     let p = this.sprite.pos;
 
+    let sp = this.posOnExplode;
     for (let i = 0; i < this.sprite.pxCount; ++i) {
       // this.trails[i].add({x:this.pos[i*2+0], y: this.pos[i*2+1]});
 
@@ -90,32 +92,29 @@ export default class Explode extends Behaviour {
       p[i * 2 + 1] += dt * v[i * 2 + 1];
 
       // bounce off walls
-      if(this.sprite.position.x + p[i * 2]*2 < 0){
-      	v[i * 2] *= -1;
+      if (sp.x + p[i * 2] * 2 < 0) {
+        v[i * 2] *= -1;
       }
-      if(this.sprite.position.x + p[i * 2]*2 > cfg.gameWidth){
-      	v[i * 2] *= -1;
+      if (sp.x + p[i * 2] * 2 > cfg.gameWidth) {
+        v[i * 2] *= -1;
       }
-      if(this.sprite.position.y + p[i * 2 + 1]*3 > cfg.gameHeight){
-      	v[i * 2 + 1] *= -1.5 * random(0.5,0.8);
+
+      if (sp.y + p[i * 2 + 1] * 4 > cfg.gameHeight) {
+        v[i * 2 + 1] *= -random(0.5, 0.9);
       }
 
       this.sprite.col[i * 4 + 3] -= dt * this.alphaSpeed[i];
 
-      if(this.sprite.col[i * 4 + 3] > 100){
-      	done = false;
+      if (this.sprite.col[i * 4 + 3] > 100) {
+        done = false;
       }
 
-      // just playing around
-			// this.sprite.vel[i * 2 + 0] *= .99;
-			// this.sprite.vel[i * 2 + 1] *= .99;
     }
 
-    if(done){
-    	this.isDone();
-    }
-    else{
-    	this.sprite.clearAcceleration();
+    if (done) {
+      this.isDone();
+    } else {
+      this.sprite.clearAcceleration();
     }
   }
 }
@@ -135,7 +134,7 @@ export default class Explode extends Behaviour {
 // 	this.flowField[i*2 +1] = sin(rot * TWO_PI) * 10;
 // }
 
-    // for (let i = 0; i < this.pxCount; i++) {
+// for (let i = 0; i < this.pxCount; i++) {
 //   this.trails[i].add({
 //     x: this.pos[i * 2 + 0],
 //     y: this.pos[i * 2 + 1]

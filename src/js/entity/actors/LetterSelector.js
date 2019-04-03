@@ -16,15 +16,15 @@ let selection = '';
 */
 export default function createLetterSelector() {
 
-  if(instance){
+  if (instance) {
     return instance;
   }
 
   instance = new Entity({ name: 'letterselector' });
 
 
-  instance.getChar = function(){
-    if(selection.length === 0){
+  instance.getChar = function() {
+    if (selection.length === 0) {
       return null;
     }
 
@@ -33,23 +33,23 @@ export default function createLetterSelector() {
   };
 
   /*
-  */
-  instance.addSelection = function(meta){
+   */
+  instance.addSelection = function(meta) {
 
     let entries = Object.entries(meta);
     let data = KanaMap.getData();
 
-    for(const [k,v] of entries){
+    for (const [k, v] of entries) {
 
-       data.forEach( c => {
-          if(c[k] === v) selection += c.jpChar;
+      data.forEach(c => {
+        if (c[k] === v) selection += c.jpChar;
       });
     }
 
     selection = Utils.removeDuplicateChars(selection);
   };
 
-  instance.getKanaData = function(glyph){
+  instance.getKanaData = function(glyph) {
     return KanaMap.getKanaData(glyph);
   };
 

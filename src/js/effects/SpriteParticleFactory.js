@@ -25,16 +25,16 @@ export default class SpriteParticleFactory {
 
       ////////////////////////////////////////////////////////////////
       if (!maskFn) {
-        positions.push(x / 2, y  /2 );
+        positions.push(x / 2, y / 2);
         colors.push(r, g, b, 255);
       } else if (maskFn(r, g, b, a)) {
         positions.push(x * sz / 2, y * sz / 2);
         colors.push(r, g, b, 255);
       }
 
-      x+=pxScale;
+      x += pxScale;
       // if (i > 0 && x % img.width === 0) {
-      if (i > 0 && i % (img.width*4*1) === 0) {
+      if (i > 0 && i % (img.width * 4 * 1) === 0) {
         x = 0;
         y += 2;
         i += img.width * 4 * pxScale;
@@ -69,29 +69,29 @@ export default class SpriteParticleFactory {
   	Iterate over all the entries in the Atlas and create a sprite
   	particle for each one
   */
-  static initWithAtlas(atlas){
-  	let maskFn = (r,g,b,a) => g === 255;
+  static initWithAtlas(atlas) {
+    let maskFn = (r, g, b, a) => g === 255;
 
-  	let allChars = Object.entries(atlas.frames);
+    let allChars = Object.entries(atlas.frames);
 
-  	allChars.forEach( f => {
-  		let name = f[0];
-  		let img = f[1];
-  		let size = 1;
+    allChars.forEach(f => {
+      let name = f[0];
+      let img = f[1];
+      let size = 1;
 
-	  	SpriteParticleFactory.allocateParticlesWithImage({name,img,size, maskFn});
-	  	// 	'name': name,
-	  	// 	'img': img,
-	  	// 	'size': size,
-	  	// 	'maskFn': maskFn
-	  	// });
-  	});
+      SpriteParticleFactory.allocateParticlesWithImage({ name, img, size, maskFn });
+      // 	'name': name,
+      // 	'img': img,
+      // 	'size': size,
+      // 	'maskFn': maskFn
+      // });
+    });
   }
 
   /*
   	Call this if we already have the image and don't need to download it.
   */
- 	static allocateParticlesWithImage(cfg) {
+  static allocateParticlesWithImage(cfg) {
     Sprites[cfg.name] = {
       'size': cfg.size,
       'img': cfg.img
@@ -107,7 +107,7 @@ export default class SpriteParticleFactory {
     Sprites[name].pos = Float32Array.from(slowArrPos);
     Sprites[name].col = Uint8ClampedArray.from(slowArrCol);
     Sprites[name].opa = new Float32Array(pxCount);
-	}
+  }
 
   /*
   	name, path, size
