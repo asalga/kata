@@ -16,7 +16,7 @@ export default function Assets(p) {
 
   instance = this;
   this.cbCalled = false;
-  this.cb = function(){};
+  this.cb = function() {};
 
   this.assetTypes = {
     'image': {},
@@ -39,8 +39,8 @@ export default function Assets(p) {
     let that = this;
 
     // ** ATLASES **
-    if(Manifest.atlases){
-      Manifest.atlases.forEach( a => {
+    if (Manifest.atlases) {
+      Manifest.atlases.forEach(a => {
 
         loadImage(a.imgPath, function(atlasImg) {
           // Once the image is loaded, get the meta file
@@ -63,7 +63,7 @@ export default function Assets(p) {
     }
 
     // ** AUDIO
-    Manifest.audio.forEach( v => {
+    Manifest.audio.forEach(v => {
 
       let h = new Howl({
         src: v.path,
@@ -80,19 +80,19 @@ export default function Assets(p) {
     });
 
     // ** JSON
-    Manifest.json.forEach( j => {
+    Manifest.json.forEach(j => {
       let n = j.name;
 
       fetch(j.path)
-        .then(function(response){
-          return response.json().then( data => {
+        .then(function(response) {
+          return response.json().then(data => {
             return {
               n: j.name,
               json: data
             }
           });
         })
-        .then(function(data){
+        .then(function(data) {
           that.numAssetsLoaded++;
           that.assetTypes['json'][data.n] = data.json;
           // that.json[data.n] = data.json
@@ -100,7 +100,7 @@ export default function Assets(p) {
     })
 
     // ** IMAGES **
-    if(Manifest.images){
+    if (Manifest.images) {
       Manifest.images.forEach(v => {
         loadImage(v.path, p5img => {
           // that.images[v] = p5img;
@@ -123,7 +123,7 @@ export default function Assets(p) {
 
     let totalAssets = numImages + numAtlases + numAudio + numDatas;
 
-    if(this.numAssetsLoaded === totalAssets && this.cbCalled === false){
+    if (this.numAssetsLoaded === totalAssets && this.cbCalled === false) {
       this.cbCalled = true;
       this.cb();
     }
@@ -136,7 +136,7 @@ export default function Assets(p) {
    */
   this.get = function(...args) {
 
-    if(args.length === 2){
+    if (args.length === 2) {
       let type = args[0];
       let k = args[1];
       return this.assetTypes[type][k];
