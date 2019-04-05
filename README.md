@@ -1,7 +1,7 @@
 # KATA
 
 ##### TODO
-  - Fix playing sound on miss 
+  - Fix playing sound on miss
   - move engine to submodule
   - show typo'ed char
   - make rendering recursive
@@ -13,5 +13,5 @@
   - Add pause option
   - add boxey tunnel shader
   - update background numchars
-  - add spritesheet support
   - materialize chars at top
+  - add atlas meta file atlas sheet generator
