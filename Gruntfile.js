@@ -18,23 +18,6 @@ module.exports = function(grunt) {
   const app = 'app';
   const lib = 'src/libs';
 
-  // /*
-  //  */
-  // try {
-  //   let cfg = grunt.file.readJSON('config.json');
-  //   let target = cfg.targets[cfg.id];
-
-  //   config.target = `${basePath}` + target.dir;
-  //   config.bundleMethod = target.bundleMethod;
-  //   config.library = target.library;
-
-  //   grunt.log.writeln('loading:' + cfg.id);
-  // } catch (e) {
-  //   grunt.log.writeln(e);
-  // }
-
-  
-
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
   grunt.initConfig({
@@ -99,6 +82,17 @@ module.exports = function(grunt) {
             dest: `${app}/`,
             filter: 'isFile'
           }]
+      },
+
+      tools: {
+        files: [
+           {
+            expand: true,
+            cwd: `tools`,
+            src: '**/*.*',
+            dest: `${app}/tools/`
+          },
+        ]
       },
 
       dev: {
@@ -251,13 +245,12 @@ module.exports = function(grunt) {
         livereload: true
       },
 
-
-      font_to_img: {
+      tools: {
         files: [
           'tools/**/*'
         ],
         tasks: [
-          'copy:font_to_img'
+          'copy:tools'
         ],
         options: {
           livereload: true
@@ -355,11 +348,19 @@ module.exports = function(grunt) {
     'watch'
   ]);
 
+  //
   grunt.registerTask('font_to_img', [
     'copy:font_to_img',
     'connect:livereload',
     'watch'
-  ])
+  ]);
+
+  //
+  grunt.registerTask('atlas_maker', [
+    'copy:tools',
+    'connect:livereload',
+    'watch'
+  ]);
 
   grunt.registerTask('prod', [
     'copy:dev',
