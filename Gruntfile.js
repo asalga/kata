@@ -327,7 +327,6 @@ module.exports = function(grunt) {
   */
   grunt.registerTask('bundle', function() {
     grunt.task.run('copy');
-
     // if (`${config.bundleMethod}` === 'browserify') {
     //   grunt.task.run('browserify:dev');
     // }
@@ -341,6 +340,10 @@ module.exports = function(grunt) {
     // }
   });
 
+
+  // create atlas
+
+
   grunt.registerTask('default', [
     'copy:dev',
     // 'jshint',
@@ -348,7 +351,7 @@ module.exports = function(grunt) {
     'watch'
   ]);
 
-  //
+  // 
   grunt.registerTask('font_to_img', [
     'copy:font_to_img',
     'connect:livereload',
