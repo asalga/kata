@@ -55,17 +55,24 @@ module.exports = function(grunt) {
       }
     },
 
-    /**
-     *
-     */
-    // concat: {
-    //   dev: {
-    //     dest: `${app}/index.js`,
-    //     src: `${src}/**/*.js`
-    //   },
-    //   options: {
-    //   }
-    // },
+    open: {
+      dev: {
+        path: 'http://localhost:9000/font_to_img.html',
+        app: 'Google Chrome'
+      },
+      // build: {
+      //   path: 'http://google.com/',
+      //   app: 'Firefox'
+      // },
+      file: {
+        path: '/etc/hosts'
+      },
+      custom: {
+        path: function() {
+          return grunt.option('path');
+        }
+      }
+    },
 
     /**
      *
@@ -81,18 +88,24 @@ module.exports = function(grunt) {
             src: '**/*.*',
             dest: `${app}/`,
             filter: 'isFile'
-          }]
+          }
+        ]
+      },
+
+      atlas: {
+        files: [{
+          src: 'data/json/chars.json',
+          dest: `tools/`
+        }]
       },
 
       tools: {
-        files: [
-           {
-            expand: true,
-            cwd: `tools`,
-            src: '**/*.*',
-            dest: `${app}/tools/`
-          },
-        ]
+        files: [{
+          expand: true,
+          cwd: `tools`,
+          src: '**/*.*',
+          dest: `${app}/tools/`
+        }, ]
       },
 
       dev: {
@@ -154,7 +167,7 @@ module.exports = function(grunt) {
             filter: 'isFile'
           },
           // texturepacker data/atlas/hiragana/_hiragana.tps 
-          
+
           // AUDIO
           {
             expand: true,
@@ -276,7 +289,7 @@ module.exports = function(grunt) {
         tasks: [
           'copy:dev'
         ],
-        options: {livereload: true}
+        options: { livereload: true }
       },
       // // IMAGES
       // images: {
@@ -299,14 +312,14 @@ module.exports = function(grunt) {
         options: {
           livereload: true
         }
-      },      
+      },
       // STYLE
       style: {
         files: [`src/css/style.css`],
         tasks: [
           'copy:dev'
         ],
-        options: {livereload: true}
+        options: { livereload: true }
       },
       // MARKUP
       markup: {
@@ -317,7 +330,7 @@ module.exports = function(grunt) {
           'copy:dev'
           // 'processhtml'
         ],
-        options: {livereload: true}
+        options: { livereload: true }
       }
     }
   });
@@ -341,8 +354,6 @@ module.exports = function(grunt) {
   });
 
 
-  // create atlas
-
 
   grunt.registerTask('default', [
     'copy:dev',
@@ -358,10 +369,12 @@ module.exports = function(grunt) {
     'watch'
   ]);
 
-  //
-  grunt.registerTask('atlas_maker', [
+  // Generate an atlas
+  grunt.registerTask('gen_atlas', [
+    'copy:atlas',
     'copy:tools',
     'connect:livereload',
+    'open:dev',
     'watch'
   ]);
 
