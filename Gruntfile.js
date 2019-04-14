@@ -263,7 +263,8 @@ module.exports = function(grunt) {
           'tools/**/*'
         ],
         tasks: [
-          'copy:tools'
+          'copy:font_to_img',
+          'open:dev'
         ],
         options: {
           livereload: true
@@ -366,17 +367,18 @@ module.exports = function(grunt) {
   grunt.registerTask('font_to_img', [
     'copy:font_to_img',
     'connect:livereload',
-    'watch'
+    'open:dev',
+    'watch:tools'
   ]);
 
   // Generate an atlas
-  grunt.registerTask('gen_atlas', [
-    'copy:atlas',
-    'copy:tools',
-    'connect:livereload',
-    'open:dev',
-    'watch'
-  ]);
+  // grunt.registerTask('gen_atlas', [
+  //   // 'copy:atlas',
+  //   'copy:tools',
+  //   'connect:livereload',
+  //   'open:dev',
+  //   'watch'
+  // ]);
 
   grunt.registerTask('prod', [
     'copy:dev',
