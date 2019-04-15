@@ -163,6 +163,16 @@
     "row": 1,
     "points":200,
     "difficulty": 5
+  },
+  {
+    "jpChar":"や",
+    "enChar":"7",
+    "romanji":"ya",
+    "phonetic-shift":"none",
+    "vert-side":"right",
+    "row": 1,
+    "points":1000,
+    "difficulty": 9
   }
 ]
 

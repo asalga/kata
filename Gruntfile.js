@@ -60,6 +60,10 @@ module.exports = function(grunt) {
         path: 'http://localhost:9000/font_to_img.html',
         app: 'Google Chrome'
       },
+      atlas_maker: {
+        path: 'http://localhost:9000/atlas_maker.html',
+        app: 'Google Chrome'
+      },
       // build: {
       //   path: 'http://google.com/',
       //   app: 'Firefox'
@@ -74,15 +78,21 @@ module.exports = function(grunt) {
       }
     },
 
+    exec: {
+      tp: {
+        command: 'texturepacker data/atlas/hiragana/_hiragana.tps',
+        stdout: true,
+        stderr: true
+      }
+    },
+
     /**
      *
      */
     copy: {
 
-      font_to_img: {
-        files: [
-          // MARKUP
-          {
+      tools: {
+        files: [{
             expand: true,
             cwd: `tools`,
             src: '**/*.*',
@@ -99,13 +109,32 @@ module.exports = function(grunt) {
         }]
       },
 
-      tools: {
+      // tools: {
+      //   files: [{
+      //     expand: true,
+      //     cwd: `tools`,
+      //     src: '**/*.*',
+      //     dest: `${app}/tools/`
+      //   }, ]
+      // },
+
+      data: {
         files: [{
           expand: true,
-          cwd: `tools`,
-          src: '**/*.*',
-          dest: `${app}/tools/`
+          // cwd: `data`,
+          src: 'data/**/*.*',
+          dest: `${app}/`
         }, ]
+      },
+
+      libs: {
+        files: [{
+          expand: true,
+          cwd: `${lib}`,
+          src: '*.js',
+          dest: `${app}/libs`,
+          filter: 'isFile'
+        }]
       },
 
       dev: {
@@ -263,7 +292,7 @@ module.exports = function(grunt) {
           'tools/**/*'
         ],
         tasks: [
-          'copy:font_to_img',
+          'copy:tools',
           'open:dev'
         ],
         options: {
@@ -354,8 +383,6 @@ module.exports = function(grunt) {
     // }
   });
 
-
-
   grunt.registerTask('default', [
     'copy:dev',
     // 'jshint',
@@ -365,20 +392,25 @@ module.exports = function(grunt) {
 
   // 
   grunt.registerTask('font_to_img', [
-    'copy:font_to_img',
+    'copy:data',
+    'copy:libs',
+    'copy:tools',
     'connect:livereload',
     'open:dev',
     'watch:tools'
   ]);
 
-  // Generate an atlas
-  // grunt.registerTask('gen_atlas', [
-  //   // 'copy:atlas',
-  //   'copy:tools',
-  //   'connect:livereload',
-  //   'open:dev',
-  //   'watch'
-  // ]);
+  grunt.registerTask('tp', [
+    'exec'
+  ]);
+
+  grunt.registerTask('atlas_maker', [
+    'copy:data',
+    'copy:tools',
+    'connect:livereload',
+    'open:atlas_maker',
+    'watch:tools'
+  ]);
 
   grunt.registerTask('prod', [
     'copy:dev',

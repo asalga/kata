@@ -8,7 +8,7 @@ let sz = 32;
 let font;
 
 
-fetch('../data/json/chars.json')
+fetch('../../data/json/chars.json')
   .then( res => {
     res.json().then( j => {
       data = j;

@@ -10,7 +10,7 @@ let imageCount = 0;
 let p5Images = [];
 let drawFrame = false;
 
-fetch('images/atlas.json')
+fetch('data/atlas/hiragana.json')
   .then(function(response) {
     return response.json().then(data => {
       return data;
@@ -26,9 +26,8 @@ fetch('images/atlas.json')
 
     for (let o in data.frames) {
       // console.log(o, '  ----   ', data.frames[o]);
-      // console.log(o);
 
-      let frameName = 'images/' + o;
+      let frameName = 'data/atlas/hiragana/' + o;
       // debugger;
       images.push({
         src: frameName,
