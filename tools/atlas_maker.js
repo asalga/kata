@@ -64,7 +64,7 @@ window.draw = function() {
     p5Images.forEach((v, e, a) => {
       image(v, images[e].x, images[e].y);
     });
-    save();
+    save('__hiragana.png');
 
     noLoop();
   }

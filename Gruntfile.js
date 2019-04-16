@@ -406,6 +406,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('atlas_maker', [
     'copy:data',
+    'copy:libs',
     'copy:tools',
     'connect:livereload',
     'open:atlas_maker',
