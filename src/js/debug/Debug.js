@@ -6,7 +6,7 @@ let strings = [];
 let isOn = true;
 
 export default class Debug {
-  
+
   static init(cfg) {
     document.addEventListener('keydown', function(evt) {
       if (evt.code === cfg.toggleKey) {
@@ -15,7 +15,7 @@ export default class Debug {
       }
     });
   }
-  
+
   static add(str) {
     if (!isOn) {
       return;
@@ -34,8 +34,8 @@ export default class Debug {
 
     push();
     noStroke();
-    fill(0,255,0);
-    
+    fill(0, 255, 0);
+
     let y = 20;
     let ySpacing = 18;
 

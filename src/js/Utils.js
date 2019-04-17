@@ -47,7 +47,7 @@ export default class Utils {
 
   // playing around with perf testing
   // .length = [] vs allocating new array
-  static clearArray(arr){
+  static clearArray(arr) {
     window.clearArrayCalls++;
     // arr = [];
     arr.length = 0;

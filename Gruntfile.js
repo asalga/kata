@@ -18,21 +18,6 @@ module.exports = function(grunt) {
   const app = 'app';
   const lib = 'src/libs';
 
-  // /*
-  //  */
-  // try {
-  //   let cfg = grunt.file.readJSON('config.json');
-  //   let target = cfg.targets[cfg.id];
-
-  //   config.target = `${basePath}` + target.dir;
-  //   config.bundleMethod = target.bundleMethod;
-  //   config.library = target.library;
-
-  //   grunt.log.writeln('loading:' + cfg.id);
-  // } catch (e) {
-  //   grunt.log.writeln(e);
-  // }
-
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
   grunt.initConfig({
@@ -70,22 +55,88 @@ module.exports = function(grunt) {
       }
     },
 
-    /**
-     *
-     */
-    // concat: {
-    //   dev: {
-    //     dest: `${app}/index.js`,
-    //     src: `${src}/**/*.js`
-    //   },
-    //   options: {
-    //   }
-    // },
+    open: {
+      dev: {
+        path: 'http://localhost:9000/font_to_img.html',
+        app: 'Google Chrome'
+      },
+      atlas_maker: {
+        path: 'http://localhost:9000/atlas_maker.html',
+        app: 'Google Chrome'
+      },
+      // build: {
+      //   path: 'http://google.com/',
+      //   app: 'Firefox'
+      // },
+      file: {
+        path: '/etc/hosts'
+      },
+      custom: {
+        path: function() {
+          return grunt.option('path');
+        }
+      }
+    },
+
+    exec: {
+      tp: {
+        command: 'texturepacker data/atlas/hiragana/_hiragana.tps',
+        stdout: true,
+        stderr: true
+      }
+    },
 
     /**
      *
      */
     copy: {
+
+      tools: {
+        files: [{
+            expand: true,
+            cwd: `tools`,
+            src: '**/*.*',
+            dest: `${app}/`,
+            filter: 'isFile'
+          }
+        ]
+      },
+
+      atlas: {
+        files: [{
+          src: 'data/json/chars.json',
+          dest: `tools/`
+        }]
+      },
+
+      // tools: {
+      //   files: [{
+      //     expand: true,
+      //     cwd: `tools`,
+      //     src: '**/*.*',
+      //     dest: `${app}/tools/`
+      //   }, ]
+      // },
+
+      data: {
+        files: [{
+          expand: true,
+          // cwd: `data`,
+          src: 'data/**/*.*',
+          dest: `${app}/`
+        }, ]
+      },
+
+      libs: {
+        files: [{
+          expand: true,
+          cwd: `${lib}`,
+          src: '*.js',
+          dest: `${app}/libs`,
+          filter: 'isFile'
+        }]
+      },
+
       dev: {
         files: [
           // MARKUP
@@ -128,6 +179,24 @@ module.exports = function(grunt) {
             dest: `${app}/data/json`,
             filter: 'isFile'
           },
+          // FONT
+          {
+            expand: true,
+            cwd: `data/font`,
+            src: ['**/*.ttf'],
+            dest: `${app}/data/font`,
+            filter: 'isFile'
+          },
+          // ATLAS
+          {
+            expand: true,
+            cwd: `data/atlas`,
+            src: ['*.json', '*.png'],
+            dest: `${app}/data/atlas`,
+            filter: 'isFile'
+          },
+          // texturepacker data/atlas/hiragana/_hiragana.tps 
+
           // AUDIO
           {
             expand: true,
@@ -217,6 +286,20 @@ module.exports = function(grunt) {
         spawn: true,
         livereload: true
       },
+
+      tools: {
+        files: [
+          'tools/**/*'
+        ],
+        tasks: [
+          'copy:tools',
+          'open:dev'
+        ],
+        options: {
+          livereload: true
+        }
+      },
+
       scripts_dev: {
         files: [
           `${src}/js/**/*.js`
@@ -236,7 +319,7 @@ module.exports = function(grunt) {
         tasks: [
           'copy:dev'
         ],
-        options: {livereload: true}
+        options: { livereload: true }
       },
       // // IMAGES
       // images: {
@@ -259,14 +342,14 @@ module.exports = function(grunt) {
         options: {
           livereload: true
         }
-      },      
+      },
       // STYLE
       style: {
         files: [`src/css/style.css`],
         tasks: [
           'copy:dev'
         ],
-        options: {livereload: true}
+        options: { livereload: true }
       },
       // MARKUP
       markup: {
@@ -277,7 +360,7 @@ module.exports = function(grunt) {
           'copy:dev'
           // 'processhtml'
         ],
-        options: {livereload: true}
+        options: { livereload: true }
       }
     }
   });
@@ -287,7 +370,6 @@ module.exports = function(grunt) {
   */
   grunt.registerTask('bundle', function() {
     grunt.task.run('copy');
-
     // if (`${config.bundleMethod}` === 'browserify') {
     //   grunt.task.run('browserify:dev');
     // }
@@ -308,6 +390,28 @@ module.exports = function(grunt) {
     'watch'
   ]);
 
+  // 
+  grunt.registerTask('font_to_img', [
+    'copy:data',
+    'copy:libs',
+    'copy:tools',
+    'connect:livereload',
+    'open:dev',
+    'watch:tools'
+  ]);
+
+  grunt.registerTask('tp', [
+    'exec'
+  ]);
+
+  grunt.registerTask('atlas_maker', [
+    'copy:data',
+    'copy:libs',
+    'copy:tools',
+    'connect:livereload',
+    'open:atlas_maker',
+    'watch:tools'
+  ]);
 
   grunt.registerTask('prod', [
     'copy:dev',

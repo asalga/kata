@@ -7,17 +7,19 @@ import Letter from '../components/Letter.js';
 import ScorePoints from '../components/ScorePoints.js';
 import Killable from '../components/Killable.js';
 
+import Assets from '../../Assets.js';
 import Debug from '../../debug/Debug.js';
 import Vec2 from '../../math/Vec2.js';
 import cfg from "../../cfg.js";
 
+let assets = new Assets();
 export default function createLetter() {
-  
+
   let e = new Entity({ name: 'letter' });
 
-  e.vel.y = 150;
+  e.vel.y = 100;
 
-  e.pos.x = Math.floor(random(0,10)) * (cfg.gameWidth/10);
+  e.pos.x = Math.floor(random(0, 10)) * (cfg.gameWidth / 10);
   e.pos.y = Math.random(-200, -150);
   e.pos.y = -100;
 
@@ -25,43 +27,47 @@ export default function createLetter() {
   e.disabled = false;
 
   let ls = EntityFactory.create('letterselector');
-  ls.addSelection({'row': 2});
-  ls.addSelection({'row': 1});
+  ls.addSelection({ 'row': 2 });
+  ls.addSelection({ 'row': 1 });
   let kana = ls.getChar();
   let charData = ls.getKanaData(kana);
 
   e.addComponent(new Letter(e, { data: charData }));
   e.addComponent(new ScorePoints(e, { points: charData.points }));
-  e.addComponent(new Killable(e, { timeToDeath: 1}));
+  e.addComponent(new Killable(e, { timeToDeath: 3 }));
 
-  let spriteRender = new SpriteRender(e, { layerName: 'sprite' });
+  let spriteRender = new SpriteRender(e, { layerName: 'sprite', timer: 0.1 });
   spriteRender.draw = function(gfx) {
     gfx.push();
 
-    gfx.textSize(50);
-    gfx.textAlign(CENTER, CENTER);
+    let atlas = assets.get('atlas', 'hiragana');
+    let char = atlas.get(charData.romanji);
 
-    gfx.noStroke();
-
-    if(e.pos.y < 0){
-      gfx.fill(130);
-    }
-    else if(e.letter.wasMissed){
-      gfx.fill(255, 0, 0);
-    }
-    else{
-      gfx.fill(50, 255, 20);
-    }
+    // gfx.textFont(testFont);
+    // gfx.textSize(50);
+    // gfx.textAlign(CENTER, CENTER);
+    // gfx.noStroke();
+    // if(e.pos.y < 0){
+    //   gfx.fill(130);
+    // }
+    // else if(e.letter.wasMissed){
+    //   gfx.fill(255, 0, 0);
+    // }
+    // else{
+    //   gfx.fill(50, 255, 20);
+    // }
 
     gfx.translate(e.pos.x, e.pos.y);
-    gfx.text(e.letter.jpChar, 40, 40);
+
+    gfx.image(char, 0, 0);
+    // gfx.text(e.letter.jpChar, 40, 40);
 
     gfx.pop();
   };
   e.addComponent(spriteRender);
 
   e.updateProxy = function(dt) {
-    if(e.pos.y > cfg.gameHeight - cfg.CHAR_SZ){
+    if (e.pos.y > cfg.gameHeight - cfg.CHAR_SZ) {
       e.letter.miss();
     }
   };

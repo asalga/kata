@@ -30,7 +30,7 @@ let layers = [];
 
 export default class Renderer {
 
-  static init(){
+  static init() {
     layerConfig.forEach(obj => {
       let layer = {
         'name': obj.name,
@@ -91,8 +91,8 @@ export default class Renderer {
       let _p3 = _layer.p3;
 
       if (_layer.cfg.clearFrame) {
-         //   //  //_p3.clearAll(); ???
-         _p3.clear();
+        //   //  //_p3.clearAll(); ???
+        _p3.clear();
       }
 
       let q = _layer.renderables;

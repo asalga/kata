@@ -4,33 +4,36 @@
   Atlas.js
   
   cfg{
-   img - p5Image
-   meta - string
+    name,
+    p5Img,
+    meta - string
   }
 */
 export default function Atlas(cfg) {
   Object.assign(this, cfg);
+  this.frames = {};
   this.split();
 }
 
 Atlas.prototype = {
-  get() {},
+  get(str) {
+    return this.frames[str];
+  },
 
   split() {
-    this.frames = {};
+    let sheetFramesObj = JSON.parse(this.meta)['frames'];
 
-    let sheetFrames = JSON.parse(this.meta)['frames'];
+    let arr = Object.entries(sheetFramesObj);
 
-    sheetFrames.forEach((f, i) => {
+    arr.forEach( (f, i) => {
+      let filename = f[0];
+      let frame = f[1].frame;
 
       // remove '.png' part of filename, we don't need it.
-      let filename = (f.filename).split('.')[0];
+      let imgName = filename.split('.')[0];
 
-      let x = f.frame.x;
-      let y = f.frame.y;
-      let w = f.frame.w;
-      let h = f.frame.h;
-      this.frames[filename] = this.img.get(x, y, w, h);
+      this.frames[imgName] = this.p5Img.get(frame.x, frame.y, 
+                                            frame.w, frame.h);
     });
   }
 };
