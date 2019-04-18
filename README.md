@@ -14,8 +14,6 @@
   - add boxey tunnel shader
   - update background numchars
   - materialize chars at top
-  - add atlas meta file atlas sheet generator
-
 
 ##### Generating a new atlas
 1) Update the `data/json/chars.json` file

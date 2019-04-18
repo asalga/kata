@@ -33,12 +33,12 @@ export default function createRomanjiAnswer() {
       gfx.push();
       gfx.textSize(25);
       gfx.noStroke();
-      gfx.translate(e.pos.x, e.pos.y - timeElapsed*30);
+      gfx.translate(e.pos.x, e.pos.y - timeElapsed * 60);
       
       gfx.textAlign(CENTER, CENTER);
       
-      let a = (1 - timeElapsed);
-      gfx.fill(0, 233, 0, a*255);
+      let a = (1 - timeElapsed) * 5;
+      gfx.fill(120, 200, 255, a*255);
 
       gfx.text(answerData.romanji, 40, 40);
 

@@ -226,22 +226,6 @@ module.exports = function(grunt) {
       }
     },
 
-    // /**
-    //  * 
-    //  */
-    // browserify: {
-    //   dev: {
-    //     files: [{
-    //       dest: `${app}/dev_bundle.js`,
-    //       src: `${config.target}/index.js`
-    //     }],
-    //     options: {
-    //       mangle: false
-    //     }
-    //   }
-    // },
-
-
     /**
      * https://github.com/gruntjs/grunt-contrib-jshint
      * options inside .jshintrc file
@@ -294,6 +278,22 @@ module.exports = function(grunt) {
         tasks: [
           'copy:tools',
           'open:dev'
+        ],
+        options: {
+          livereload: true
+        }
+      },
+
+      dev: {
+        files: [
+          `${src}/js/**/*.js`,
+          `data/**/*.{mp3,ogg,wav}`,
+          'data/**/*.*',
+          `src/index.html`,
+          `src/css/style.css`
+        ],
+        tasks: [
+          'copy:dev',
         ],
         options: {
           livereload: true
@@ -365,29 +365,10 @@ module.exports = function(grunt) {
     }
   });
 
-  /*
-    To bundle or not to bundle
-  */
-  grunt.registerTask('bundle', function() {
-    grunt.task.run('copy');
-    // if (`${config.bundleMethod}` === 'browserify') {
-    //   grunt.task.run('browserify:dev');
-    // }
-    // //
-    // else if (`${config.bundleMethod}` === 'concat') {
-    //   grunt.task.run('concat');
-    // }
-    // //
-    // else if (`${config.bundleMethod}` === 'module') {
-    //   grunt.task.run('copy');
-    // }
-  });
-
   grunt.registerTask('default', [
     'copy:dev',
-    // 'jshint',
     'connect:livereload',
-    'watch'
+    'watch:dev'
   ]);
 
   // 
