@@ -11,9 +11,10 @@
   - create audioEventListener
   - Add BHV MultiSelectorNode
   - Add pause option
-  - add boxey tunnel shader
+  - add boxy tunnel shader
   - update background numchars
   - materialize chars at top
+  - add WordSelector
 
 ##### Generating a new atlas
 1) Update the `data/json/chars.json` file

@@ -117,13 +117,11 @@ export default class Scene {
     // }
     // ss.init();
 
-
     // let bhvRoot = EntityFactory.create('randomselector');
     // bhvRoot.setIterations(Infinity);
     // bhvRoot.add(rs);
     // bhvRoot.add(ss);
     // this.add(bhvRoot);
-
   }
 
   remove(e) {
