@@ -26,9 +26,12 @@ export default function createLetter() {
   // ???
   e.disabled = false;
 
+  // TODO: this shouldn't be at such a low lever
   let ls = EntityFactory.create('letterselector');
   // ls.addSelection({ 'row': 2 });
   ls.addSelection({ 'row': 2 });
+
+  // let kana = LetterSelector.getChar();
   let kana = ls.getChar();
   let charData = ls.getKanaData(kana);
 
@@ -36,7 +39,7 @@ export default function createLetter() {
   e.addComponent(new ScorePoints(e, { points: charData.points }));
   e.addComponent(new Killable(e, { timeToDeath: 3 }));
 
-  let spriteRender = new SpriteRender(e, { layerName: 'sprite', timer: 0.1 });
+  let spriteRender = new SpriteRender(e, { layerName: 'sprite', timer: 1.1 });
   spriteRender.draw = function(gfx) {
     gfx.push();
 
