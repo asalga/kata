@@ -15,10 +15,10 @@
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-jshint": "^1.1.0",
     "grunt-contrib-watch": "^1.0.0",
+    "grunt-csv2json": "^0.1.5",
     "grunt-exec": "^3.0.0",
     "grunt-open": "^0.2.4",
     "grunt-processhtml": "^0.4.2",
-    "howler": "^2.0.15",
     "matchdep": "^1.0.1",
     "p5": "^0.5.16",
     "serve-static": "^1.13.1"

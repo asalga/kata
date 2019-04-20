@@ -16,6 +16,10 @@
   - materialize chars at top
   - add WordSelector
 
+##### Generating new word set
+1) Update the `data/words/words.csv` file
+1) `$ grunt parse-words`
+
 ##### Generating a new atlas
 1) Update the `data/json/chars.json` file
 1) Run `$ grunt font_to_img`

@@ -55,6 +55,13 @@ module.exports = function(grunt) {
       }
     },
 
+    csv2json: {
+      options: {
+        inputFilePath: 'data/words',
+        outputFilePath: 'app/data/json'
+      }
+    },
+
     open: {
       dev: {
         path: 'http://localhost:9000/font_to_img.html',
@@ -384,6 +391,10 @@ module.exports = function(grunt) {
   grunt.registerTask('tp', [
     'exec'
   ]);
+
+  grunt.registerTask('parse-words', [
+    'csv2json:words'
+  ])
 
   grunt.registerTask('atlas_maker', [
     'copy:data',
