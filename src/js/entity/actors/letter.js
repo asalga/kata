@@ -17,7 +17,7 @@ export default function createLetter() {
 
   let e = new Entity({ name: 'letter' });
 
-  e.vel.y = 100;
+  e.vel.y = 80;
 
   e.pos.x = Math.floor(random(0, 10)) * (cfg.gameWidth / 10);
   e.pos.y = Math.random(-200, -150);
@@ -27,8 +27,8 @@ export default function createLetter() {
   e.disabled = false;
 
   let ls = EntityFactory.create('letterselector');
+  // ls.addSelection({ 'row': 2 });
   ls.addSelection({ 'row': 2 });
-  ls.addSelection({ 'row': 1 });
   let kana = ls.getChar();
   let charData = ls.getKanaData(kana);
 
