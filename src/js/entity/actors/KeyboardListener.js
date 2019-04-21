@@ -7,7 +7,6 @@ import KBListener from '../components/KBListener.js';
 
 import Debug from '../../debug/Debug.js';
 
-
 export default function createLetter() {
   
   let e = new Entity({ name: 'keyboardlistener' });

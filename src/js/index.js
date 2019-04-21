@@ -67,7 +67,6 @@ window.preload = function() {
 
 window.setup = function() {
   createCanvas(cfg.gameWidth, cfg.gameHeight);
-  // window.testFont = loadFont('data/font/thin.ttf');
 };
 
 window.draw = function() {

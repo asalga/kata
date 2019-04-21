@@ -15,6 +15,7 @@
   - update background numchars
   - materialize chars at top
   - add WordSelector
+  - Fix importing long paths due to directory structure
 
 ##### Generating new word set
 1) Update the `data/words/words.csv` file

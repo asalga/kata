@@ -22,7 +22,6 @@ export default function createLetterSelector() {
 
   instance = new Entity({ name: 'letterselector' });
 
-
   instance.getChar = function() {
     if (selection.length === 0) {
       return null;
@@ -33,19 +32,24 @@ export default function createLetterSelector() {
   };
 
   /*
-   */
+    TODO: convert this to an array
+    meta - selection (ie. {row: 2})
+  */
   instance.addSelection = function(meta) {
 
-    let entries = Object.entries(meta);
+    let entries = Object.entries(meta[0]);
     let data = KanaMap.getData();
 
     for (const [k, v] of entries) {
 
+      // match
       data.forEach(c => {
         if (c[k] === v) selection += c.jpChar;
       });
     }
 
+    // We could match a glyph several times
+    // depeding on our query, so remove dups.
     selection = Utils.removeDuplicateChars(selection);
   };
 

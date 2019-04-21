@@ -9,6 +9,8 @@ import typo from './actors/TypoDetector.js';
 import empty from './actors/Empty.js';
 import audio from './actors/AudioEventListener.js';
 
+// Playing around with new paths
+import ws from '../_game/entity/actors/WordSelector.js';
 
 // BHV
 import sequenceselector from './actors/SequenceSelector.js';
@@ -21,6 +23,7 @@ let createFuncs = new Map([
 	['glyph', glyph],
 	['keyboardlistener', kb],
 	['letterselector', ls],
+	['wordselector', ws],
 	['slot', slot],
 	['ui', ui],
 	['typo', typo],

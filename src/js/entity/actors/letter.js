@@ -26,12 +26,12 @@ export default function createLetter() {
   // ???
   e.disabled = false;
 
-  // TODO: this shouldn't be at such a low lever
+  // TODO: this shouldn't be at such a low level
   let ls = EntityFactory.create('letterselector');
-  // ls.addSelection({ 'row': 2 });
-  ls.addSelection({ 'row': 2 });
+  ls.addSelection(cfg.letterSelection);
 
   // let kana = LetterSelector.getChar();
+  // let kana = KanaSelector.getKana();
   let kana = ls.getChar();
   let charData = ls.getKanaData(kana);
 
