@@ -18,7 +18,7 @@
 
 ##### Generating new word set
 1) Update the `data/words/words.csv` file
-1) `$ grunt parse-words`
+1) Run `$ grunt convert-words`
 
 ##### Generating a new atlas
 1) Update the `data/json/chars.json` file
@@ -38,3 +38,9 @@
 
 1) *Atlas creator* script is run
    - script will generate a new atlas and save it into `data/atlas`
+
+
+##### Updating Assets
+1) Add asset into `data/`
+2) Update `src/js/Manifest/`
+3) If necessary, create appropriate Loader

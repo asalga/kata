@@ -392,7 +392,7 @@ module.exports = function(grunt) {
     'exec'
   ]);
 
-  grunt.registerTask('parse-words', [
+  grunt.registerTask('convert-words', [
     'csv2json:words'
   ])
 

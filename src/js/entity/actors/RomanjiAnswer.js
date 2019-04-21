@@ -18,7 +18,7 @@ export default function createRomanjiAnswer() {
   let answerData;
 
   e.setAnswer = function(kana){
-    answerData = KanaMap.getKanaData(kana);
+    answerData = KanaMap.getData(kana);
   };
 
   e.addComponent(new Timer(e, {countdown: 2}));

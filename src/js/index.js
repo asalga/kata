@@ -5,7 +5,7 @@
 import Utils from './Utils.js';
 import Debug from './debug/Debug.js';
 import Scene from './Scene.js';
-import Assets from './Assets.js';
+import Assets from './assets/Assets.js';
 
 import Event from './event/Event.js';
 import EventSystem from './event/EventSystem.js';

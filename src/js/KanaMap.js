@@ -1,6 +1,10 @@
 'use strict';
 
-import Assets from './Assets.js';
+/*
+  Transforms the data from an Array into a Map.
+*/
+
+import Assets from './assets/Assets.js';
 
 let charMap = new Map;
 let firstTime = true;
@@ -9,24 +13,21 @@ function loadData() {
   let assets = new Assets();
   let chars = assets.get('json', 'chars');
 
-  chars.forEach(g => {
-    charMap.set(g.jpChar, g);
-  });
+  chars.forEach(g => charMap.set(g.jpChar, g));
 }
+
 export default class KanaMap {
 
-  static getKanaData(kana) {
+  static getData(kana) {
     if (firstTime) {
+      firstTime = false;
       loadData();
     }
 
-    return charMap.get(kana);
-  }
-
-  static getData() {
-    if (firstTime) {
-      loadData();
+    if(kana){
+      return charMap.get(kana);
     }
+
     return charMap;
   }
 }

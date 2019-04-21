@@ -50,7 +50,7 @@ export default function createLetterSelector() {
   };
 
   instance.getKanaData = function(glyph) {
-    return KanaMap.getKanaData(glyph);
+    return KanaMap.getData(glyph);
   };
 
   return instance;

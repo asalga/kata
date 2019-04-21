@@ -1,7 +1,7 @@
 'use strict';
 
 import Entity from '../Entity.js';
-import Assets from '../../Assets.js';
+import Assets from '../../assets/Assets.js';
 
 import Debug from '../../debug/Debug.js';
 import cfg from "../../cfg.js";
