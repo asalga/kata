@@ -1,8 +1,9 @@
 'use strict';
 
+// import ls from './actors/LetterSelector.js';
+
 import glyph from './actors/letter.js';
 import kb from './actors/KeyboardListener.js';
-import ls from './actors/LetterSelector.js';
 import slot from './actors/CharSlot.js';
 import ui from './actors/Ui.js';
 import typo from './actors/TypoDetector.js';
@@ -22,7 +23,7 @@ import background from './actors/decorations/Background.js';
 let createFuncs = new Map([
 	['glyph', glyph],
 	['keyboardlistener', kb],
-	['letterselector', ls],
+	// ['letterselector', ls],
 	['wordselector', ws],
 	['slot', slot],
 	['ui', ui],

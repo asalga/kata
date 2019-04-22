@@ -6,6 +6,7 @@ import Utils from './Utils.js';
 import Debug from './debug/Debug.js';
 import Scene from './Scene.js';
 import Assets from './assets/Assets.js';
+import KanaSelector from './_game/KanaSelector.js';
 
 import Event from './event/Event.js';
 import EventSystem from './event/EventSystem.js';
@@ -50,6 +51,8 @@ let preloadCallback = function() {
   SpriteParticleFactory.initWithAtlas(assets.get('atlas', 'hiragana'));
   Debug.init({ toggleKey: 'Escape' });
   Debug.setOn(window.debug);
+
+  KanaSelector.init();
 
   scene = new Scene();
   scene.restartGame();

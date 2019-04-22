@@ -13,5 +13,5 @@ export default {
   showRomanjiAnswer: true,
   hearRomanjiAnswer: true,
 
-  letterSelection: [{ 'row': 1 }]
+  kanaSelection: [{ 'row': 2 }]
 };

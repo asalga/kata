@@ -10,7 +10,10 @@ import Killable from '../components/Killable.js';
 import Assets from '../../assets/Assets.js';
 import Debug from '../../debug/Debug.js';
 import Vec2 from '../../math/Vec2.js';
-import cfg from "../../cfg.js";
+import cfg from '../../cfg.js';
+
+import KanaSelector from '../../_game/KanaSelector.js';
+import KanaMap from '../../KanaMap.js';
 
 let assets = new Assets();
 export default function createLetter() {
@@ -26,14 +29,8 @@ export default function createLetter() {
   // ???
   e.disabled = false;
 
-  // TODO: this shouldn't be at such a low level
-  let ls = EntityFactory.create('letterselector');
-  ls.addSelection(cfg.letterSelection);
-
-  // let kana = LetterSelector.getChar();
-  // let kana = KanaSelector.getKana();
-  let kana = ls.getChar();
-  let charData = ls.getKanaData(kana);
+  let kana = KanaSelector.getKana();
+  let charData = KanaMap.getData(kana);
 
   e.addComponent(new Letter(e, { data: charData }));
   e.addComponent(new ScorePoints(e, { points: charData.points }));
