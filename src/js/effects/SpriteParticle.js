@@ -43,11 +43,6 @@ export default class SpriteParticle {
     // gfx.translate(this.position.x, this.position.y);
     gfx.noStroke();
 
-    // gfx.beginShape(POINTS);
-    // gfx.strokeWeight(1);
-    // gfx.stroke(233);
-    // gfx.strokeWeight(2);
-
     for (let i = 0; i < this.pxCount; i++) {
       x = this.pos[i * 2 + 0] * this.size * 2;
       y = this.pos[i * 2 + 1] * this.size * 3;
@@ -64,7 +59,6 @@ export default class SpriteParticle {
       gfx.fill(r, g, b, a);
       gfx.rect(x, y, this.size * this.size * 3, this.size * this.size * 3);
     }
-    // gfx.endShape();
 
     // let t1 = new Date();
     // for (let i = 0; i < this.pxCount; i++) {
