@@ -1,764 +1,153 @@
-jp	en	romanji	tags												
-にんげん	human	ningen	people												
-じんるい	humanity	jinrui	people												
-ひと	person	hito	people												
-おとこ	male	otoko	people												
-おとこのひと	man	otokonohito	people												
-おとこのこ	boy	otokonoko	people												
-おんな	female	onna	people												
-おんなのひと	woman	onnanohito	people												
-おんなのこ	girl	onnanoko	people												
-あかちゃん	baby	akachan	people												
-わかもの	youth	wakamono	people												
-わたし	I,myself	watashi	people												
-わたくし	I,myself	watakushi [most formal]	people												
-ぼく	I,myself	boku	people												
-おれ	I,myself	ore	people												
-あたし	I,myself	atashi	people												
-しょうじょ	girl	shoujo	people												
-しょうねん	boy	shounen	people												
-いしゃ	doctor	isha	profession												
-かんごし	nurse	kangoshi	profession												
-かんごふ	female nurse	kangofu	profession												
-しかい	dentist	shikai	profession												
-せいじか	politician	seijika	profession												
-べんごし	lawyer	bengoshi	profession												
-しょうぼうし	firefighter	shouboushi	profession												
-けいさつかん	police officer	keisatsukan	profession												
-へいし	soldier	heishi	profession												
-けんちくか	architect	kenchikuka	profession												
-せんせい	teacher	sensei	profession												
-きょうし	teacher	kyoushi	profession												
-かしゅ	singer	kashu	profession												
-あし	foot,leg	ashi	body												
-かかと	heel	kakato	body												
-すね	shin	sune	body												
-ひざ	knee	hiza	body												
-もも	thigh	momo	body												
-あたま	head	atama	body												
-かお	face	kao	body												
-くち	mouth	kuchi	body												
-くちびる	lips	kuchibiru	body												
-は	tooth	ha	body												
-はな	nose	hana	body												
-め	eye	me	body												
-ひげ	moustache	beard	body												
-かみ	hair	kami	body												
-みみ	ear	mimi	body												
-おなか	stomach	onaka	body												
-うで	arm	ude	body												
-ひじ	elbow	hiji	body												
-かた	shoulder	kata	body												
-つめ	nail	tsume	body												
-て	hand	te	body												
-てくび	wrist	tekubi	body												
-てのひら	palm of hand	te-no-hira	body												
-ゆび	finger	toe	body												
-しり	buttocks	shiri	body												
-おなか	abdomen	o-naka	body												
-かんぞう	liver	kanzō	body												
-きも	liver	kimo	body												
-きんにく	muscle	kin'niku	body												
-くび	neck	kubi	body												
-こころ	heart [feelings]	kokoro	body												
-こし	waist	hip	body												
-しんぞう	heart	shinzō	body												
-せなか	back	senaka	body												
-ち	blood	chi	body												
-にく	meat	niku	body												
-はだ	skin	hada	body												
-ひふ	skin	hifu	body												
-ほね	bone	hone	body												
-むね	chest	mune	body												
-かぜ	cold [illness]	kaze	body												
-げり	diarrhea	geri	body												
-びょうき	illness	byōki	body												
-かぞく	family	kazoku	family												
-りょうしん	parents	ryoushin	family												
-こども	child	kodomo	family												
-ちち	father	chichi	family												
-はは	mother	haha	family												
-つま	wife	tsuma	family												
-おっと	husband	otto	family												
-あに	older brother	onī-san	family												
-あね	older sister	onē-san	family												
-おとうと	younger brother	otōto	family												
-いもうと	younger sister	imōto	family												
-きょうだい	siblings	kyōdai	family												
-しまい	sisters	shimai	family												
-そふ	grandfather	ojii-san	family												
-そぼ	grandmother	obaa-san	family												
-まご	grandchild	mago	family												
-おじ	uncle	oji-san	family												
-おば	aunt	oba-san	family												
-いとこ	cousin	itoko	family												
-めい	niece	mei	family												
-おい	nephew	oi	family												
-															
-															
-															
-															
-															
-															
-いきもの	living creatures	ikimono	life												
-ばけもの	monster	bakemono	life												
-どうぶつ	animal	dōbutsu	animal												
-いぬ	dog	inu	animal												
-ねこ	cat	neko	animal												
-うし	cow	ushi	animal												
-ぶた	pig	buta	animal												
-うま	horse	uma	animal												
-ひつじ	sheep	hitsuji	animal												
-さる	monkey	saru	animal												
-ねずみ	mouse/rat	nezumi	animal												
-とら	tiger	tora	animal												
-オオカミ	wolf	ōkami	animal												
-うさぎ	rabbit	usagi	animal												
-りゅう	dragon	ryū	animal												
-しか	deer	shika	animal												
-かえる	frog	kaeru	animal												
-がま	toad	gama	animal												
-しし	lion	shishi	animal												
-キリン	giraffe	kirin	animal												
-ぞう	elephant	zō	animal												
-とり	bird	tori	animal												
-にわとり	chicken	niwatori	animal												
-すずめ	sparrow	suzume	animal												
-からす	crow	karasu	animal												
-わし	eagle	washi	animal												
-たか	hawk	taka	animal												
-さかな	fish	sakana	animal												
-たい	red snapper	tai	animal												
-えび	shrimp	ebi	animal												
-いわし	sardine	iwashi	animal												
-まぐろ	tuna	maguro	animal												
-かつお	bonito	katsuo	animal												
-さんま	pike	sanma	animal												
-あじ	horse mackerel	aji	animal												
-さば	mackerel	saba	animal												
-イカ	squid	ika	animal												
-タコ	octopus	tako	animal												
-むし	insect	mushi	animal												
-ちょう	butterfly	chō	animal												
-ガ	moth	ga	animal												
-せみ	cicada	semi	animal												
-トンボ	dragonfly	tonbo	animal												
-バッタ	grasshopper	batta	animal												
-クモ	spider	kumo	animal												
-ホタル	firefly	hotaru	animal												
-ハエ	housefly	hae	animal												
-カ	mosquito	ka	animal												
-ゴキブリ	cockroach	gokiburi	animal												
-カタツムリ	snail	katatsumuri	animal												
-ナメクジ	slug	namekuji	animal												
-ミミズ	earthworm	mimizu	animal												
-かい	shellfish	kai	animal												
-かいがら	shell	kaigara	animal												
-トカゲ	lizard	tokage	animal												
-へび	snake	hebi	animal												
-くま	bear	kuma	animal												
-															
-しょくぶつ	??????	shokubutsu	plant												
-くさ	grass	kusa	plant												
-はな	flower	hana	plant												
-み	fruit	mi	plant												
-き	tree	ki	plant												
-はっぱ	leaf	ha or happa	plant												
-ね or ねっこ、根 or 根っ子 - root		ne or nekko	plant												
-くき、茎 - stem		kuki	plant												
-きのこ、茸 - mushroom		kinoko	plant												
-きく、菊 - chrysanthemum	kiku		plant												
-さくら	cherry blossom	sakura	plant												
-															
-こめ	uncooked rice	kome													
-いね	rice growing in a field	ine													
-むぎ	wheat	barley	oats	mugi											
-やさい	vegetable	yasai													
-くだもの	fruit for eating	kudamono													
-いも	yam	potato	taro	imo											
-まめ	beans	peas	mame												
-だいこん	Japanese white radish	daikon													
-にんじん	carrot	ninjin													
-リンゴ	apple	ringo													
-ミカン	mandarin orange	mikan													
-バナナ	banana	banana	kanshō												
-ナシ	pear	nashi													
-クリ	chestnut tree	kuri													
-モモ	peach	momo													
-トマト	tomato	tomato	banka												
-スイカ	watermelon	suika													
-Food															
-たべもの、食べ物 - food	tabemono														
-ちょうしょく、朝食 - breakfast	chōshoku	asagohan													
-ひるごはん、昼御飯 - lunch	hirugohan														
-ばんごはん、晩御飯 - dinner	bangohan														
-ごはん、御飯 - cooked rice or meal	gohan														
-みそ、味噌 - miso	miso														
-りょうり、料理 - cooking	ryōri														
-サラダ - salad	sarada														
-デザート - dessert	dezāto														
-パン - bread	pan														
-サンドイッチ - sandwich	sandoitchi														
-おやつ、間食 - snack	oyatsu	kanshoku													
-アイスクリーム - ice cream	aisukurīmu														
-															
-のみもの	drink	nomimono	drink												
-ちゃ	tea	ocha													
-おちゃ	green tea	ocha													
-コーヒー、珈琲 - coffee	kōhī														
-ぎゅうにゅう、牛乳 - milk	gyūnyū														
-みず、水 - water	" ""mizu"""														
-ビール - beer	" ""bīru"""														
-ワイン - wine	" ""wain"""														
-Seasoning															
-さとう、砂糖 - sugar	satō														
-しお、塩 - salt	shio														
-しょうゆ、醤油 - soy sauce	shōyu														
-Time															
-じかん	time	jikan													
-とき	~hours	toki	ji												
-こよみ	calendar	koyomi	karendā												
-ふん	minute	fun													
-びょう	second	byō													
-ひ	day	hi	nichi												
-つき	month	tsuki	gatsu												
-(# -gatsu /	January	1st Month):Ichi-	Ni-	San-	Shi-	Go-	Roku-	Shichi-	Hachi-	Ku-	Jyu-	JyuIchi-	JyuNi-	December	12th Month
-とし	year	toshi	nen												
-(Last year: kyonen	this year: kotoshi	next year: rainen)													
-きのう	yesterday	kinō	sakujitsu												
-きょう	today	kyō													
-あした	tomorrow	ashita	asu	myōnichi											
-あさ	morning	asa													
-(Yesterday morning: kinou no asa	this morning: kesa	tomorrow morning: ashita no asa)													
-ひる	afternoon	hiru													
-ゆうがた	evening	yūgata													
-ばん	evening	ban													
-よる	evening	night	yoru												
-ようび	~day	yōbi													
-しゅう	week	shū													
-(Last week: senshū	this week: konshū	next week: raishū)													
-いっしゅうかん	one week	isshūkan													
-Week Days															
-にちようび	Sunday	nichi-yōbi													
-げつようび	Monday	getsu-yōbi													
-かようび	Tuesday	ka-yōbi													
-すいようび	Wednesday	sui-yōbi													
-もくようび	Thursday	moku-yōbi													
-きんようび	Friday	kin-yōbi													
-どようび	Saturday	do-yōbi													
-															
-たいよう	sun	taiyō	weather												
-つき	moon	tsuki	weather												
-ほし	star	hoshi	weather												
-てんき	weather	tenki	weather												
-はれ	clear weather	hare	weather												
-あめ	rain	ame	weather												
-くもり	cloudy	kumori	weather												
-ゆき	snow	yuki	weather												
-かぜ	wind	kaze	weather												
-かみなり	thunder/thunder	kaminari	weather												
-たいふう	typhoon	taifū	weather												
-あらし	storm	arashi	weather												
-そら	sky	sora	weather												
-															
-きた	north	kita	direction												
-ひがし	east	higashi	direction												
-みなみ	south	minami	direction												
-にし	west	nishi	direction												
-ここ	here	koko	direction												
-そこ	there	soko	direction												
-あそこ	over there	asoko	direction												
-みぎ	right	migi	direction												
-ひだり	left	hidari	direction												
-うえ	above/up	ue	direction												
-した	below/down	shita	direction												
-まえ	front	mae	direction												
-うしろ	behind	ushiro	direction												
-むこう	the other side	mukō	direction												
-ななめ	diagonal	naname	direction												
-てまえ	nearer	temae	direction												
-とおい	far	tooi	direction												
-ちかい	near	chikai	direction												
-															
-みず	water	mizu	element												
-ゆ	hot water	yu													
-こおり	ice	kōri													
-ゆげ	steam	yuge													
-ひ	fire	hi													
-ガス – gas	gasu														
-くうき	air	atmosphere	kūki												
-つち	earth	ground	tsuchi												
-きんぞく	metal	metallic	kinzoku												
-どろ	mud	mire	clay	plaster	doro										
-けむり	smoke	tobacco	opium	kemuri											
-てつ	iron [Fe]	tetsu													
-どう	copper [Cu]	dō													
-きん	gold [Au]; money	kin													
-ぎん	silver [Ag]; wealth	gin													
-なまり	lead [Pb]	namari													
-しお	salt [NaCl]	shio													
-Weights and measures															
-メートル – meter	mētoru														
-リットル – litre	rittoru														
-グラム – gram	guramu														
-キロ – kilo-	kiro														
-ミリ – milli-	miri														
-センチメートル	センチ – centimeter	senchi													
-インチ – inch	inchi														
-Society															
-しゃかい	society	shakai													
-けいざい	economy	economics	keizai												
-かいしゃ	company	kaisha													
-かいぎ	meeting	kaigi													
-がっこう	school	gakkō													
-やくしょ	local government office	yakusho													
-みせ	store	mise													
-ホテル – hotel	hoteru														
-こうじょう	factory	kōjō													
-かね	money	kane	most commonly o-kane												
-さつ	bill [of money	e.g.	a thousand-yen bill]	satsu											
-こぜに	small change	kozeni													
-つりせん	change	tsurisen)	change	o-tsuri											
-じどうはんばいき	vending machine	slot machine	jidōhanbaiki												
-きっぷ	ticket	public transport	fine)	kippu											
-きって	stamp	kitte													
-Human made objects															
-Home															
-つくえ	desk	tsukue													
-いす	chair	position	isu												
-たたみ	a tatami mat	tatami													
-と	door	family	to												
-とびら	door panel	tobira													
-ドア – door	doa														
-まど	window	mado													
-ふとん	futon	futon													
-げんかん	entrance	genkan													
-いえ	house	home	ie												
-エレベーター – elevator	erebētā														
-エスカレーター – escalator	esukarētā														
-でんき	electricity	denki													
-Tools															
-くぎ	nail	spike	kugi												
-ひも	string	cord	himo												
-なわ	rope	string	nawa												
-ふくろ	pocket	bag	fukuro												
-かばん	leather bag	kaban													
-かさ	umbrella	parasol	kasa												
-かぎ	door bolt	key	kagi												
-ちょうこく	sculpture	engraving	chōkoku												
-Stationery															
-ぶんぼうぐ	quill(bunbōgu)														
-インク – ink	inku														
-ペン – pen	pen														
-ボールペン – ball-point pen	bōrupen														
-まんねんひつ	fountain pen	mannenhitsu													
-えんぴつ	pencil	enpitsu													
-ふで	brush for writing or painting	fude													
-チョーク – chalk	chōku														
-けしゴム	eraser	keshigomu													
-えんぴつけずり	pencil sharpener	enpitsu-kezuri													
-じょうぎ	ruler	jōgi													
-ノート – notebook	nōto														
-にっき	diary	nikki													
-カバー – book cover	kabā														
-ふうとう	envelope	fūtō													
-はさみ	scissors	hasami													
-ホッチキス – stapler	hotchikisu														
-Clothes															
-ふく	clothes	fuku													
-ようふく	western clothing	yōfuku													
-きもの	kimono	kimono													
-わふく	Japanese clothing	wafuku													
-そで	sleeve	sode													
-えり	lapel	collar	eri												
-ボタン – button	botan														
-チャック	zipper	zipper fastener	chakku	fasunā	jippā										
-ベルト – belt	beruto														
-くつ	shoe	kutsu													
-くつした	sock	kutsushita													
-めがね	glasses	megane													
-Transport															
-てつどう	railway	tetsudō													
-えき	station	eki													
-ひこうき	airplane	hikōki													
-くうこう	airport	kūkō	hikōjō												
-みち	street	way	road	michi											
-どうろ	road	dōro													
-バスてい	bus-stop	basutei													
-とおり	avenue	tōri													
-でんしゃ	train	densha													
-くるま	car	kuruma	jidōsha												
-Language															
-もじ	letter	character	script	moji											
-じ	a letter	character	ji												
-かんじ	Chinese character	kanji													
-ひらがな	hiragana syllabary characters	hiragana													
-カタカナ	katakana syllabary characters	katakana													
-すうじ	numbers	sūji													
-アルファベット – alphabet	arufabetto														
-ローマ字 – Roman characters	Latin script	rōmaji													
-がいこくご	foreign language	gaikokugo													
-にほんご	Japanese [language]	nihongo													
-えいご	English [language]	eigo													
-ちゅうごくご	Chinese [language]	chūgokugo													
-どいつご	German [language]	doitsugo													
-すぺいんご	Spanish [language]	supeingo													
-ふらんすご	French [language]	furansugo													
-ちょうせんご	Korean [language]	South Korean [language]	chōsengo	kankokugo											
-Media															
-ほん	book	hon													
-かみ	paper	kami													
-てがみ	letter	tegami													
-しんぶん	newspaper	shinbun													
-じしょ	dictionary	jisho													
-パソコン – personal computer	pasokon														
-															
-いろ	color	iro	color												
-あか	red	aka	color												
-きいろ	yellow	kiiro	color												
-みどり	green	midori	color												
-あお	blue	ao	color												
-むらさき	purple	murasaki	color												
-しろ	white	shiro	color												
-くろ	black	kuro	color												
-ピンク	pink	pinku	color												
-ちゃいろ	brown	chairo	color												
-はいいろ	grey	haiiro	color												
-オレンジ	orange	orenji	color												
-															
-え	picture	e													
-おんがく	music	ongaku													
-りか	science	rika													
-さんすう	arithmetic	sansū													
-れきし	history	rekishi													
-ちり	geography	chiri													
-たいいく	physical education	taiiku													
-スポーツ – sport	supōtsu														
-システム – system	shisutemu														
-じょうほう	information	news	jōhō												
-ひつよう	necessity	hitsuyō													
-べんきょう	study	benkyō													
-いらい	request	irai													
-Numbers															
-れい	zero	rei	zero												
-いち	one	ichi													
-に	two	ni													
-さん	three	san													
-よん	four	yon	shi												
-ご	five	go													
-ろく	six	roku													
-なな	seven	nana	shichi												
-はち	eight	hachi													
-きゅう	nine	kyū	ku												
-じゅう	ten	jū													
-ひゃく	hundred	hyaku													
-せん	thousand	sen													
-まん	ten thousand	man													
-おく	one hundred million	oku													
-ひとつ	one	one thing	hitotsu												
-ふたつ	two	two things	futatsu												
-みっつ	three	three things	mittsu												
-よっつ	four	four things	yottsu												
-いつつ	five	five things	itsutsu												
-むっつ	six	six things	muttsu												
-ななつ	seven	seven things	nanatsu												
-やっつ	eight	eight things	yattsu												
-ここのつ	nine	nine things	kokonotsu												
-とお	ten	ten things	tō												
-Abstract nouns															
-これ – this	it	kore													
-それ – that	sore														
-あれ – that over there	are														
-どれ – which	dore														
-こちら	this direction	thing	person	or place	kochira	kocchi									
-そちら	that direction	thing	person	or place	sochira	socchi									
-あちら	that direction	thing	person	or place over there	achira	acchi									
-どちら	which direction	thing	person	or place	dochira	docchi									
-ひみつ	secret	himitsu													
-じどう	automatic	jidō													
-ないよう	content	naiyō													
-はば	width	breadth	free room	difference	between two substances)	haba									
-せいしき	formality	seishiki													
-けっこん	marriage	kekkon													
-げんざい	now	genzai													
-いま	now	ima													
-かこ	past	kako													
-みらい	future	mirai													
-															
-															
-いい	good	ii	adjective												
-すごい	amazing	sugoi	adjective												
-すばらしい	wonderful	subarashii	adjective												
-わるい	bad	warui	adjective												
-たかい	expensive	takai	adjective												
-ひくい	low	hikui	adjective												
-やすい	cheap	yasui	adjective												
-おおきい	big	ōkii	adjective												
-ちいさい	small	chiisai	adjective												
-ほそい	thin	hosoi	adjective												
-ふとい	thick	futoi	adjective												
-ふるい	old	furui	adjective												
-あたらしい	new	atarashii	adjective												
-わかい	young	wakai	adjective												
-かるい	light/easy	karui	adjective												
-おもい	heavy	omoi	adjective												
-やさしい	easy/simple	yasashii	adjective												
-むずかしい	difficult	muzukashii	adjective												
-やわらかい	soft	yawarakai	adjective												
-かたい	hard	katai	adjective												
-あつい	hot	atsui	adjective												
-つめたい	cold	tsumetai	adjective												
-さむい	cold	samui	adjective												
-おいしい	delicious	oishii	adjective												
-うまい	delicious	umai	adjective												
-まずい	tastes awful	mazui	adjective												
-あまい	sweet	amai	adjective												
-からい	hot [spicy]	karai	adjective												
-しょっぱい	salty	shoppai	adjective												
-にがい	bitter	nigai	adjective												
-うつくしい	beautiful	utsukushii	adjective												
-															
-うれしい	happy	ureshii	feeling												
-たのしい	fun	tanoshii	feeling												
-かなしい	sad	kanashii	feeling												
-さびしい	lonely	sabishii	feeling												
-さみしい、寂しい、淋しい - sad	lonely	samishii	feeling												
-こわい	scary	kowai	feeling												
-いたい	painful	itai	feeling												
-かゆい	itchy	kayui	feeling												
-くさい	stinky	kusai	feeling												
-つらい	heart-breaking	tsurai	feeling												
-															
-する – to do		suru													
-やる – to do		yaru													
-Existence															
-いる – to exist [for animate objects]	iru														
-ある – to exist [for inanimate objects]	aru														
-なる – to become	naru														
-おこる	to occur	okoru													
-あらわれる	現れる – to appear	arawareru													
-いきる	to live	ikiru													
-うむ	to give birth	umu													
-しぬ	to die	shinu													
-こわれる	壊れる – to breakin	kowareru													
-in intransitive sense															
-Movement															
-いく	to go	iku													
-くる	to come	kuru													
-かえる	to return	kaeru													
-あるく	to walk	aruku													
-とぶ	to jump	to fly	tobu												
-およぐ	to swim	oyogu													
-Actions															
-うごく	to movein	ugoku													
-おどる	to dance	odoru													
-ねる	to sleep	neru													
-うたう	to sing	utau													
-かむ	to bite	kamu													
-たべる	to eat	taberu													
-のむ	to drink	nomu													
-さわる	to touch	sawaru													
-なげる	to throw	nageru													
-もつ	to hold	motsu													
-うつ	to hit	to strike	utsu												
-なぐる	to hit	to strike	naguru												
-さす	to point	sasu													
-さす	to stab	sasu													
-さす	to raise or extend one's hands	sasu													
-ける	to kick	keru													
-すわる	to sit	suwaru													
-たつ	to stand	tatsu													
-はしる	to run	hashiru													
-Changes of state															
-あく	空く – to become unoccupied	aku													
-こむ	込む – to be crowded	komu													
-いる	要る – to need	iru													
-かわく	乾く – to become dry	kawaku													
-みだす	乱す - to disturb	to disarrange	midasu												
-みだれる	乱れる - to be disturbed	to become confused	midareru												
-つかえる	仕える - to serve	to work for	tsukaeru												
-そなわる	備わる - to be furnished with	sonawaru													
-すぐれる	優れる - to excel	to surpass	sugureru												
-ひえる	冷える - to grow cold	to get chilly	to cool down	hieru											
-さめる	覚める - to wake	to become sober	to be disillusioned	sameru											
-さめる	冷める - to cool down	sameru													
-むく	向く - to face	to turn toward	muku												
-たおれる	倒れる - to fall	to collapse	taoreru												
-かたまる	固まる - to harden	to solidify	to become firm	katamaru											
-うまる	埋まる - to be filled	to be surrounded	to overflow	umaru											
-うもれる	埋もれる - to be buried	to be covered	umoreru												
-ます	増す - to increase	to grow	masu												
-ふえる	増える - to increase	to multiply	fueru												
-へる	減る - to decrease	heru													
-はずれる	外れる - to deviate	hazureru													
-ふとる	太る - to grow fat	futoru													
-はじまる	始まる - to begin	hajimaru													
-おわる	終わる - to finish	to close	owaru												
-きめる	決める - to decide	kimeru													
-Senses															
-みる	to see	miru													
-きく	to hear	to listen	kiku												
-さわる	to touch	to feel	sawaru												
-かぐ	to smell	kagu													
-Speech															
-いう	to say	iu													
-はなす	to speak	hanasu													
-かたる	to tell	kataru													
-かく	to write	kaku													
-よむ	to read	yomu													
-Work															
-つかう	to use	tsukau													
-つくる	to make	tsukuru													
-なおす	to fix	repair	naosu												
-すてる	to discard	throw away	suteru												
-とる	to take	toru													
-おく	to put	oku													
-Emotions															
-かなしむ	to be sad	kanashimu													
-なく	to cry	naku													
-わらう	to laugh	warau													
-おこる	to be angry	okoru													
-ほめる	to encourage	homeru													
-しかる	to scold	shikaru													
-よろこぶ	to celebrate	to be jubilant	to have joy	to have delight	to have rapture	yorokobu									
-よろこび	joy	delight	rapture	yorokobi											
-なぐさめる	to console	to consolate	to provide empathy	nagusameru											
-あきる	to be disinterested	to be bored	to be tired of	to be weary	akiru										
-おどろく	to be astonished	to be surprised	to be scared	odoroku											
-Activities															
-あう	to meet	to interview	au												
-あける	to opentr	to unwraptr	akeru												
-あそぶ	to play	asobu													
-あつまる	to gatherin	atsumaru													
-うる	to sell	uru													
-える	to obtain [some benefit or knowledge]	eru													
-おる	to breaktr	to foldtr	oru												
-かう	to buy	kau													
-きる	to cut	kiru)													
-きる	to wear [on the upper body]	kiru													
-はく	to wear [on the lower body]	haku													
-かえる	to changetr	kaeru													
-かえる	to exchange	to substitute	to replace	kaeru											
-しめる	to closetr	shimeru													
-しめる	to tie	to fasten	shimeru												
-しめる	to comprise	to account for	shimeru												
-しる	to know	shiru)													
-つかれる	to get tired	tsukareru													
-でかける	to go out	to depart	dekakeru												
-はたらく	to work [e.g.	at a job]	hataraku												
-はなす	to let go of	hanasu													
-やすむ	to rest	to take a break	to go to bed	yasumu											
-わかれる	to split intoin	to be divided	wakareru												
-わかれる	to partin	to separatein	to break upin	wakareru											
-															
-															
-															
-Adverbs															
-もう – already	mō														
-まだ – still	yet	mada													
-ずっと – always	zutto														
-とても – very	totemo														
-こう – like this	kō														
-そう – like that	sō														
-ああ – in that other way	ā														
-どう – how	dō														
-しばしば – often	shibashiba														
-Pre-noun adjectival															
-この – this	kono														
-その – that	sono														
-あの – that	ano														
-どの – which	dono														
-Interjections															
-はい – yes	hai														
-いいえ – no	iie														
-Conjunctions															
-でも - but	demo														
-しかし – but	however	shikashi													
-そして – and then	Then…	soshite													
-それに – besides	soreni														
-なぜなら – that is because	being because	nazenara													
-Terminations of verbs															
-う	volitional ending [う for u-verbs	" よう for ru-verbs]: ""Let's…"" or ""I will"""	u	yō											
-せる	causative ending [せる for u-verbs	させる for ru-verbs]: to make [someone do something]	to allow	seru	saseru										
-れる	passive verb ending [れる for u-verbs	られる for ru-verbs]: to be <verbed> [e.g.	食べられる	" ""to be eaten""]"	reru	rareru									
-そうだ – indicates that it seems the verb occurs [e.g.	" ""It seems he ate""]"	sōda													
-た – informal past-tense	ta														
-たい – indicates desire to perform verb	tai														
-だろう – indicates that it seems the verb occurs; also used to ask whether the verb occurs	darō														
-ない	ん – informal negative	nai	n) [ん is a slurred version and sounds a little masculine												
-"ぬ – archaic informal negative [""he hath"""	" ""thou didst"""	etc.]	nu												
-ます – formal non-past ending	masu														
-Particles															
-Case															
-が – subject marker	but	ga													
-で – at	by	de													
-と – and	with	to													
-に – indirect object marker	ni														
-の – possession marker	of	no													
-へ – to	e) [Note: へ is normally read he	but when used as this particle its reading changes to e													
-まで – to	made														
-から – from	kara														
-より – than	yori														
-を – direct object marker	o														
-Conjunctive															
-および	and; as well as	oyobi													
-か – whether	ka														
-かも – might be	possible that	kamo													
-そして – and then	soshite														
-それとも – or	soretomo														
-だの – things like <list of things>	including	such things as	dano												
-つつ – ongoing occurrence	tsutsu) [similar to ながら but has different tone	and both actions haveequal weight]													
-て – te form of verb or adjective [see explanation]															
-と – when	if	that	to												
-ながら – while	though	both	nagara												
-ならびに – as well as	narabini														
-なり – whether or not	nari														
-に – to <somewhere>	by <someone>	ni													
-の – possession	no														
-ので – so	node														
-また	also	again	mata												
-または	or alternatively	matawa													
-も – also	too	mo													
-や – and	ya														
-Final															
-ね – emphasis and question marker	" equivalent to ""right?"""	ne													
-															
-な – the copula particle used after quasi-adjectives	na														
-かしら – I wonder	kashira														
-さ – -ness	sa														
-"っけ – particle indicating that the speaker is trying to recall some information [""What class is next -kke?""]"	-kke														
-Adverbial															
-こそ – emphasis	koso														
-さえ – even	sae														
-しか – only	shika														
-すら – even	sura														
-くらい	approximately	about	kurai												
-だけ – only	as much as	dake													
-だって – however	datte														
-ったら – casual topic marker	ttara) [colloquial form of to ittara	if you refer to ~; as for ~													
-って – said that	tte														
-でも – also	or	demo													
-どころ –	particle used to indicate that what precedes it is an extreme example and strongly negatesit)	dokoro													
-など – for example	nado														
-なら – if [for verbs]; subject marker [for nouns]	nara														
-なんか – casual undervalue	dislike	lack	nanka												
-なんて – casual undervalue	dislike	lack	nante												
-は – topic marker	wa) [although ha is the hiragana used	wa is the pronunciation													
-ばかり	just	full of	only	bakari											
-まで – until	made														
-も – too	also	mo													
-															
-															
-															
-とり	bird		animals;air												
-ねこ	cat	猫	animals;land												
-いぬ	dog	犬	animals;land												
-しろ	white		colors												
-さん	three		numbers												
-おはよう	good morning		greetings												
-あか	red		colors												
-きたない	dirty		adjective												
-あお	blue		colors												
-はい	yes														
-こんにちは	hello		greetings												
-おやすみなさい	sorry		greetings												
+jp	en	romanji	tags
+にんげん	human	ningen	people
+じんるい	humanity	jinrui	people
+ひと	person	hito	people
+おとこ	male	otoko	people
+おとこのひと	man	otokonohito	people
+おとこのこ	boy	otokonoko	people
+おんな	female	onna	people
+おんなのひと	woman	onnanohito	people
+おんなのこ	girl	onnanoko	people
+あかちゃん	baby	akachan	people
+わかもの	youth	wakamono	people
+わたし	I,myself	watashi	people
+わたくし	I,myself	watakushi	people
+ぼく	I,myself	boku	people
+おれ	I,myself	ore	people
+あたし	I,myself	atashi	people
+しょうじょ	girl	shoujo	people
+しょうねん	boy	shounen	people
+いしゃ	doctor	isha	profession
+かんごし	nurse	kangoshi	profession
+かんごふ	female nurse	kangofu	profession
+しかい	dentist	shikai	profession
+せいじか	politician	seijika	profession
+べんごし	lawyer	bengoshi	profession
+しょうぼうし	firefighter	shouboushi	profession
+けいさつかん	police officer	keisatsukan	profession
+へいし	soldier	heishi	profession
+けんちくか	architect	kenchikuka	profession
+せんせい	teacher	sensei	profession
+きょうし	teacher	kyoushi	profession
+かしゅ	singer	kashu	profession
+あし	foot,leg	ashi	body
+かかと	heel	kakato	body
+すね	shin	sune	body
+ひざ	knee	hiza	body
+もも	thigh	momo	body
+あたま	head	atama	body
+かお	face	kao	body
+くち	mouth	kuchi	body
+くちびる	lips	kuchibiru	body
+は	tooth	ha	body
+はな	nose	hana	body
+め	eye	me	body
+ひげ	moustache	beard	body
+かみ	hair	kami	body
+みみ	ear	mimi	body
+おなか	stomach	onaka	body
+うで	arm	ude	body
+ひじ	elbow	hiji	body
+かた	shoulder	kata	body
+つめ	nail	tsume	body
+て	hand	te	body
+てくび	wrist	tekubi	body
+てのひら	palm of hand	te-no-hira	body
+ゆび	finger	toe	body
+しり	buttocks	shiri	body
+おなか	abdomen	o-naka	body
+かんぞう	liver	kanzō	body
+きも	liver	kimo	body
+きんにく	muscle	kin'niku	body
+くび	neck	kubi	body
+こころ	heart [feelings]	kokoro	body
+こし	waist	hip	body
+しんぞう	heart	shinzō	body
+せなか	back	senaka	body
+ち	blood	chi	body
+にく	meat	niku	body
+はだ	skin	hada	body
+ひふ	skin	hifu	body
+ほね	bone	hone	body
+むね	chest	mune	body
+かぜ	cold [sick]	kaze	body
+げり	diarrhea	geri	body
+びょうき	illness	byōki	body
+かぞく	family	kazoku	family
+りょうしん	parents	ryoushin	family
+こども	child	kodomo	family
+ちち	father	chichi	family
+はは	mother	haha	family
+つま	wife	tsuma	family
+おっと	husband	otto	family
+あに	older brother	onī-san	family
+あね	older sister	onē-san	family
+おとうと	younger brother	otōto	family
+いもうと	younger sister	imōto	family
+きょうだい	siblings	kyōdai	family
+しまい	sisters	shimai	family
+そふ	grandfather	ojii-san	family
+そぼ	grandmother	obaa-san	family
+まご	grandchild	mago	family
+おじ	uncle	oji-san	family
+おば	aunt	oba-san	family
+いとこ	cousin	itoko	family
+めい	niece	mei	family
+おい	nephew	oi	family
+いきもの	living creatures	ikimono	life
+ばけもの	monster	bakemono	life
+どうぶつ	animal	dōbutsu	animal
+いぬ	dog	inu	animal
+ねこ	cat	neko	animal
+うし	cow	ushi	animal
+ぶた	pig	buta	animal
+うま	horse	uma	animal
+ひつじ	sheep	hitsuji	animal
+さる	monkey	saru	animal
+ねずみ	mouse/rat	nezumi	animal
+とら	tiger	tora	animal
+オオカミ	wolf	ōkami	animal
+うさぎ	rabbit	usagi	animal
+りゅう	dragon	ryū	animal
+しか	deer	shika	animal
+かえる	frog	kaeru	animal
+がま	toad	gama	animal
+しし	lion	shishi	animal
+キリン	giraffe	kirin	animal
+ぞう	elephant	zō	animal
+とり	bird	tori	animal
+にわとり	chicken	niwatori	animal
+すずめ	sparrow	suzume	animal
+からす	crow	karasu	animal
+わし	eagle	washi	animal
+たか	hawk	taka	animal
+さかな	fish	sakana	animal
+たい	red snapper	tai	animal
+えび	shrimp	ebi	animal
+いわし	sardine	iwashi	animal
+まぐろ	tuna	maguro	animal
+かつお	bonito	katsuo	animal
+さんま	pike	sanma	animal
+あじ	horse mackerel	aji	animal
+さば	mackerel	saba	animal
+イカ	squid	ika	animal
+タコ	octopus	tako	animal
+むし	insect	mushi	animal
+ちょう	butterfly	chō	animal
+ガ	moth	ga	animal
+せみ	cicada	semi	animal
+トンボ	dragonfly	tonbo	animal
+バッタ	grasshopper	batta	animal
+クモ	spider	kumo	animal
+ホタル	firefly	hotaru	animal
+ハエ	housefly	hae	animal
+カ	mosquito	ka	animal
+ゴキブリ	cockroach	gokiburi	animal
+カタツムリ	snail	katatsumuri	animal
+ナメクジ	slug	namekuji	animal
+ミミズ	earthworm	mimizu	animal
+かい	shellfish	kai	animal
+かいがら	shell	kaigara	animal
+トカゲ	lizard	tokage	animal
+へび	snake	hebi	animal
+くま	bear	kuma	animal
