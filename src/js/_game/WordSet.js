@@ -12,9 +12,17 @@ export default class WordSet {
     WordSet.clearFilters();
   }
 
-  static applyfilter(){}
+  /*
+    chainable
+  */
+  static applyfilter(filter){
+    subset = filter.execute(subset);
+    // do inplace?
+    // filter.execute(subset);
+    return this;
+  }
 
-  static clearFilters(){
+  static reset(){
     let assets = new Assets();
     subset = [...assets.get('json', 'words')];
   }
