@@ -1,153 +1,153 @@
-jp	en	romanji	tags
-にんげん	human	ningen	people
-じんるい	humanity	jinrui	people
-ひと	person	hito	people
-おとこ	male	otoko	people
-おとこのひと	man	otokonohito	people
-おとこのこ	boy	otokonoko	people
-おんな	female	onna	people
-おんなのひと	woman	onnanohito	people
-おんなのこ	girl	onnanoko	people
-あかちゃん	baby	akachan	people
-わかもの	youth	wakamono	people
-わたし	I,myself	watashi	people
-わたくし	I,myself	watakushi	people
-ぼく	I,myself	boku	people
-おれ	I,myself	ore	people
-あたし	I,myself	atashi	people
-しょうじょ	girl	shoujo	people
-しょうねん	boy	shounen	people
-いしゃ	doctor	isha	profession
-かんごし	nurse	kangoshi	profession
-かんごふ	female nurse	kangofu	profession
-しかい	dentist	shikai	profession
-せいじか	politician	seijika	profession
-べんごし	lawyer	bengoshi	profession
-しょうぼうし	firefighter	shouboushi	profession
-けいさつかん	police officer	keisatsukan	profession
-へいし	soldier	heishi	profession
-けんちくか	architect	kenchikuka	profession
-せんせい	teacher	sensei	profession
-きょうし	teacher	kyoushi	profession
-かしゅ	singer	kashu	profession
-あし	foot,leg	ashi	body
-かかと	heel	kakato	body
-すね	shin	sune	body
-ひざ	knee	hiza	body
-もも	thigh	momo	body
-あたま	head	atama	body
-かお	face	kao	body
-くち	mouth	kuchi	body
-くちびる	lips	kuchibiru	body
-は	tooth	ha	body
-はな	nose	hana	body
-め	eye	me	body
-ひげ	moustache	beard	body
-かみ	hair	kami	body
-みみ	ear	mimi	body
-おなか	stomach	onaka	body
-うで	arm	ude	body
-ひじ	elbow	hiji	body
-かた	shoulder	kata	body
-つめ	nail	tsume	body
-て	hand	te	body
-てくび	wrist	tekubi	body
-てのひら	palm of hand	te-no-hira	body
-ゆび	finger	toe	body
-しり	buttocks	shiri	body
-おなか	abdomen	o-naka	body
-かんぞう	liver	kanzō	body
-きも	liver	kimo	body
-きんにく	muscle	kin'niku	body
-くび	neck	kubi	body
-こころ	heart [feelings]	kokoro	body
-こし	waist	hip	body
-しんぞう	heart	shinzō	body
-せなか	back	senaka	body
-ち	blood	chi	body
-にく	meat	niku	body
-はだ	skin	hada	body
-ひふ	skin	hifu	body
-ほね	bone	hone	body
-むね	chest	mune	body
-かぜ	cold [sick]	kaze	body
-げり	diarrhea	geri	body
-びょうき	illness	byōki	body
-かぞく	family	kazoku	family
-りょうしん	parents	ryoushin	family
-こども	child	kodomo	family
-ちち	father	chichi	family
-はは	mother	haha	family
-つま	wife	tsuma	family
-おっと	husband	otto	family
-あに	older brother	onī-san	family
-あね	older sister	onē-san	family
-おとうと	younger brother	otōto	family
-いもうと	younger sister	imōto	family
-きょうだい	siblings	kyōdai	family
-しまい	sisters	shimai	family
-そふ	grandfather	ojii-san	family
-そぼ	grandmother	obaa-san	family
-まご	grandchild	mago	family
-おじ	uncle	oji-san	family
-おば	aunt	oba-san	family
-いとこ	cousin	itoko	family
-めい	niece	mei	family
-おい	nephew	oi	family
-いきもの	living creatures	ikimono	life
-ばけもの	monster	bakemono	life
-どうぶつ	animal	dōbutsu	animal
-いぬ	dog	inu	animal
-ねこ	cat	neko	animal
-うし	cow	ushi	animal
-ぶた	pig	buta	animal
-うま	horse	uma	animal
-ひつじ	sheep	hitsuji	animal
-さる	monkey	saru	animal
-ねずみ	mouse/rat	nezumi	animal
-とら	tiger	tora	animal
-オオカミ	wolf	ōkami	animal
-うさぎ	rabbit	usagi	animal
-りゅう	dragon	ryū	animal
-しか	deer	shika	animal
-かえる	frog	kaeru	animal
-がま	toad	gama	animal
-しし	lion	shishi	animal
-キリン	giraffe	kirin	animal
-ぞう	elephant	zō	animal
-とり	bird	tori	animal
-にわとり	chicken	niwatori	animal
-すずめ	sparrow	suzume	animal
-からす	crow	karasu	animal
-わし	eagle	washi	animal
-たか	hawk	taka	animal
-さかな	fish	sakana	animal
-たい	red snapper	tai	animal
-えび	shrimp	ebi	animal
-いわし	sardine	iwashi	animal
-まぐろ	tuna	maguro	animal
-かつお	bonito	katsuo	animal
-さんま	pike	sanma	animal
-あじ	horse mackerel	aji	animal
-さば	mackerel	saba	animal
-イカ	squid	ika	animal
-タコ	octopus	tako	animal
-むし	insect	mushi	animal
-ちょう	butterfly	chō	animal
-ガ	moth	ga	animal
-せみ	cicada	semi	animal
-トンボ	dragonfly	tonbo	animal
-バッタ	grasshopper	batta	animal
-クモ	spider	kumo	animal
-ホタル	firefly	hotaru	animal
-ハエ	housefly	hae	animal
-カ	mosquito	ka	animal
-ゴキブリ	cockroach	gokiburi	animal
-カタツムリ	snail	katatsumuri	animal
-ナメクジ	slug	namekuji	animal
-ミミズ	earthworm	mimizu	animal
-かい	shellfish	kai	animal
-かいがら	shell	kaigara	animal
-トカゲ	lizard	tokage	animal
-へび	snake	hebi	animal
-くま	bear	kuma	animal
+jp,en,romanji,tags
+にんげん,human,ningen,people
+じんるい,humanity,jinrui,people
+ひと,person,hito,people
+おとこ,male,otoko,people
+おとこのひと,man,otokonohito,people
+おとこのこ,boy,otokonoko,people
+おんな,female,onna,people
+おんなのひと,woman,onnanohito,people
+おんなのこ,girl,onnanoko,people
+あかちゃん,baby,akachan,people
+わかもの,youth,wakamono,people
+わたし,Imyself,watashi,people
+わたくし,I/myself,watakushi,people
+ぼく,I/myself,boku,people
+おれ,I/myself,ore,people
+あたし,I/myself,atashi,people
+しょうじょ,girl,shoujo,people
+しょうねん,boy,shounen,people
+いしゃ,doctor,isha,profession
+かんごし,nurse,kangoshi,profession
+かんごふ,female nurse,kangofu,profession
+しかい,dentist,shikai,profession
+せいじか,politician,seijika,profession
+べんごし,lawyer,bengoshi,profession
+しょうぼうし,firefighter,shouboushi,profession
+けいさつかん,police officer,keisatsukan,profession
+へいし,soldier,heishi,profession
+けんちくか,architect,kenchikuka,profession
+せんせい,teacher,sensei,profession
+きょうし,teacher,kyoushi,profession
+かしゅ,singer,kashu,profession
+あし,foot/leg,ashi,body
+かかと,heel,kakato,body
+すね,shin,sune,body
+ひざ,knee,hiza,body
+もも,thigh,momo,body
+あたま,head,atama,body
+かお,face,kao,body
+くち,mouth,kuchi,body
+くちびる,lips,kuchibiru,body
+は,tooth,ha,body
+はな,nose,hana,body
+め,eye,me,body
+ひげ,moustache,beard,body
+かみ,hair,kami,body
+みみ,ear,mimi,body
+おなか,stomach,onaka,body
+うで,arm,ude,body
+ひじ,elbow,hiji,body
+かた,shoulder,kata,body
+つめ,nail,tsume,body
+て,hand,te,body
+てくび,wrist,tekubi,body
+てのひら,palm of hand,te-no-hira,body
+ゆび,finger,toe,body
+しり,buttocks,shiri,body
+おなか,abdomen,o-naka,body
+かんぞう,liver,kanzō,body
+きも,liver,kimo,body
+きんにく,muscle,kin'niku,body
+くび,neck,kubi,body
+こころ,heart [feelings],kokoro,body
+こし,waist,hip,body
+しんぞう,heart,shinzō,body
+せなか,back,senaka,body
+ち,blood,chi,body
+にく,meat,niku,body
+はだ,skin,hada,body
+ひふ,skin,hifu,body
+ほね,bone,hone,body
+むね,chest,mune,body
+かぜ,cold [sick],kaze,body
+げり,diarrhea,geri,body
+びょうき,illness,byōki,body
+かぞく,family,kazoku,family
+りょうしん,parents,ryoushin,family
+こども,child,kodomo,family
+ちち,father,chichi,family
+はは,mother,haha,family
+つま,wife,tsuma,family
+おっと,husband,otto,family
+あに,older brother,onī-san,family
+あね,older sister,onē-san,family
+おとうと,younger brother,otōto,family
+いもうと,younger sister,imōto,family
+きょうだい,siblings,kyōdai,family
+しまい,sisters,shimai,family
+そふ,grandfather,ojii-san,family
+そぼ,grandmother,obaa-san,family
+まご,grandchild,mago,family
+おじ,uncle,oji-san,family
+おば,aunt,oba-san,family
+いとこ,cousin,itoko,family
+めい,niece,mei,family
+おい,nephew,oi,family
+いきもの,living creatures,ikimono,life
+ばけもの,monster,bakemono,life
+どうぶつ,animal,dōbutsu,animal
+いぬ,dog,inu,animal
+ねこ,cat,neko,animal
+うし,cow,ushi,animal
+ぶた,pig,buta,animal
+うま,horse,uma,animal
+ひつじ,sheep,hitsuji,animal
+さる,monkey,saru,animal
+ねずみ,mouse/rat,nezumi,animal
+とら,tiger,tora,animal
+オオカミ,wolf,ōkami,animal
+うさぎ,rabbit,usagi,animal
+りゅう,dragon,ryū,animal
+しか,deer,shika,animal
+かえる,frog,kaeru,animal
+がま,toad,gama,animal
+しし,lion,shishi,animal
+キリン,giraffe,kirin,animal
+ぞう,elephant,zō,animal
+とり,bird,tori,animal
+にわとり,chicken,niwatori,animal
+すずめ,sparrow,suzume,animal
+からす,crow,karasu,animal
+わし,eagle,washi,animal
+たか,hawk,taka,animal
+さかな,fish,sakana,animal
+たい,red snapper,tai,animal
+えび,shrimp,ebi,animal
+いわし,sardine,iwashi,animal
+まぐろ,tuna,maguro,animal
+かつお,bonito,katsuo,animal
+さんま,pike,sanma,animal
+あじ,horse mackerel,aji,animal
+さば,mackerel,saba,animal
+イカ,squid,ika,animal
+タコ,octopus,tako,animal
+むし,insect,mushi,animal
+ちょう,butterfly,chō,animal
+ガ,moth,ga,animal
+せみ,cicada,semi,animal
+トンボ,dragonfly,tonbo,animal
+バッタ,grasshopper,batta,animal
+クモ,spider,kumo,animal
+ホタル,firefly,hotaru,animal
+ハエ,housefly,hae,animal
+カ,mosquito,ka,animal
+ゴキブリ,cockroach,gokiburi,animal
+カタツムリ,snail,katatsumuri,animal
+ナメクジ,slug,namekuji,animal
+ミミズ,earthworm,mimizu,animal
+かい,shellfish,kai,animal
+かいがら,shell,kaigara,animal
+トカゲ,lizard,tokage,animal
+へび,snake,hebi,animal
+くま,bear,kuma,animal

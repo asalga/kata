@@ -81,6 +81,12 @@ export default class Scene {
     this.add(EntityFactory.create('typo'));
     this.add(EntityFactory.create('ui'));
 
+
+    //
+    // WordPool.filter()
+
+
+
     let rs = EntityFactory.create('randomselector');
     // this.add(rs);
     rs.bhvrandomselector.setIterations(2);

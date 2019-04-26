@@ -54,7 +54,7 @@ export default function Assets(p) {
 
             that.assetTypes['atlas'][a.name] = atlas;
             that.numAssetsLoaded++;
-            console.log(a.name, ' loaded');
+            console.log('loaded atlas: ', a.name);
           };
           xhr.open('GET', a.metaPath);
           xhr.send();
@@ -95,6 +95,7 @@ export default function Assets(p) {
         .then(function(data) {
           that.numAssetsLoaded++;
           that.assetTypes['json'][data.n] = data.json;
+          console.log('loaded  json: ', j.name);
           // that.json[data.n] = data.json
         });
     })

@@ -6,7 +6,9 @@ import Utils from './Utils.js';
 import Debug from './debug/Debug.js';
 import Scene from './Scene.js';
 import Assets from './assets/Assets.js';
+
 import KanaSelector from './_game/KanaSelector.js';
+import WordSet from './_game/WordSet.js';
 
 import Event from './event/Event.js';
 import EventSystem from './event/EventSystem.js';
@@ -53,6 +55,7 @@ let preloadCallback = function() {
   Debug.setOn(window.debug);
 
   KanaSelector.init();
+  WordSet.init();
 
   scene = new Scene();
   scene.restartGame();
@@ -61,7 +64,6 @@ let preloadCallback = function() {
   let cvs = document.getElementById('defaultCanvas0');
   container.prepend(cvs);
 };
-
 
 window.preload = function() {
   assets = new Assets();
@@ -73,21 +75,13 @@ window.setup = function() {
 };
 
 window.draw = function() {
-
-  if (!assets.isDone()) {
-    return;
-  }
+  if (!assets.isDone()) { return; }
 
   update(0.016);
 
   preRender();
   render();
   postRender();
-
-  // if(window.testingEffect){
-  //   window.testingEffect.update(0.016);
-  //   window.testingEffect.render();
-  // }
 
   Debug.draw();
 };
