@@ -9,22 +9,32 @@ let subset = {};
 */
 export default class WordSet {
   static init() {
-    WordSet.clearFilters();
+    WordSet.reset();
   }
 
   /*
     chainable
   */
-  static applyfilter(filter) {
+  static applyFilter(filter) {
     subset = filter.execute(subset);
-    // do inplace?
-    // filter.execute(subset);
     return this;
   }
 
   static reset() {
     let assets = new Assets();
     subset = [...assets.get('json', 'words')];
+
+    // We got the data from a CSV converted into a json. 
+    // So the tags aren't arrays yet.
+    subset.forEach((v, i, a) => {
+      // Convert the empty string to an empty Array. 
+      // We may want to dynaically alter the array later ?
+      if (v.tags.length === 0) {
+        v.tags = [];
+      } else {
+        subset[i].tags = subset[i].tags.split(',');
+      }
+    });
   }
 
   static getRandomWord() {

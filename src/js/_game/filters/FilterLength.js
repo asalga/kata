@@ -1,5 +1,7 @@
 'use strict';
 
+import Filter from './Filter.js';
+
 import Utils from '../../Utils.js';
 
 /*
@@ -22,7 +24,7 @@ export default class FilterLengthRange extends Filter {
 
   execute(arr) {
     return arr.filter(e => {
-      return e.word.length >= this.min && e.word.length <= this.max;
+      return e.jp.length >= this.min && e.jp.length <= this.max;
     });
   }
 }

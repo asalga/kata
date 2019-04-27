@@ -12,6 +12,11 @@ import cfg from './cfg.js';
 import Utils from './Utils.js';
 import Assert from './core/Assert.js';
 
+// just temporary
+import WordSet from './_game/WordSet.js';
+import FilterLength from './_game/filters/FilterLength.js'
+import FilterTags from './_game/filters/FilterTags.js';
+
 export default class Scene {
 
   constructor() {
@@ -36,8 +41,8 @@ export default class Scene {
 
       // let the children do any cleanup.
       this.deleteQueue.forEach(e => {
-        new Event({ evtName: 'death', data: e}).fire();
-        
+        new Event({ evtName: 'death', data: e }).fire();
+
         // The seekTarget relies on this event and tries to get a new 
         // target. but if the entity is still alive, it may return
         // a target that will be removed next frame.
@@ -80,17 +85,24 @@ export default class Scene {
     this.add(EntityFactory.create('background'));
     this.add(EntityFactory.create('typo'));
     this.add(EntityFactory.create('ui'));
+    
+    // Temporary
+    let len = new FilterLength({ min: 1 });
+    let tag = new FilterTags({ tags: ['animal', 'body'] });
 
+    WordSet
+      .applyFilter(len)
+      .applyFilter(tag);
 
-    //
-    // WordPool.filter()
-
+    for (let i = 0; i < 30; i++) {
+      console.log(WordSet.getRandomWord());
+    }
 
 
     let rs = EntityFactory.create('randomselector');
     // this.add(rs);
     rs.bhvrandomselector.setIterations(2);
-    for(let i = 0; i < 8; i++){
+    for (let i = 0; i < 8; i++) {
       let slot = EntityFactory.create('slot');
       slot.pos.x = i * 80;
       // slot.pos.y = 20;
@@ -100,7 +112,7 @@ export default class Scene {
     let ss = EntityFactory.create('sequenceselector');
     ss.bhvsequenceselector.setIterations(1);
     // this.add(ss);
-    for(let i = 0; i < 4; i++){
+    for (let i = 0; i < 4; i++) {
       let slot = EntityFactory.create('slot');
       slot.pos.x = i * 80;
       // slot.pos.y = 30;
