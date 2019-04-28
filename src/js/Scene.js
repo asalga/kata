@@ -16,6 +16,7 @@ import Assert from './core/Assert.js';
 import WordSet from './_game/WordSet.js';
 import FilterLength from './_game/filters/FilterLength.js'
 import FilterTags from './_game/filters/FilterTags.js';
+import FilterKana from './_game/filters/FilterKana.js';
 
 export default class Scene {
 
@@ -85,19 +86,20 @@ export default class Scene {
     this.add(EntityFactory.create('background'));
     this.add(EntityFactory.create('typo'));
     this.add(EntityFactory.create('ui'));
-    
+
     // Temporary
-    let len = new FilterLength({ min: 1 });
-    let tag = new FilterTags({ tags: ['animal', 'body'] });
+    // let tag = new FilterTags({ tags: ['animal', 'body'] });
+    let len = new FilterLength({ min: 1});
+    let kana = new FilterKana({ allowed: 'ちとしはきくまのりれ' });
 
     WordSet
       .applyFilter(len)
-      .applyFilter(tag);
+      // .applyFilter(tag)
+      .applyFilter(kana);
 
     for (let i = 0; i < 30; i++) {
       console.log(WordSet.getRandomWord());
     }
-
 
     let rs = EntityFactory.create('randomselector');
     // this.add(rs);
