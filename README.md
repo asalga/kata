@@ -30,6 +30,7 @@
 1) Run Texturepacker `$ grunt tp`
   Texturepacker command line tool which generates the meta data and atlas file
 1) Run `$ grunt atlas_maker`
+1) Copy the generated image into data/atlas
 
 
 1) The script will: 

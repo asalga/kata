@@ -99,19 +99,6 @@
     "row":2,
     "points":200
   },
-  {
-    "jpChar":"ぎ",
-    "enChar":"g[",
-    "romanji":"gi",
-    "phonetic-shift":"dakuten",
-    "vert-side":"both",
-    "row":[
-      2,
-      1
-    ],
-    "points":200,
-    "difficulty":5
-  },
 
 
   {
@@ -165,9 +152,39 @@
     "difficulty": 5
   },
   {
-    "jpChar":"や",
-    "enChar":"7",
-    "romanji":"ya",
+    "jpChar":"ん",
+    "enChar":"y",
+    "romanji":"n",
+    "phonetic-shift":"none",
+    "vert-side":"right",
+    "row": 1,
+    "points":1000,
+    "difficulty": 9
+  },
+  {
+    "jpChar":"な",
+    "enChar":"u",
+    "romanji":"na",
+    "phonetic-shift":"none",
+    "vert-side":"right",
+    "row": 1,
+    "points":1000,
+    "difficulty": 9
+  },
+  {
+    "jpChar":"に",
+    "enChar":"i",
+    "romanji":"ni",
+    "phonetic-shift":"none",
+    "vert-side":"right",
+    "row": 1,
+    "points":1000,
+    "difficulty": 9
+  },
+  {
+    "jpChar":"せ",
+    "enChar":"p",
+    "romanji":"se",
     "phonetic-shift":"none",
     "vert-side":"right",
     "row": 1,
