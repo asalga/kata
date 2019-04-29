@@ -10,26 +10,26 @@ import Killable from '../components/Killable.js';
 import Assets from '../../assets/Assets.js';
 import Debug from '../../debug/Debug.js';
 import Vec2 from '../../math/Vec2.js';
-import cfg from '../../cfg.js';
+import gameCfg from '../../cfg.js';
 
 import KanaSelector from '../../_game/KanaSelector.js';
 import KanaMap from '../../KanaMap.js';
 
 let assets = new Assets();
-export default function createLetter() {
+export default function createLetter(cfg) {
 
   let e = new Entity({ name: 'letter' });
 
   e.vel.y = 80;
 
-  e.pos.x = Math.floor(random(0, 10)) * (cfg.gameWidth / 10);
+  e.pos.x = Math.floor(random(0, 10)) * (gameCfg.gameWidth / 10);
   e.pos.y = Math.random(-200, -150);
   e.pos.y = -100;
 
   // ???
   e.disabled = false;
 
-  let kana = KanaSelector.getKana();
+  let kana = (cfg && cfg.kana) ? cfg.kana : KanaSelector.getKana();
   let charData = KanaMap.getData(kana);
 
   e.addComponent(new Letter(e, { data: charData }));
@@ -49,7 +49,7 @@ export default function createLetter() {
   e.addComponent(spriteRender);
 
   e.updateProxy = function(dt) {
-    if (e.pos.y > cfg.gameHeight - cfg.CHAR_SZ) {
+    if (e.pos.y > gameCfg.gameHeight - gameCfg.CHAR_SZ) {
       e.letter.miss();
     }
   };

@@ -89,43 +89,39 @@ export default class Scene {
 
     // Temporary
     // let tag = new FilterTags({ tags: ['animal', 'body'] });
-    let len = new FilterLength({ min: 1});
-    let kana = new FilterKana({ allowed: 'ちとしはきくまのりれ' });
+    let lenFilter = new FilterLength({ min: 1});
+    let kanaFilter = new FilterKana({ allowed: 'ちとしはきくまのりれ' });
 
     WordSet
-      .applyFilter(len)
+      .applyFilter(lenFilter)
       // .applyFilter(tag)
-      .applyFilter(kana);
-
-    for (let i = 0; i < 30; i++) {
-      console.log(WordSet.getRandomWord());
-    }
+      .applyFilter(kanaFilter);
 
     let rs = EntityFactory.create('randomselector');
     // this.add(rs);
     rs.bhvrandomselector.setIterations(2);
     for (let i = 0; i < 8; i++) {
-      let slot = EntityFactory.create('slot');
+      let slot = EntityFactory.create('wordslot');
       slot.pos.x = i * 80;
       // slot.pos.y = 20;
       rs.add(slot);
     }
 
-    let ss = EntityFactory.create('sequenceselector');
-    ss.bhvsequenceselector.setIterations(1);
-    // this.add(ss);
-    for (let i = 0; i < 4; i++) {
-      let slot = EntityFactory.create('slot');
-      slot.pos.x = i * 80;
-      // slot.pos.y = 30;
-      ss.add(slot);
-    }
-    ss.init();
+    // let ss = EntityFactory.create('sequenceselector');
+    // ss.bhvsequenceselector.setIterations(1);
+    // // this.add(ss);
+    // for (let i = 0; i < 4; i++) {
+    //   let slot = EntityFactory.create('charslot');
+    //   slot.pos.x = i * 80;
+    //   // slot.pos.y = 30;
+    //   ss.add(slot);
+    // }
+    // ss.init();
 
     let bhvRoot = EntityFactory.create('randomselector');
     bhvRoot.bhvrandomselector.setIterations(Infinity);
     bhvRoot.add(rs);
-    bhvRoot.add(ss);
+    // bhvRoot.add(ss);
     this.add(bhvRoot);
 
     // let ss = EntityFactory.create('sequenceselector');

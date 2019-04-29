@@ -3,8 +3,10 @@
 // import ls from './actors/LetterSelector.js';
 
 import glyph from './actors/letter.js';
+// import word from './actors/word.js';
 import kb from './actors/KeyboardListener.js';
-import slot from './actors/CharSlot.js';
+import charSlot from './actors/CharSlot.js';
+import wordSlot from './actors/WordSlot.js';
 import ui from './actors/Ui.js';
 import typo from './actors/TypoDetector.js';
 import empty from './actors/Empty.js';
@@ -25,7 +27,8 @@ let createFuncs = new Map([
 	['keyboardlistener', kb],
 	// ['letterselector', ls],
 	['wordselector', ws],
-	['slot', slot],
+	['charslot', charSlot],
+	['wordslot', wordSlot],
 	['ui', ui],
 	['typo', typo],
 	['empty', empty],
@@ -39,7 +42,7 @@ let createFuncs = new Map([
 ]);
 
 export default class EntityFactory {
-  static create(str) {
-    return createFuncs.get(str)();
+  static create(str, args) {
+    return createFuncs.get(str)(args);
   }
 }
