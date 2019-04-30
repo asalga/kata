@@ -22,16 +22,9 @@ export default function createWordSlot() {
   e.timer = 0;
 
   let launchWord = function() {
-    let xPos = 0;
-    let word = WordSet.getRandomWord();
-    let letters = word.jp.split('');
-
-    letters.forEach( g => {
-      let glyph = EntityFactory.create('glyph', {kana: g});
-      xPos += 50;
-      glyph.pos.set(xPos, 0);
-      scene.add(glyph);
-    });
+    let w = WordSet.getRandomWord();
+    let word = EntityFactory.create('word', { word: w });
+    scene.add(word);
   };
   e.addComponent(new BHVLeaf(e, { exe: launchWord }))
 

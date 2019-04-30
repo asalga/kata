@@ -19,8 +19,8 @@ let assets = new Assets();
 export default function createLetter(cfg) {
 
   let e = new Entity({ name: 'letter' });
-
-  e.vel.y = 80;
+let _coords = Vec2.create();
+  // e.vel.y = 80;
 
   e.pos.x = Math.floor(random(0, 10)) * (gameCfg.gameWidth / 10);
   e.pos.y = Math.random(-200, -150);
@@ -40,11 +40,14 @@ export default function createLetter(cfg) {
   spriteRender.draw = function(gfx) {
     let atlas = assets.get('atlas', 'hiragana');
     let char = atlas.get(charData.romanji);
+    
+    _coords.zero(); 
+    this.entity.getWorldCoords(_coords);
+    gfx.image(char, _coords.x, _coords.y);
 
-    gfx.push();
-    gfx.translate(e.pos.x, e.pos.y);
-    gfx.image(char, 0, 0);
-    gfx.pop();
+    // gfx.push();
+    // gfx.translate(e.pos.x, e.pos.y);    
+    // gfx.pop();
   };
   e.addComponent(spriteRender);
 

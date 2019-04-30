@@ -60,6 +60,8 @@ export default class Renderer {
       // CHILDREN
       e.children.forEach(e => {
 
+        console.log(e.name);
+
         //  e.opacity = rootOpacity;
         if (e.components) {
           e.components.forEach(c => {
@@ -91,7 +93,7 @@ export default class Renderer {
       let _p3 = _layer.p3;
 
       if (_layer.cfg.clearFrame) {
-        //   //  //_p3.clearAll(); ???
+        // _p3.clearAll(); ???
         _p3.clear();
       }
 
