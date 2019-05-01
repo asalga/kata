@@ -60,7 +60,7 @@ export default class Renderer {
       // CHILDREN
       e.children.forEach(e => {
 
-        console.log(e.name);
+        // console.log(e.name);
 
         //  e.opacity = rootOpacity;
         if (e.components) {

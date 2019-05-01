@@ -72,8 +72,8 @@ export default class Entity {
     // this.children.forEach(c => c.draw());
 
     // TODO: fix
-    if(this.name === 'bhvrandomselector') debugger;
-    this.components.forEach(c => {c.draw && c.draw();});
+    if (this.name === 'bhvrandomselector') debugger;
+    this.components.forEach(c => { c.draw && c.draw(); });
     p3.restore();
   }
 
@@ -198,17 +198,6 @@ export default class Entity {
     return false;
   }
 
-  /*
-    TODO: move this. This is too specific to live on Entity
-    TODO: Keep track of which ones are already off?    
-
-    - Should this be generalized into setChildEnabled(b)?
-  */
-  setWeaponsEnabled(b) {
-    this.children.filter(c => c.launcher)
-      .forEach(e => e.launcher.setEnable(b));
-  }
-
   updateWorldCoords() {
     this.worldCoords.zero();
     this.getWorldCoords(this.worldCoords);
@@ -237,7 +226,7 @@ export default class Entity {
   removeComponentByName(str) {
     // let c = this.components[str];debugger;
 
-    let c = this.components.find( o => o.name === str);
+    let c = this.components.find(o => o.name === str);
     if (c) {
       Utils.removeFromArray(this.components, c);
       this[str] = undefined;
@@ -246,18 +235,18 @@ export default class Entity {
     return false;
   }
 
-  findComponentByName(str){
-    let c = this.components.find( o => o.name === str);
+  findComponentByName(str) {
+    let c = this.components.find(o => o.name === str);
     return c;
   }
-  
-  findComponentsByTagName(str){
+
+  findComponentsByTagName(str) {
     let arr = [];
 
-    for(let c of this.components){
+    for (let c of this.components) {
 
       let idx = c.tags.indexOf(str);
-      if(idx > -1){
+      if (idx > -1) {
         arr.push(this.components[idx]);
       }
     }
@@ -265,13 +254,13 @@ export default class Entity {
     return arr;
   }
 
-  findComponentByTagName(str){
+  findComponentByTagName(str) {
 
-    for(let c of this.components){
+    for (let c of this.components) {
 
       let idx = c.tags.indexOf(str);
 
-      if(idx > -1){
+      if (idx > -1) {
         return this.components[idx];
       }
 
@@ -279,22 +268,22 @@ export default class Entity {
     }
   }
 
-  init(){
-    this.components.forEach( c => c.init());
+  init() {
+    this.components.forEach(c => c.init());
 
-    this.children.forEach( e => {
+    this.children.forEach(e => {
       e.init();
 
-      e.components.forEach( c => {
+      e.components.forEach(c => {
         c.init();
       });
     });
   }
 
-  getChildrenWithComponentTagName(str){
+  getChildrenWithComponentTagName(str) {
     let arr = [];
-    this.children.forEach( c => {
-      if( c.findComponentByTagName(str) ){
+    this.children.forEach(c => {
+      if (c.findComponentByTagName(str)) {
         arr.push(c);
       }
     });
@@ -348,7 +337,7 @@ export default class Entity {
       // array while we iterate over it.
       this.registeredEvents.forEach(id => Events.off(id));
       Utils.clearArray(this.registeredEvents);
-    } 
+    }
     // If this object is memory managed
     else {
       this.free();

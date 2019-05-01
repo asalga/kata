@@ -14,12 +14,26 @@ import Utils from '../../Utils.js';
 export default class FilterChars extends Filter {
 
   /*
-  	allowed: Array
+    allowed: Array
+    dakuten: boolean
   */
   constructor(cfg) {
     super();
     let defaults = {};
     Utils.applyProps(this, defaults, cfg);
+
+    if (cfg.dakuten) {
+      let dakutens = "がぎぐげござじずぜぞだぢづでどばびぶべ";
+      this.allowed.concat(dakutens);
+    }
+
+    if (cfg.handakuten) {
+      let handakutens = "";
+      this.allowed.concat(handakutens);
+    }
+
+    // TODO: remove dups
+    // User may have added dakuten chars in 'allowed' Array.
   }
 
   execute(arr) {

@@ -26,7 +26,7 @@ export default function createWord(cfg) {
   });
 
  e.updateProxy = function(dt) {
- 	console.log(e.pos.y);
+ 	// console.log(e.pos.y);
  };
 
  // let spriteRender = new SpriteRender(e, { layerName: 'sprite' });
