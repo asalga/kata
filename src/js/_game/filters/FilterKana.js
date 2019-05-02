@@ -22,13 +22,14 @@ export default class FilterChars extends Filter {
     let defaults = {};
     Utils.applyProps(this, defaults, cfg);
 
+    // replace this with working version.
     if (cfg.dakuten) {
       let dakutens = "がぎぐげござじずぜぞだぢづでどばびぶべ";
       this.allowed.concat(dakutens);
     }
 
     if (cfg.handakuten) {
-      let handakutens = "";
+      let handakutens = "ぽぴぷぺま゜";
       this.allowed.concat(handakutens);
     }
 

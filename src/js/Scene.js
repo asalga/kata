@@ -90,7 +90,11 @@ export default class Scene {
     // Temporary
     // let tag = new FilterTags({ tags: ['animal', 'body'] });
     let lenFilter = new FilterLength({ min: 1 });
-    let kanaFilter = new FilterKana({ allowed: 'たていすかんなにせちとしはきくまのり', dakuten: true });
+    let kanaFilter = new FilterKana({ 
+      allowed: 'たていすかんなにせちとしはきくまのり', 
+      dakuten: true
+      // handakuten: false, 
+    });
 
     WordSet
       .applyFilter(lenFilter)
