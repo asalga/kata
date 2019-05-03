@@ -26,7 +26,7 @@ export default class FilterChars extends Filter {
     // learned how to type that key. That's why we do an intersection
     // of the allowed kana
     if (cfg.dakutenFromAllowed) {
-      let glyphsWithDakutens = 'かきくけこ';
+      let glyphsWithDakutens = "かきくけこさしすせそたちつてとはひふへ";
 
       let arr = Utils.strIntersection(glyphsWithDakutens, cfg.allowed);
 
