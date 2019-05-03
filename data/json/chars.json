@@ -290,5 +290,195 @@
     "row": 3,
     "points": 1000,
     "difficulty": 9
+  },
+  {
+    "jpChar": "が",
+    "enChar": "t",
+    "romanji": "ga",
+    "phonetic-shift": "none",
+    "vert-side": "left",
+    "row": 3,
+    "points": 1000,
+    "difficulty": 9
+  },
+  {
+    "jpChar": "ぎ",
+    "enChar": "g",
+    "romanji": "gi",
+    "phonetic-shift": "none",
+    "vert-side": "left",
+    "row": 3,
+    "points": 1000,
+    "difficulty": 9
+  },
+  {
+    "jpChar": "ぐ",
+    "enChar": "h",
+    "romanji": "gu",
+    "phonetic-shift": "none",
+    "vert-side": "left",
+    "row": 3,
+    "points": 1000,
+    "difficulty": 9
+  },
+  {
+    "jpChar": "げ",
+    "enChar": "'",
+    "romanji": "ge",
+    "phonetic-shift": "none",
+    "vert-side": "left",
+    "row": 3,
+    "points": 1000,
+    "difficulty": 9
+  },
+  {
+    "jpChar": "ご",
+    "enChar": "b",
+    "romanji": "go",
+    "phonetic-shift": "none",
+    "vert-side": "left",
+    "row": 3,
+    "points": 1000,
+    "difficulty": 9
+  },
+  {
+    "jpChar": "ざ",
+    "enChar": "x",
+    "romanji": "za",
+    "phonetic-shift": "none",
+    "vert-side": "left",
+    "row": 3,
+    "points": 1000,
+    "difficulty": 9
+  },
+  {
+    "jpChar": "じ",
+    "enChar": "d",
+    "romanji": "ji1",
+    "phonetic-shift": "none",
+    "vert-side": "left",
+    "row": 3,
+    "points": 1000,
+    "difficulty": 9
+  },
+  {
+    "jpChar": "ず",
+    "enChar": "r",
+    "romanji": "zu2",
+    "phonetic-shift": "none",
+    "vert-side": "left",
+    "row": 3,
+    "points": 1000,
+    "difficulty": 9
+  },
+  {
+    "jpChar": "ぜ",
+    "enChar": "p",
+    "romanji": "ze",
+    "phonetic-shift": "none",
+    "vert-side": "left",
+    "row": 3,
+    "points": 1000,
+    "difficulty": 9
+  },
+  {
+    "jpChar": "ぞ",
+    "enChar": "c",
+    "romanji": "zo",
+    "phonetic-shift": "none",
+    "vert-side": "left",
+    "row": 3,
+    "points": 1000,
+    "difficulty": 9
+  },
+  {
+    "jpChar": "だ",
+    "enChar": "q",
+    "romanji": "da",
+    "phonetic-shift": "none",
+    "vert-side": "left",
+    "row": 3,
+    "points": 1000,
+    "difficulty": 9
+  },
+  {
+    "jpChar": "ぢ",
+    "enChar": "a",
+    "romanji": "ji2",
+    "phonetic-shift": "none",
+    "vert-side": "left",
+    "row": 3,
+    "points": 1000,
+    "difficulty": 9
+  },
+  {
+    "jpChar": "づ",
+    "enChar": "z",
+    "romanji": "zu",
+    "phonetic-shift": "none",
+    "vert-side": "left",
+    "row": 3,
+    "points": 1000,
+    "difficulty": 9
+  },
+  {
+    "jpChar": "で",
+    "enChar": "w",
+    "romanji": "de",
+    "phonetic-shift": "none",
+    "vert-side": "left",
+    "row": 3,
+    "points": 1000,
+    "difficulty": 9
+  },
+  {
+    "jpChar": "ど",
+    "enChar": "s",
+    "romanji": "do",
+    "phonetic-shift": "none",
+    "vert-side": "left",
+    "row": 3,
+    "points": 1000,
+    "difficulty": 9
+  },
+  {
+    "jpChar": "ば",
+    "enChar": "f",
+    "romanji": "ba",
+    "phonetic-shift": "none",
+    "vert-side": "left",
+    "row": 3,
+    "points": 1000,
+    "difficulty": 9
+  },
+  {
+    "jpChar": "び",
+    "enChar": "v",
+    "romanji": "bi",
+    "phonetic-shift": "none",
+    "vert-side": "left",
+    "row": 3,
+    "points": 1000,
+    "difficulty": 9
+  },
+  {
+    "jpChar": "ぶ",
+    "enChar": "2",
+    "romanji": "bu",
+    "phonetic-shift": "none",
+    "vert-side": "left",
+    "row": 3,
+    "points": 1000,
+    "difficulty": 9
+  },
+  {
+    "jpChar": "べ",
+    "enChar": "\\",
+    "romanji": "be",
+    "phonetic-shift": "none",
+    "vert-side": "left",
+    "row": 3,
+    "points": 1000,
+    "difficulty": 9
   }
 ]
