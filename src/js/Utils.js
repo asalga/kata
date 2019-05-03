@@ -16,6 +16,14 @@ export default class Utils {
     return undefined;
   }
 
+  /*
+    Returns Array
+  */
+  static strIntersection(str1, str2){
+    let setB = new Set(str2);
+    let res = [...new Set(str1)].filter( x => setB.has(x));
+    return res;
+  }
 
   static removeDuplicateChars(string) {
     return string

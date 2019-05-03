@@ -92,7 +92,7 @@ export default class Scene {
     let lenFilter = new FilterLength({ min: 1 });
     let kanaFilter = new FilterKana({ 
       allowed: 'たていすかんなにせちとしはきくまのり', 
-      dakuten: true
+      dakutenFromAllowed: true
       // handakuten: false, 
     });
 
