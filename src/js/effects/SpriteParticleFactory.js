@@ -70,7 +70,7 @@ export default class SpriteParticleFactory {
   	particle for each one
   */
   static initWithAtlas(atlas) {
-    let maskFn = (r, g, b, a) => g === 255;
+    let maskFn = (r, g, b, a) => a === 255;
 
     let allChars = Object.entries(atlas.frames);
 

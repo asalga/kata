@@ -20,7 +20,7 @@ export default function createLetter(cfg) {
 
   let e = new Entity({ name: 'letter' });
 let _coords = Vec2.create();
-  // e.vel.y = 80;
+  e.vel.y = 80;
 
   e.pos.x = Math.floor(random(0, 10)) * (gameCfg.gameWidth / 10);
   e.pos.y = Math.random(-200, -150);

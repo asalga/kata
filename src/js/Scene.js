@@ -101,31 +101,31 @@ export default class Scene {
       // .applyFilter(tag)
       .applyFilter(kanaFilter);
 
-    let rs = EntityFactory.create('randomselector');
-    // this.add(rs);
-    rs.bhvrandomselector.setIterations(2);
-    for (let i = 0; i < 8; i++) {
-      let slot = EntityFactory.create('wordslot');
-      slot.pos.x = i * 80;
-      // slot.pos.y = 20;
-      rs.add(slot);
-    }
-
-    // let ss = EntityFactory.create('sequenceselector');
-    // ss.bhvsequenceselector.setIterations(1);
-    // // this.add(ss);
-    // for (let i = 0; i < 4; i++) {
-    //   let slot = EntityFactory.create('charslot');
-    //   slot.pos.x = i * 80;
-    //   // slot.pos.y = 30;
-    //   ss.add(slot);
+    // let rs = EntityFactory.create('randomselector');
+    // // this.add(rs);
+    // rs.bhvrandomselector.setIterations(2);
+    // for (let i = 0; i < 8; i++) {
+    //   // let slot = EntityFactory.create('wordslot');
+    //   // slot.pos.x = i * 80;
+    //   // slot.pos.y = 20;
+    //   // rs.add(slot);
     // }
-    // ss.init();
+
+    let ss = EntityFactory.create('sequenceselector');
+    ss.bhvsequenceselector.setIterations(1);
+    // this.add(ss);
+    for (let i = 0; i < 4; i++) {
+      let slot = EntityFactory.create('charslot');
+      slot.pos.x = i * 80;
+      slot.pos.y = 30;
+      ss.add(slot);
+    }
+    ss.init();
 
     let bhvRoot = EntityFactory.create('randomselector');
     bhvRoot.bhvrandomselector.setIterations(Infinity);
-    bhvRoot.add(rs);
-    // bhvRoot.add(ss);
+    // bhvRoot.add(rs);
+    bhvRoot.add(ss);
     this.add(bhvRoot);
 
     // let ss = EntityFactory.create('sequenceselector');

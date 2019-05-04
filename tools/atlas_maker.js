@@ -10,6 +10,9 @@ let imageCount = 0;
 let p5Images = [];
 let drawFrame = false;
 let cvsCreated = false;
+let pg;
+let pgbk;
+let finalImg;
 
 fetch('data/atlas/hiragana.json')
   .then(function(response) {
@@ -54,6 +57,17 @@ window.draw = function() {
   if (W && H && cvsCreated === false) {
     cvsCreated = true;
     p = createCanvas(W, H);
+    pg = createGraphics(W,H);
+    pgbk = createGraphics(W,H);
+    finalImg = createImage(W,H);
+    
+    pgbk.noStroke();
+    let c = 0;
+    let barHeight = 2;
+    for(let y = 0; y < H; y += barHeight, c += 2){
+      pgbk.fill(10, (c%32)/32 * 255 , 50);
+      pgbk.rect(0, y, W, y+barHeight);
+    }
   }
 
   if (downloadedImages && drawFrame === false) {
@@ -65,10 +79,15 @@ window.draw = function() {
 
   if (drawFrame && p5Images.length === imageCount) {
     p5Images.forEach((v, e, a) => {
-      image(v, images[e].x, images[e].y);
+      // tint(255, 140, 255, 255);
+      pg.image(v, images[e].x, images[e].y);
     });
-    save('__hiragana.png');
 
+    finalImg.blend(pgbk, 0, 0, W, H, 0, 0, W, H, NORMAL);
+    finalImg.mask(pg);
+    image(finalImg, 0, 0);
+    
+    save('__hiragana.png');
     noLoop();
   }
 };
