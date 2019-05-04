@@ -5,7 +5,7 @@ import cfg from '../cfg.js';
 function sign(n) {
   return n > 0 ? 1 : -1;
 }
-let Gravity = 10;
+let Gravity = 6;
 
 
 class Behaviour {
@@ -37,9 +37,10 @@ export default class Explode extends Behaviour {
 
     let v = createVector();
     let m;
-    let up = -100;
+    let up = -10;
     this.posOnExplode = createVector(this.sprite.position.x, this.sprite.position.y);
     console.log(this.posOnExplode);
+
     for (let i = 0; i < this.sprite.pxCount; ++i) {
 
       v.set(this.sprite.pos[i * 2 + 0], this.sprite.pos[i * 2 + 1]);
@@ -49,8 +50,10 @@ export default class Explode extends Behaviour {
       // this.sprite.acc[i * 2 + 0] +=      (50 / m) * v.x + sign(v.x) + (noise((i + this.noiseOffset) * 13) * 2 - 1) * 15;
       // this.sprite.acc[i * 2 + 1] += up + (50 / m) * v.y + sign(v.y) + (noise((i + this.noiseOffset) * 13) * 2 - 1) * 15;
 
-      this.sprite.acc[i * 2 + 0] += (50 / m) * v.x + sign(v.x) + (noise((i + this.noiseOffset) * 13) * 2 - 1) * 150;
-      this.sprite.acc[i * 2 + 1] += up + (50 / m) * v.y + sign(v.y) + (noise((i + this.noiseOffset) * 3) * 2 - 1) * 50;
+      // this.sprite.acc[i * 2 + 0] += (50 / m) * v.x + sign(v.x) + (noise((i + this.noiseOffset) * 13) * 2 - 1) * 150;
+      // this.sprite.acc[i * 2 + 1] += up + (50 / m) * v.y + sign(v.y) + (noise((i + this.noiseOffset) * 3) * 2 - 1) * 50;
+    this.sprite.acc[i * 2 + 0] += (50 / m) * v.x + sign(v.x) + (noise((i + this.noiseOffset) * 13) * 2 - 1) * 10;
+    this.sprite.acc[i * 2 + 1] += up + (50 / m) * v.y + sign(v.y) + (noise((i + this.noiseOffset) * 3) * 2 - 1) * 8;
       // this.sprite.acc[i * 2 + 0] +=      (50 / m) * v.x;
       // this.sprite.acc[i * 2 + 1] += up + (50 / m) * v.y;
     }
@@ -65,8 +68,9 @@ export default class Explode extends Behaviour {
     let a;
     for (let i = 0; i < this.sprite.pxCount; ++i) {
       // a = random(0.4, 0.8) + (noise((x + this.offset), (y + this.offset)));
-      a = random(0.2, 0.7);
-      this.alphaSpeed[i] = a * 400;
+      a = random(0.5, 0.7);
+      // this.alphaSpeed[i] = a * 400;
+      this.alphaSpeed[i] = a * 10;
     }
   }
 
@@ -83,6 +87,7 @@ export default class Explode extends Behaviour {
 
     let sp = this.posOnExplode;
     for (let i = 0; i < this.sprite.pxCount; ++i) {
+
       // this.trails[i].add({x:this.pos[i*2+0], y: this.pos[i*2+1]});
 
       v[i * 2 + 0] += a[i * 2 + 0];
@@ -99,8 +104,34 @@ export default class Explode extends Behaviour {
         v[i * 2] *= -1;
       }
 
-      if (sp.y + p[i * 2 + 1] * 4 > cfg.gameHeight) {
-        v[i * 2 + 1] *= -random(0.5, 0.9);
+      // bounce off floor
+      if (sp.y + p[i * 2 + 1] * 3 >= cfg.gameHeight) {
+        
+        // a[i * 2 + 1] += -v[i * 2 + 1];
+         
+        // p[i * 2 + 1] = 0;
+        // this.applyForce(createVector(0, -10));
+    //for (let j = 0; j < this.sprite.pxCount; j++) {
+        
+        v[i * 2 + 1] /= 2;
+        v[i * 2 + 1] = -v[i * 2 + 1];
+
+      // this.sprite.col[i * 4 + 3] -= 50;
+
+      // p[i*2+1] = 200;
+      
+      // this.sprite.col[i  + 0] = 255;
+      // this.sprite.col[i  + 1] = 255;
+      // this.sprite.col[i  + 2] = 255;
+      // this.sprite.col[i  + 3] = 255;
+
+
+      // this.sprite.acc[j * 2 + 1] += v.y;
+    //}
+        // a[i*2+0] = 0;
+        // a[i*2+0] = 115;
+
+        // a[i * 2 + 0] = -99990;//random(0.5, 0.9);
       }
 
       this.sprite.col[i * 4 + 3] -= dt * this.alphaSpeed[i];
@@ -108,8 +139,8 @@ export default class Explode extends Behaviour {
       if (this.sprite.col[i * 4 + 3] > 100) {
         done = false;
       }
-
     }
+
 
     if (done) {
       this.isDone();

@@ -34,6 +34,8 @@ export default class Letter extends Component {
       return;
     }
 
+    this.entity.vel.y = 0;
+
     this.hittable = false;
     this.wasHit = true;
 
@@ -78,7 +80,7 @@ export default class Letter extends Component {
     this.wasMissed = true;
     this.hittable = false;
 
-    //new Event({ evtName: 'decreasescoreimmediate', data:d }).fire();
+    // new Event({ evtName: 'decreasescoreimmediate', data:d }).fire();
     new Event({ evtName: 'missed', data: { e: this.entity, onlyOnce: true } }).fire();
     // this.entity.addComponent(new RemoveSelf(this.entity, {timer: 3}));
   }

@@ -26,7 +26,6 @@ window.setup = function() {
   textAlign(CENTER, CENTER);
 }
 
-
 window.draw = function() {
   background(0);
   clear();
@@ -47,7 +46,7 @@ window.draw = function() {
     let romanji = c.romanji;
 
     noStroke();
-    fill(0, 255, 0)
+    fill(0, 0, 0)
     text(jpChar, sz, sz);
 
     if (delayTimer > 10) {
