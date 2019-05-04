@@ -22,7 +22,8 @@ export default function Assets(p) {
     'image': {},
     'atlas': {},
     'audio': {},
-    'json': {}
+    'json': {},
+    'shaders': {}
   };
 
   this.numAssetsLoaded = 0;
@@ -38,7 +39,10 @@ export default function Assets(p) {
 
     let that = this;
 
-    // ** ATLASES **
+    //
+    //
+    // ** ATLASES
+    //
     if (Manifest.atlases) {
       Manifest.atlases.forEach(a => {
 
@@ -62,7 +66,10 @@ export default function Assets(p) {
       });
     }
 
+    //
+    //
     // ** AUDIO
+    //
     Manifest.audio.forEach(v => {
 
       let h = new Howl({
@@ -79,7 +86,44 @@ export default function Assets(p) {
       that.assetTypes['audio'][v.name] = h;
     });
 
+    //
+    //
+    // ** SHADERS
+    //
+    Manifest.shaders.forEach(j => {
+      let n = j.name;
+
+      let v = fetch(j.vert)
+        .then(function(res) {
+          return res.text().then( function(shaderSource){
+            return { name: n, src: shaderSource };
+          })
+        });
+  
+      let f = fetch(j.frag)
+        .then(function(res) {
+          return res.text().then( function(shaderSource){
+            return { name: n, src: shaderSource };
+          })
+        });
+
+      Promise.all([v, f]).then(function(shaders) {
+        let n = shaders[0].name;
+        that.assetTypes['shaders'][n] = {
+          vert: shaders[0].src,
+          frag: shaders[1].src
+        };
+
+        console.log('loaded shader: ', n);
+        that.numAssetsLoaded++;
+      });
+
+    });
+
+    //
+    //
     // ** JSON
+    //
     Manifest.json.forEach(j => {
       let n = j.name;
 
@@ -96,9 +140,8 @@ export default function Assets(p) {
           that.numAssetsLoaded++;
           that.assetTypes['json'][data.n] = data.json;
           console.log('loaded  json: ', j.name);
-          // that.json[data.n] = data.json
         });
-    })
+    });
 
     // ** IMAGES **
     if (Manifest.images) {
@@ -121,8 +164,9 @@ export default function Assets(p) {
     let numAudio = (Manifest.audio && Manifest.audio.length) || 0;
     let numImages = (Manifest.images && Manifest.images.length) || 0;
     let numDatas = (Manifest.json && Manifest.json.length) || 0;
+    let numShaders = (Manifest.shaders && Manifest.shaders.length) || 0;
 
-    let totalAssets = numImages + numAtlases + numAudio + numDatas;
+    let totalAssets = numImages + numAtlases + numAudio + numDatas + numShaders;
 
     if (this.numAssetsLoaded === totalAssets && this.cbCalled === false) {
       this.cbCalled = true;
@@ -142,23 +186,6 @@ export default function Assets(p) {
       let k = args[1];
       return this.assetTypes[type][k];
     }
-
-    // // We tried to get an asset that wasn't downloaded yet.
-    // if (!this.images[key] && !this.atlases[key] && !this.audio[key] && !this.json[key]) {
-    //   throw Error(`${key} needs to be preloaded before it can be used.`);
-    // }
-
-    // if(this.json[key]){
-    //   return this.json[key]
-    // }
-
-    // if (this.images[key]) {
-    //   return this.images[key];
-    // }
-
-    // if (this.audio[key]) {
-    //   return this.audio[key];
-    // }
   };
 
 };

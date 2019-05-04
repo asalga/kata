@@ -223,10 +223,9 @@ module.exports = function(grunt) {
           // SHADERS
           {
             expand: true,
-            flatten: false,
-            cwd: `${src}/shaders/`,
+            cwd: `data/shaders/`,
             src: ['**/*.glsl'],
-            dest: `${app}/shaders`,
+            dest: `${app}/data/shaders`,
             filter: 'isFile'
           }
         ]

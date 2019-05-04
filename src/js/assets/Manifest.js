@@ -18,6 +18,12 @@ export default {
     }
   ],
 
+  shaders: [{
+    name: 'passthru',
+    vert: `${dataDir}/shaders/pass-thru/test_vert.glsl`,
+    frag: `${dataDir}/shaders/pass-thru/test_frag.glsl`
+  }],
+
   atlases: [{
     name: 'hiragana',
     imgPath: `${dataDir}/atlas/hiragana.png`,
