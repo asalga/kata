@@ -1,7 +1,7 @@
 'use strict'
 /*
-	Given a atlas metadata file along with the associated
-	images, this script will create the actual atlas
+  Given a atlas metadata file along with the associated
+  images, this script will create the actual atlas
 */
 let W, H;
 let images = [];
@@ -9,6 +9,7 @@ let downloadedImages = false;
 let imageCount = 0;
 let p5Images = [];
 let drawFrame = false;
+let cvsCreated = false;
 
 fetch('data/atlas/hiragana.json')
   .then(function(response) {
@@ -28,7 +29,7 @@ fetch('data/atlas/hiragana.json')
       // console.log(o, '  ----   ', data.frames[o]);
 
       let frameName = 'data/atlas/hiragana/' + o;
-      // debugger;
+
       images.push({
         src: frameName,
         w: 10,
@@ -46,12 +47,14 @@ fetch('data/atlas/hiragana.json')
   });
 let p;
 
-window.setup = function() {
-  console.log(W, H);
-  p = createCanvas(W, H);
-}
+window.setup = function() {};
 
 window.draw = function() {
+
+  if (W && H && cvsCreated === false) {
+    cvsCreated = true;
+    p = createCanvas(W, H);
+  }
 
   if (downloadedImages && drawFrame === false) {
     images.forEach(i => {
@@ -68,4 +71,4 @@ window.draw = function() {
 
     noLoop();
   }
-}
+};

@@ -283,8 +283,7 @@ module.exports = function(grunt) {
           'tools/**/*'
         ],
         tasks: [
-          'copy:tools',
-          'open:dev'
+          'copy:tools'
         ],
         options: {
           livereload: true

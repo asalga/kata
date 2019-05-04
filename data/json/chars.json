@@ -1,538 +1,529 @@
 [
   {
     "jpChar": "ち",
-    "enChar": "a",
     "romanji": "chi",
-    "diacritic": "none",
+    "phonetic-shift": "none",
+    "keyboardKey": "a",
     "vert-side": "left",
     "row": 2,
-    "difficulty": 0,
     "points": 300
   },
   {
     "jpChar": "と",
-    "enChar": "s",
     "romanji": "to",
     "phonetic-shift": "none",
+    "keyboardKey": "s",
     "vert-side": "left",
     "row": 2,
-    "difficulty": 0,
     "points": 100
   },
   {
     "jpChar": "し",
-    "enChar": "d",
     "romanji": "shi",
     "phonetic-shift": "none",
+    "keyboardKey": "d",
     "vert-side": "left",
     "row": 2,
-    "difficulty": 0,
     "points": 100
   },
   {
     "jpChar": "は",
-    "enChar": "f",
     "romanji": "ha",
     "phonetic-shift": "none",
+    "keyboardKey": "f",
     "vert-side": "left",
     "row": 2,
-    "difficulty": 0,
     "points": 100
   },
   {
     "jpChar": "き",
-    "enChar": "g",
     "romanji": "ki",
     "phonetic-shift": "none",
+    "keyboardKey": "g",
     "vert-side": "left",
     "row": 2,
-    "difficulty": 0,
     "points": 100
   },
   {
     "jpChar": "く",
-    "enChar": "h",
     "romanji": "ku",
     "phonetic-shift": "none",
+    "keyboardKey": "h",
     "vert-side": "right",
     "row": 2,
-    "difficulty": 1,
     "points": 100
   },
   {
     "jpChar": "ま",
-    "enChar": "j",
     "romanji": "ma",
     "phonetic-shift": "none",
+    "keyboardKey": "j",
     "vert-side": "right",
-    "difficulty": 0,
     "row": 2,
     "points": 200
   },
   {
     "jpChar": "の",
-    "enChar": "k",
     "romanji": "no",
     "phonetic-shift": "none",
+    "keyboardKey": "k",
     "vert-side": "right",
-    "difficulty": 0,
     "row": 2,
     "points": 200
   },
   {
     "jpChar": "り",
-    "enChar": "l",
     "romanji": "ri",
     "phonetic-shift": "none",
+    "keyboardKey": "l",
     "vert-side": "right",
-    "difficulty": 0,
     "row": 2,
     "points": 200
   },
   {
     "jpChar": "れ",
-    "enChar": ";",
     "romanji": "re",
     "phonetic-shift": "none",
+    "keyboardKey": ";",
     "vert-side": "right",
-    "difficulty": 0,
     "row": 2,
     "points": 200
   },
-
-
   {
     "jpChar": "た",
-    "enChar": "q",
     "romanji": "ta",
     "phonetic-shift": "none",
+    "keyboardKey": "q",
     "vert-side": "left",
     "row": 1,
-    "points": 200,
-    "difficulty": 5
+    "points": 200
   },
   {
     "jpChar": "て",
-    "enChar": "w",
     "romanji": "te",
     "phonetic-shift": "none",
+    "keyboardKey": "w",
     "vert-side": "left",
     "row": 1,
-    "points": 200,
-    "difficulty": 5
+    "points": 200
   },
   {
     "jpChar": "い",
-    "enChar": "e",
     "romanji": "ii",
     "phonetic-shift": "none",
+    "keyboardKey": "e",
     "vert-side": "left",
     "row": 1,
-    "points": 200,
-    "difficulty": 5
+    "points": 200
   },
   {
     "jpChar": "す",
-    "enChar": "r",
     "romanji": "su",
     "phonetic-shift": "none",
+    "keyboardKey": "r",
     "vert-side": "left",
     "row": 1,
-    "points": 200,
-    "difficulty": 5
+    "points": 200
   },
   {
     "jpChar": "か",
-    "enChar": "t",
     "romanji": "ka",
     "phonetic-shift": "none",
+    "keyboardKey": "t",
     "vert-side": "left",
     "row": 1,
-    "points": 200,
-    "difficulty": 5
+    "points": 200
   },
   {
     "jpChar": "ん",
-    "enChar": "y",
     "romanji": "n",
     "phonetic-shift": "none",
+    "keyboardKey": "y",
     "vert-side": "right",
     "row": 1,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "な",
-    "enChar": "u",
     "romanji": "na",
     "phonetic-shift": "none",
+    "keyboardKey": "u",
     "vert-side": "right",
     "row": 1,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "に",
-    "enChar": "i",
     "romanji": "ni",
     "phonetic-shift": "none",
+    "keyboardKey": "i",
     "vert-side": "right",
     "row": 1,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "せ",
-    "enChar": "p",
     "romanji": "se",
     "phonetic-shift": "none",
+    "keyboardKey": "p",
     "vert-side": "right",
     "row": 1,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "つ",
-    "enChar": "z",
     "romanji": "tsu",
     "phonetic-shift": "none",
+    "keyboardKey": "z",
     "vert-side": "left",
     "row": 3,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "さ",
-    "enChar": "x",
     "romanji": "sa",
     "phonetic-shift": "none",
+    "keyboardKey": "x",
     "vert-side": "left",
     "row": 3,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "そ",
-    "enChar": "c",
     "romanji": "so",
     "phonetic-shift": "none",
+    "keyboardKey": "c",
     "vert-side": "left",
     "row": 3,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "ひ",
-    "enChar": "v",
     "romanji": "hi",
     "phonetic-shift": "none",
+    "keyboardKey": "v",
     "vert-side": "left",
     "row": 3,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "こ",
-    "enChar": "b",
     "romanji": "ko",
     "phonetic-shift": "none",
+    "keyboardKey": "b",
     "vert-side": "left",
     "row": 3,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "み",
-    "enChar": "n",
     "romanji": "mi",
     "phonetic-shift": "none",
+    "keyboardKey": "n",
     "vert-side": "left",
     "row": 3,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "も",
-    "enChar": "m",
     "romanji": "mo",
     "phonetic-shift": "none",
+    "keyboardKey": "m",
     "vert-side": "left",
     "row": 3,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "ね",
-    "enChar": ",",
     "romanji": "ne",
     "phonetic-shift": "none",
+    "keyboardKey": ",",
     "vert-side": "left",
     "row": 3,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "る",
-    "enChar": ".",
     "romanji": "ru",
     "phonetic-shift": "none",
+    "keyboardKey": ".",
     "vert-side": "left",
     "row": 3,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "め",
-    "enChar": "/",
     "romanji": "me",
     "phonetic-shift": "none",
+    "keyboardKey": "/",
     "vert-side": "left",
     "row": 3,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "が",
-    "enChar": "t",
     "romanji": "ga",
     "phonetic-shift": "dakuten",
+    "keyboardKey": "t",
     "vert-side": "left",
     "row": 3,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "ぎ",
-    "enChar": "g",
     "romanji": "gi",
     "phonetic-shift": "dakuten",
+    "keyboardKey": "g",
     "vert-side": "left",
     "row": 3,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "ぐ",
-    "enChar": "h",
     "romanji": "gu",
     "phonetic-shift": "dakuten",
+    "keyboardKey": "h",
     "vert-side": "left",
     "row": 3,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "げ",
-    "enChar": "'",
     "romanji": "ge",
     "phonetic-shift": "dakuten",
+    "keyboardKey": "'",
     "vert-side": "left",
     "row": 3,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "ご",
-    "enChar": "b",
     "romanji": "go",
     "phonetic-shift": "dakuten",
+    "keyboardKey": "b",
     "vert-side": "left",
     "row": 3,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "ざ",
-    "enChar": "x",
     "romanji": "za",
     "phonetic-shift": "dakuten",
+    "keyboardKey": "x",
     "vert-side": "left",
     "row": 3,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "じ",
-    "enChar": "d",
     "romanji": "ji1",
     "phonetic-shift": "dakuten",
+    "keyboardKey": "d",
     "vert-side": "left",
     "row": 3,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "ず",
-    "enChar": "r",
     "romanji": "zu2",
     "phonetic-shift": "dakuten",
+    "keyboardKey": "r",
     "vert-side": "left",
     "row": 3,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "ぜ",
-    "enChar": "p",
     "romanji": "ze",
     "phonetic-shift": "dakuten",
+    "keyboardKey": "p",
     "vert-side": "left",
     "row": 3,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "ぞ",
-    "enChar": "c",
     "romanji": "zo",
     "phonetic-shift": "dakuten",
+    "keyboardKey": "c",
     "vert-side": "left",
     "row": 3,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "だ",
-    "enChar": "q",
     "romanji": "da",
     "phonetic-shift": "dakuten",
+    "keyboardKey": "q",
     "vert-side": "left",
     "row": 3,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "ぢ",
-    "enChar": "a",
     "romanji": "ji2",
     "phonetic-shift": "dakuten",
+    "keyboardKey": "a",
     "vert-side": "left",
     "row": 3,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "づ",
-    "enChar": "z",
     "romanji": "zu",
     "phonetic-shift": "dakuten",
+    "keyboardKey": "z",
     "vert-side": "left",
     "row": 3,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "で",
-    "enChar": "w",
     "romanji": "de",
     "phonetic-shift": "dakuten",
+    "keyboardKey": "w",
     "vert-side": "left",
     "row": 3,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "ど",
-    "enChar": "s",
     "romanji": "do",
     "phonetic-shift": "dakuten",
+    "keyboardKey": "s",
     "vert-side": "left",
     "row": 3,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "ば",
-    "enChar": "f",
     "romanji": "ba",
     "phonetic-shift": "dakuten",
+    "keyboardKey": "f",
     "vert-side": "left",
     "row": 3,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "び",
-    "enChar": "v",
     "romanji": "bi",
     "phonetic-shift": "dakuten",
+    "keyboardKey": "v",
     "vert-side": "left",
     "row": 3,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "ぶ",
-    "enChar": "2",
     "romanji": "bu",
     "phonetic-shift": "dakuten",
+    "keyboardKey": "2",
     "vert-side": "left",
     "row": 3,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "べ",
-    "enChar": "\\",
     "romanji": "be",
     "phonetic-shift": "dakuten",
+    "keyboardKey": "\\",
     "vert-side": "left",
     "row": 3,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
-
-
-
-
+  {
+    "jpChar": "ぁ",
+    "romanji": "a2",
+    "vert-side": "left",
+    "keyboardKey": "3",
+    "row": 1,
+    "points": 1000,
+    "phonetic-shift": "none",
+    "mora": true
+  },
+  {
+    "jpChar": "ぅ",
+    "romanji": "u2",
+    "vert-side": "left",
+    "keyboardKey": "4",
+    "row": 1,
+    "points": 1000,
+    "phonetic-shift": "none",
+    "mora": true
+  },
+  {
+    "jpChar": "ぇ",
+    "romanji": "e2",
+    "vert-side": "left",
+    "keyboardKey": "5",
+    "row": 1,
+    "points": 1000,
+    "phonetic-shift": "none",
+    "mora": true
+  },
+  {
+    "jpChar": "ぉ",
+    "romanji": "o2",
+    "vert-side": "left",
+    "keyboardKey": "5",
+    "row": 1,
+    "points": 1000,
+    "phonetic-shift": "none",
+    "mora": true
+  },
+  {
+    "jpChar": "ゃ",
+    "romanji": "ya2",
+    "vert-side": "right",
+    "keyboardKey": "7",
+    "row": 1,
+    "points": 1000,
+    "phonetic-shift": "none",
+    "mora": true
+  },
   {
     "jpChar": "ぱ",
-    "enChar": "f",
     "romanji": "pa",
     "phonetic-shift": "handakuten",
+    "keyboardKey": "f",
     "vert-side": "left",
     "row": 2,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "ぴ",
-    "enChar": "",
     "romanji": "pi",
     "phonetic-shift": "handakuten",
+    "keyboardKey": "v",
     "vert-side": "left",
     "row": 2,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "ぷ",
-    "enChar": "",
     "romanji": "pu",
     "phonetic-shift": "handakuten",
+    "keyboardKey": "2",
     "vert-side": "left",
     "row": 2,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "ぺ",
-    "enChar": "",
     "romanji": "pe",
     "phonetic-shift": "handakuten",
+    "keyboardKey": "\\",
     "vert-side": "right",
     "row": 2,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   },
   {
     "jpChar": "ぽ",
-    "enChar": "",
     "romanji": "po",
     "phonetic-shift": "handakuten",
+    "keyboardKey": "j",
     "vert-side": "right",
     "row": 2,
-    "points": 1000,
-    "difficulty": 9
+    "points": 1000
   }
 ]
